@@ -73,5 +73,6 @@ function plugins_loaded_bea_find_media_plugin() {
 	// Admin
 	if ( is_admin() ) {
 		\BEA\Find_Media\Admin\Main::get_instance();
+		\BEA\Find_Media\Admin\Post::get_instance();
 	}
 }

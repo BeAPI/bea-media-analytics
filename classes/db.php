@@ -18,6 +18,10 @@ class DB {
 	}
 
 	public static function insert( $media_ids, $object_id, $object_type ) {
+		if ( empty( $media_ids ) ) {
+			return;
+		}
+
 		global $wpdb;
 		$db_tables = DB_Table::get_instance();
 
