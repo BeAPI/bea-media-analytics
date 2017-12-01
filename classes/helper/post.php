@@ -8,8 +8,4 @@ class Post extends Helper {
 	static function get_media_from_post_meta( $post_id ) {
 		return [];
 	}
-
-	static function get_media_from_post_thumbnail( $post_id ) {
-		return [];
-	}
 }
