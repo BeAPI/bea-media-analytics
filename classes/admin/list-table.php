@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: mculea
- * Date: 01/12/2017
- * Time: 18:02
- */
+<?php namespace BEA\Find_Media\Admin;
+
+class List_Table extends \WP_List_Table {
+
+}
