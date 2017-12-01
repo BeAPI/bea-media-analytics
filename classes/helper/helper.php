@@ -8,7 +8,7 @@ class Helper {
 	 *
 	 * @author Maxime CULEA
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @return array
 	 */
@@ -17,7 +17,8 @@ class Helper {
 			return [];
 		}
 
-		preg_match_all( '/wp-image-(\d)/', $text, $images );
+		// match all wp-image-{media_id} from img html classes
+		preg_match_all( '/wp-image-(\d*)/', $text, $images );
 		if ( empty( $images ) ) {
 			return [];
 		}
@@ -25,7 +26,43 @@ class Helper {
 		return $images[1];
 	}
 
+	/**
+	 * Merge new data with old ones in order to have the same array format :
+	 * [ {id} => [ 'type_1', 'type_2', ... ], ... ]
+	 *
+	 * @param array  $old
+	 * @param array  $new
+	 * @param string $type
+	 *
+	 * @since  1.0.0
+	 *
+	 * @author Maxime CULEA
+	 *
+	 * @return mixed
+	 */
 	public static function merge_old_with_new( $old, $new, $type ) {
-		// check if image exists on merge
+		if ( empty( $new ) ) {
+			return $old;
+		}
+
+		foreach ( $new as $media_id ) {
+			// TODO : check if media really exists in DB
+
+			// Not already existing into the old array, then create the row with type
+			if ( ! isset( $old[ $media_id ] ) ) {
+				$old[ $media_id ] = [ $type ];
+				continue;
+			}
+
+			// Current type already exists into old array for the given media id
+			if ( in_array( $type, $old[ $media_id ] ) ) {
+				continue;
+			}
+
+			// Finally add the current type for the media id
+			$old[ $media_id ][] = $type;
+		}
+
+		return $old;
 	}
 }
