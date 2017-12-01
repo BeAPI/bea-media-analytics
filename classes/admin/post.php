@@ -15,7 +15,6 @@ class Post {
 	 * On save post, index post's media
 	 *
 	 * @author Maxime CULEA
-	 *
 	 * @since 1.0.0
 	 */
 	public function index_post( $post_id, $post, $update ) {
@@ -45,7 +44,6 @@ class Post {
 	 * On post delete, delete all associated data
 	 *
 	 * @author Maxime CULEA
-	 *
 	 * @since 1.0.0
 	 *
 	 * @param $post_id

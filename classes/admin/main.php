@@ -23,8 +23,8 @@ class Main {
 	 * @param array $media_ids
 	 * @param int $post_id
 	 *
-	 * @since 1.0.0
 	 * @author Maxime CULEA
+	 * @since 1.0.0
 	 *
 	 * @return array
 	 */
@@ -48,8 +48,8 @@ class Main {
 	 * @param array $media_ids
 	 * @param int $post_id
 	 *
-	 * @since 1.0.0
 	 * @author Maxime CULEA
+	 * @since 1.0.0
 	 *
 	 * @return array
 	 */
@@ -62,13 +62,19 @@ class Main {
 		return Helper::merge_old_with_new( $media_ids, [ $thumb_id ], 'post_thumbnail' );
 	}
 
-	public function add_media_from_post_acf_fields( $media_ids, $post_id ) {
+	/**
+	 * TODO
+	 *
+	 * @param $media_ids
+	 * @param $post_id
+	 */
+	public function add_media_from_post_acf_fields( $media_ids, $post_id ) {}
 
-	}
-
-	public function add_media_from_post_meta( $media_ids, $post_id ) {
-
-	}
-
-
+	/**
+	 * TODO
+	 *
+	 * @param $media_ids
+	 * @param $post_id
+	 */
+	public function add_media_from_post_meta( $media_ids, $post_id ) {}
 }
