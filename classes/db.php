@@ -51,7 +51,7 @@ class DB {
 		foreach ( $media_ids as $media_id => $types ) {
 			foreach ( $types as $type ) {
 				// Check if raw exists for insert
-				$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(*) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", $blog_id, $type, $media_id, $object_id, $object_type ) );
+				$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", $blog_id, $type, $media_id, $object_id, $object_type ) );
 				if ( ! empty( $column_exists ) ) {
 					continue;
 				}
