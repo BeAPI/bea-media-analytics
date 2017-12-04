@@ -79,4 +79,36 @@ class DB {
 		global $wpdb;
 		$wpdb->delete( DB_Table::get_instance()->get_table_name(), [ 'object_id'   => $object_id, 'object_type' => $object_type ], [ '%d', '%s' ] );
 	}
+
+	/**
+	 * Get the counter for a given media id
+	 *
+	 * @param int $media_id
+	 *
+	 * @since 1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return int
+	 */
+	public static function get_counter( $media_id ) {
+		global $wpdb;
+		$counter = $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
+
+		/**
+		 * Filter the media's counter for a third party add-on, for example CSF.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param int $counter How many times used.
+		 * @param int $media_id Media ID looking for.
+		 */
+		apply_filters( 'bea.find_media.db.get', $counter, $media_id );
+	}
+
+	/**
+	 * @param $object_id
+	 */
+	public static function get_data( $object_id ) {
+
+	}
 }
