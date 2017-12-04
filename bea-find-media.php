@@ -1,6 +1,6 @@
 <?php
 /*
- Plugin Name: BEA - Media find
+ Plugin Name: BEA - Media Find
  Version: 1.0.0
  Plugin URI: https://beapi.fr
  Description: Find where medias are used across your site(s).
