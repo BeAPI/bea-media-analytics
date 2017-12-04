@@ -74,7 +74,10 @@ function plugins_loaded_bea_find_media_plugin() {
 
 	// Api
 	\BEA\Find_Media\API\Json::get_instance();
-	//\BEA\Find_Media\API\Rest_Api::get_instance();
+	\BEA\Find_Media\API\Rest_Api::get_instance();
+
+	// WP Cli
+	\BEA\Find_Media\WP_Cli\Main::get_instance();
 
 	// Admin
 	if ( is_admin() ) {
