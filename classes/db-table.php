@@ -14,9 +14,6 @@ class DB_Table {
 	protected function init() {
 		$this->add_table_to_db_object();
 
-		// Force table on to the global database object
-		//add_action( 'init', [ $this, 'add_table_to_db_object' ] );
-
 		// Check if DB needs upgrading
 		add_action( 'admin_init', [ $this, 'upgrade_database' ] );
 	}
