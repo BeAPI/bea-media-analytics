@@ -42,19 +42,21 @@ class DB {
 			return;
 		}
 
-		global $wpdb;
-		$db_tables = DB_Table::get_instance();
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return;
+		}
 
 		$blog_id = get_current_blog_id();
 		foreach ( $media_ids as $media_id => $types ) {
 			foreach ( $types as $type ) {
 				// Check if raw exists for insert
-				$column_exists = $wpdb->get_var( $wpdb->prepare( "SELECT count(*) FROM " . $db_tables->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", $blog_id, $type, $media_id, $object_id, $object_type ) );
+				$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(*) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", $blog_id, $type, $media_id, $object_id, $object_type ) );
 				if ( ! empty( $column_exists ) ) {
 					continue;
 				}
 
-				$wpdb->insert( $db_tables->get_table_name(), [
+				$db_table->db->insert( $db_table->get_table_name(), [
 					'blog_id'     => $blog_id,
 					'type'        => $type,
 					'media_id'    => $media_id,
@@ -76,8 +78,12 @@ class DB {
 	 * @author Maxime CULEA
 	 */
 	public static function delete_all_object_id( $object_id, $object_type ) {
-		global $wpdb;
-		$wpdb->delete(
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return;
+		}
+
+		$db_table->db->delete(
 			DB_Table::get_instance()->get_table_name(),
 			[
 				'blog_id'       => get_current_blog_id(),
@@ -98,8 +104,12 @@ class DB {
 	 * @author Maxime CULEA
 	 */
 	public static function delete_all_media_id( $media_id ) {
-		global $wpdb;
-		$wpdb->delete(
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return;
+		}
+
+		$db_table->db->delete(
 			DB_Table::get_instance()->get_table_name(),
 			[
 				'blog_id'  => get_current_blog_id(),
@@ -120,8 +130,12 @@ class DB {
 	 * @return int
 	 */
 	public static function get_counter( $media_id ) {
-		global $wpdb;
-		$counter = $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return 0;
+		}
+
+		$counter = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
 		$counter = $counter ?: 0;
 
 		/**
@@ -146,8 +160,12 @@ class DB {
 	 * @return array
 	 */
 	public static function get_data( $media_id ) {
-		global $wpdb;
-		$data = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return [];
+		}
+
+		$data = $db_table->db->get_results( $db_table->db->prepare( "SELECT * FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
 		if ( empty( $data ) ) {
 			return [];
 		}
