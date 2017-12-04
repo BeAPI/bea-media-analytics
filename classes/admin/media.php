@@ -7,10 +7,20 @@ class Media {
 	use Singleton;
 
 	protected function init() {
+		// Hooks
+		add_action( 'delete_attachment', [ $this, 'delete_attachment' ] );
+
+		// Views
 		add_filter( 'attachment_fields_to_edit', [ $this, 'modal_view' ], 20, 2 );
 		add_filter( 'attachment_fields_to_edit', [ $this, 'edit_view' ], 20, 2 );
 
-		add_action( 'delete_attachment', [ $this, 'delete_attachment' ] );
+		// Custom admin columns
+		add_filter( 'manage_media_columns', [ $this, 'admin_columns_header' ] );
+		add_action( 'manage_media_custom_column', [ $this, 'admin_columns_values' ], 10, 2 );
+		// TODO : No inline hook + css
+		add_action( 'admin_head', function () {
+			echo '<style type="text/css">.column-bea-find-media-counter { width: 7%; }</style>';
+		} );
 	}
 
 	/**
@@ -19,7 +29,7 @@ class Media {
 	 * @param $form_fields
 	 * @param $media
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -100,10 +110,50 @@ class Media {
 	 *
 	 * @param int $media_id
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 */
 	public function delete_attachment( $media_id ) {
 		DB::delete_all_media_id( $media_id );
+	}
+
+	/**
+	 * Add custom headers for attachment
+	 *
+	 * @param $headers
+	 * @param $post_type
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return mixed
+	 */
+	public function admin_columns_header( $headers, $post_type ) {
+		$headers['bea-find-media-counter'] = __( 'Usages', 'bea-find-media' );
+
+		return $headers;
+	}
+
+	/**
+	 * Add values to the custom headers
+	 *
+	 * @param     $column_name
+	 * @param int $media_id
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 */
+	public function admin_columns_values( $column_name, $media_id ) {
+		$counter = '';
+		if ( 'bea-find-media-counter' === $column_name ) {
+			$counter = DB::get_counter( $media_id );
+		}
+
+		// Depending on if has value, display the edit link to see them
+		if ( empty( $counter ) ) {
+			echo '0';
+		} else {
+			printf( '<a href="%s">%s</a>', esc_url( get_edit_post_link( $media_id ) ), esc_html( $counter ) );
+		}
 	}
 }
