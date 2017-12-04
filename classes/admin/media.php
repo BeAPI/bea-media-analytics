@@ -77,7 +77,7 @@ class Media {
 
 		$data = DB::get_data( $media->ID );
 		if ( empty( $data ) ) {
-			$html = '';
+			$html = ' ';
 		} else {
 			$html = '<ul>';
 			foreach ( $data as $object_type ) {
