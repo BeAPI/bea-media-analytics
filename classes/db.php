@@ -60,7 +60,7 @@ class DB {
 					'media_id'    => $media_id,
 					'object_id'   => $object_id,
 					'object_type' => $object_type,
-				] );
+				], [ '%d', '%s', '%d', '%d', '%s' ] );
 			}
 		}
 	}
@@ -77,7 +77,9 @@ class DB {
 	 */
 	public static function delete_all( $object_id, $object_type ) {
 		global $wpdb;
-		$wpdb->delete( DB_Table::get_instance()->get_table_name(), [ 'object_id'   => $object_id, 'object_type' => $object_type ], [ '%d', '%s' ] );
+		$wpdb->delete( DB_Table::get_instance()->get_table_name(), [ 'object_id'   => $object_id,
+		                                                             'object_type' => $object_type
+		], [ '%d', '%s' ] );
 	}
 
 	/**
@@ -103,13 +105,34 @@ class DB {
 		 * @param int $counter How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
-		return apply_filters( 'bea.find_media.db.get', $counter, $media_id );
+		return apply_filters( 'bea.find_media.db.get_counter', $counter, $media_id );
 	}
 
 	/**
-	 * @param $object_id
+	 * Get all indexed data against a media
+	 *
+	 * @param int $media_id
+	 *
+	 * @since 1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return array
 	 */
-	public static function get_data( $object_id ) {
+	public static function get_data( $media_id ) {
+		global $wpdb;
+		$data = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
+		if ( empty( $data ) ) {
+			return [];
+		}
 
+		/**
+		 * Filter saved indexed data against the given media
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $data The indexed data, reordoned.
+		 * @param int $media_id Media ID looking for.
+		 */
+		return apply_filters( 'bea.find_media.db.get_data', $data, $media_id );
 	}
 }
