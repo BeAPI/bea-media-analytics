@@ -75,11 +75,38 @@ class DB {
 	 *
 	 * @author Maxime CULEA
 	 */
-	public static function delete_all( $object_id, $object_type ) {
+	public static function delete_all_object_id( $object_id, $object_type ) {
 		global $wpdb;
-		$wpdb->delete( DB_Table::get_instance()->get_table_name(), [ 'object_id'   => $object_id,
-		                                                             'object_type' => $object_type
-		], [ '%d', '%s' ] );
+		$wpdb->delete(
+			DB_Table::get_instance()->get_table_name(),
+			[
+				'blog_id'       => get_current_blog_id(),
+				'object_id'     => $object_id,
+				'object_type'   => $object_type,
+			],
+			[ '%d', '%d', '%s' ]
+		);
+	}
+
+	/**
+	 * Manage to delete all data against a media id
+	 *
+	 * @param int $media_id
+	 *
+	 * @since 1.0.0
+	 *
+	 * @author Maxime CULEA
+	 */
+	public static function delete_all_media_id( $media_id ) {
+		global $wpdb;
+		$wpdb->delete(
+			DB_Table::get_instance()->get_table_name(),
+			[
+				'blog_id'  => get_current_blog_id(),
+				'media_id' => $media_id,
+			],
+			[ '%d', '%d' ]
+		);
 	}
 
 	/**
