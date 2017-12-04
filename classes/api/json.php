@@ -23,10 +23,8 @@ class Json {
 	 * @return array
 	 */
 	public function wp_prepare_attachment_for_js( $response, $attachment, $meta ) {
-
 		// Add media
 		$response[ 'bea_find_media_counter' ] = (string) DB::get_counter( $response['id'] );
-
 		return $response;
 	}
 }
