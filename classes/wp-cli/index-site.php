@@ -26,6 +26,7 @@ class Index_Site extends \WP_CLI_Command {
 
 		\WP_CLI::log( sprintf( 'Starting indexing blog id %s.', get_current_blog_id() ) );
 		foreach ( $contents_q->posts as $post ) {
+			// TODO : improve by auto calling itself `wp post update {id} --url={url}`
 			wp_update_post( $post );
 			\WP_CLI::log( sprintf( 'Updating post : %s', esc_html( $post->post_title ) ) );
 		}
