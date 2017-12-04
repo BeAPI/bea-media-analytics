@@ -49,7 +49,7 @@ class Post {
 	 * @param $post_id
 	 */
 	public function delete_post( $post_id ) {
-		DB::delete_all( $post_id, 'post' );
+		DB::delete_all_object_id( $post_id, 'post' );
 	}
 }
 

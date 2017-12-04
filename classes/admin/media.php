@@ -3,12 +3,14 @@
 use BEA\Find_Media\Singleton;
 use BEA\Find_Media\DB;
 
-class Media_Template {
+class Media {
 	use Singleton;
 
 	protected function init() {
 		add_filter( 'attachment_fields_to_edit', [ $this, 'modal_view' ], 20, 2 );
 		add_filter( 'attachment_fields_to_edit', [ $this, 'edit_view' ], 20, 2 );
+
+		add_action( 'delete_attachment', [ $this, 'delete_attachment' ] );
 	}
 
 	/**
@@ -30,7 +32,7 @@ class Media_Template {
 			} else {
 				$label = sprintf( __( '%s times.', 'bea-find-media' ), esc_html( $counter ) );
 			}
-			$html = sprintf( '<a href="%s" style="vertical-align: -webkit-baseline-middle;">%s</a>', get_edit_post_link( $media->ID ), $label );
+			$html = sprintf( '<span class="value"><a href="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), $label );
 		} else {
 			$html = sprintf( '<span>%s</span>', __( 'No usage.', 'bea-find-media' ) );
 		}
@@ -91,5 +93,17 @@ class Media_Template {
 		);
 
 		return $form_fields;
+	}
+
+	/**
+	 * On media delete, remove indexed associated data
+	 *
+	 * @param int $media_id
+	 *
+	 * @since 1.0.0
+	 * @author Maxime CULEA
+	 */
+	public function delete_attachment( $media_id ) {
+		DB::delete_all_media_id( $media_id );
 	}
 }
