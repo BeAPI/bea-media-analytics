@@ -54,10 +54,12 @@ if ( version_compare( PHP_VERSION, BEA_FIND_MEDIA_MIN_PHP_VERSION, '<' ) ) {
 	return;
 }
 
-/**
- * Autoload all the things \o/
- */
+// Autoload all the things \o/
 require_once BEA_FIND_MEDIA_DIR . 'autoload.php';
+
+// Plugin activate/deactive hooks
+register_activation_hook( __FILE__, [ '\BEA\Find_Media\Plugin', 'activate' ] );
+register_deactivation_hook( __FILE__, [ '\BEA\Find_Media\Plugin', 'deactivate' ] );
 
 add_action( 'plugins_loaded', 'plugins_loaded_bea_find_media_plugin' );
 /**
