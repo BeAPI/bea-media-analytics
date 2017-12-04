@@ -93,6 +93,7 @@ class DB {
 	public static function get_counter( $media_id ) {
 		global $wpdb;
 		$counter = $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
+		$counter = $counter ?: 0;
 
 		/**
 		 * Filter the media's counter for a third party add-on, for example CSF.
@@ -102,7 +103,7 @@ class DB {
 		 * @param int $counter How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
-		apply_filters( 'bea.find_media.db.get', $counter, $media_id );
+		return apply_filters( 'bea.find_media.db.get', $counter, $media_id );
 	}
 
 	/**

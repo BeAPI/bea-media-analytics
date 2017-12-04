@@ -70,9 +70,14 @@ function plugins_loaded_bea_find_media_plugin() {
 	// Client
 	\BEA\Find_Media\Main::get_instance();
 
+	// Api
+	\BEA\Find_Media\API\Json::get_instance();
+	//\BEA\Find_Media\API\Rest_Api::get_instance();
+
 	// Admin
 	if ( is_admin() ) {
 		\BEA\Find_Media\Admin\Main::get_instance();
 		\BEA\Find_Media\Admin\Post::get_instance();
+		\BEA\Find_Media\Admin\Media_Template::get_instance();
 	}
 }
