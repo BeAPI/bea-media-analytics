@@ -1,5 +1,6 @@
 <?php namespace BEA\Find_Media\Admin;
 
+use BEA\Find_Media\Helper\Helper;
 use BEA\Find_Media\Singleton;
 use BEA\Find_Media\DB;
 
@@ -51,13 +52,13 @@ class Media {
 			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-find-media' ) );
 		}
 
-		$form_fields['bea_find_media_view'] = array(
+		$form_fields['bea_find_media_view'] = [
 			'label'         => __( 'Usage :', 'bea-find-media' ),
 			'input'         => 'html',
 			'html'          => $html,
 			'show_in_edit'  => false,
 			'show_in_modal' => true,
-		);
+		];
 
 		return $form_fields;
 	}
@@ -85,27 +86,28 @@ class Media {
 			$html = ' ';
 		} else {
 			$html = '<ul>';
-			foreach ( $data as $object_type ) {
-				foreach ( $object_type as $media_id ) {
-					foreach ( $media_id as $content_id => $object_id ) {
-						foreach ( $object_id as $types ) {
-							foreach ( $types as $type ) {
-								$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), esc_html( $type ) );
-							}
-						}
+			foreach ( $data as $object_type => $obj ) {
+				foreach ( $obj as $media_id => $media ) {
+					foreach ( $media as $content_id => $types ) {
+						$_types = array_map( [ 'BEA\Find_Media\Helper\Helper', 'humanize_object_type' ], $types );
+						$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>',
+							get_edit_post_link( $content_id ),
+							get_the_title( $content_id ),
+							implode( ', ', $_types )
+						);
 					}
 				}
 			}
 			$html .= '</ul>';
 		}
 
-		$form_fields['bea_find_media_edit'] = array(
+		$form_fields['bea_find_media_edit'] = [
 			'label'         => $title,
 			'input'         => 'html',
 			'html'          => $html,
 			'show_in_edit'  => true,
 			'show_in_modal' => false,
-		);
+		];
 
 		return $form_fields;
 	}
