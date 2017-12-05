@@ -13,8 +13,7 @@ class Main {
 		// Indexation
 		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_text' ], 10, 2 );
 		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_thumbnail' ], 10, 2 );
-		//add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_acf_fields' ], 10, 2 );
-		//add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_meta' ], 10, 2 );
+		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_acf_fields' ], 10, 2 );
 	}
 
 	/**
@@ -63,18 +62,19 @@ class Main {
 	}
 
 	/**
-	 * TODO
+	 * Get post's acf fields
 	 *
-	 * @param $media_ids
-	 * @param $post_id
-	 */
-	public function add_media_from_post_acf_fields( $media_ids, $post_id ) {}
-
-	/**
-	 * TODO
+	 * @param array $media_ids
+	 * @param int $post_id
 	 *
-	 * @param $media_ids
-	 * @param $post_id
+	 * @author Amaury BALMER
+	 * @since 1.0.0
+	 *
+	 * @return array
 	 */
-	public function add_media_from_post_meta( $media_ids, $post_id ) {}
+	public function add_media_from_post_acf_fields( $media_ids, $post_id ) {
+		// TODO
+		$found_medias = [ 15 ];
+		return Helper::merge_old_with_new( $media_ids, $found_medias, 'acf' );
+	}
 }
