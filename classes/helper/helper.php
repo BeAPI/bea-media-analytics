@@ -44,7 +44,7 @@ class Helper {
 		}
 
 		/**
-		 * Match all wp-image-{media_id} from img html classes
+		 * Match all href="" from content
 		 * @see : https://regex101.com/r/63ILkx/1
 		 */
 		preg_match_all( '/href="([^"\\\']+)"/', $text, $urls );
@@ -60,6 +60,48 @@ class Helper {
 				continue;
 			}
 			$img_ids[] = (int) $attachment_id[0];
+		}
+
+		return $img_ids;
+	}
+
+	/**
+	 * From post content and especially gallery shortcode, get image ids
+	 *
+	 * @param $text
+	 *
+	 * @author Maxime CULEA
+	 *
+	 * @since  1.0.0
+	 *
+	 * @return array
+	 */
+	static function get_media_from_shortcode_gallery( $text ) {
+		$img_ids = [];
+		if ( empty( $text ) ) {
+			return $img_ids;
+		}
+
+		/**
+		 * Match all [gallery ids=""] from content
+		 * @see : https://regex101.com/r/KkmqkL/1
+		 */
+		preg_match_all( '/\[gallery ids="(.*)"\]/', $text, $galleries );
+		if ( empty( $galleries ) ) {
+			return $img_ids;
+		}
+
+		foreach ( $galleries[1] as $gallery ) {
+			$imgs = array_map( 'intval', explode( ',', $gallery ) );
+			if ( is_array( $imgs ) ) {
+				// Multiple images into shortcode
+				foreach ( $imgs as $img ) {
+					$img_ids[] = $img;
+				}
+			} else {
+				// Only one image into shortcode
+				$img_ids[] = $imgs;
+			}
 		}
 
 		return $img_ids;

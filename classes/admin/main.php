@@ -19,6 +19,7 @@ class Main {
 		// Indexation for post content
 		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
 		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_links' ], 10, 2 );
+		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
 	}
 
 	/**
@@ -120,5 +121,20 @@ class Main {
 	 */
 	public function get_media_from_links( $media_ids, $post_content ) {
 		return array_merge( $media_ids, Post::get_media_from_links( $post_content ) );
+	}
+
+	/**
+	 * Get media ids from links
+	 *
+	 * @param array $media_ids
+	 * @param string $post_content
+	 *
+	 * @since 1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return array
+	 */
+	public function get_media_from_shortcode_gallery( $media_ids, $post_content ) {
+		return array_merge( $media_ids, Post::get_media_from_shortcode_gallery( $post_content ) );
 	}
 }
