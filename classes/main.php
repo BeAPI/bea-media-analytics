@@ -32,9 +32,17 @@ class Main {
 		$out = [];
 		foreach ( $data as $_d ) {
 			if ( isset( $out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ] ) && in_array( $_d->type, $out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ] ) ) {
+				// Already exists
 				continue;
 			}
-			$out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ][] = [ $_d->type ];
+
+			if ( empty( $out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ] ) ) {
+				// First value
+				$out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ][] = $_d->type;
+			} else {
+				// Adding to the others
+				array_push( $out[ $_d->object_type ][ $_d->media_id ][ $_d->object_id ], $_d->type );
+			}
 		}
 
 		return $out;
