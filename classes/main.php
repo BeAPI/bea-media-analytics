@@ -5,6 +5,7 @@ class Main {
 
 	protected function init() {
 		add_filter( 'bea.find_media.db.get_data', [ $this, 'format_indexed_values' ], 100 );
+		add_action( 'init', [ $this, 'init_translations' ] );
 	}
 
 	/**
@@ -37,5 +38,10 @@ class Main {
 		}
 
 		return $out;
+	}
+
+	public function init_translations() {
+		// Load translations
+		load_plugin_textdomain( 'bea-find-media', false, BEA_FIND_MEDIA_PLUGIN_DIRNAME . '/languages' );
 	}
 }
