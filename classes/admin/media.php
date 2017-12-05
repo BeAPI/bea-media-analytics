@@ -38,17 +38,21 @@ class Media {
 		$counter = DB::get_counter( $media->ID );
 		if ( ! empty( $counter ) ) {
 			if ( 1 == $counter ) {
-				$label = __( 'One time.' );
+				$label = __( 'One time.', 'bea-find-media' );
 			} else {
 				$label = sprintf( __( '%s times.', 'bea-find-media' ), esc_html( $counter ) );
 			}
-			$html = sprintf( '<span class="value"><a href="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), $label );
+			$html = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>',
+				get_edit_post_link( $media->ID ),
+				_x( 'View media usage.', 'title for the usage link', 'bea-find-media' ),
+				$label
+			);
 		} else {
-			$html = sprintf( '<span>%s</span>', __( 'No usage.', 'bea-find-media' ) );
+			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-find-media' ) );
 		}
 
 		$form_fields['bea_find_media_view'] = array(
-			'label'         => _n( 'Usage :', 'Usages :', $counter, 'bea-find-media' ),
+			'label'         => __( 'Usage :', 'bea-find-media' ),
 			'input'         => 'html',
 			'html'          => $html,
 			'show_in_edit'  => false,
@@ -61,11 +65,11 @@ class Media {
 	public function edit_view( $form_fields, $media ) {
 		$counter = DB::get_counter( $media->ID );
 		if ( 0 === $counter ) {
-			$title = __( 'This media has no usage into contents.', 'bea-find-media' );
+			$title = __( 'This media is not used.', 'bea-find-media' );
 		} elseif ( 1 == $counter ) {
-			$title = __( 'One time used into contents :', 'bea-find-media' );
+			$title = __( 'This media is used once :', 'bea-find-media' );
 		} else {
-			$title = sprintf( __( '%s many times used into contents :', 'bea-find-media' ), $counter );
+			$title = sprintf( __( 'This media is used %s times :', 'bea-find-media' ), $counter );
 		}
 
 		/**
@@ -77,6 +81,7 @@ class Media {
 
 		$data = DB::get_data( $media->ID );
 		if ( empty( $data ) ) {
+			// Fake content to be empty
 			$html = ' ';
 		} else {
 			$html = '<ul>';
@@ -129,7 +134,7 @@ class Media {
 	 * @return mixed
 	 */
 	public function admin_columns_header( $headers, $post_type ) {
-		$headers['bea-find-media-counter'] = __( 'Usages', 'bea-find-media' );
+		$headers['bea-find-media-counter'] = _x( 'Usage', 'Admin column name', 'bea-find-media' );
 
 		return $headers;
 	}
