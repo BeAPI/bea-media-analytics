@@ -84,6 +84,9 @@ class Helper {
 			case 'post_thumbnail' :
 				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-find-media' );
 			break;
+			case 'acf' :
+				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-find-media' );
+			break;
 			default :
 				$label = '';
 			break;
