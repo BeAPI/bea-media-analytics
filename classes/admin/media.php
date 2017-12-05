@@ -89,7 +89,7 @@ class Media {
 			foreach ( $data as $object_type => $obj ) {
 				foreach ( $obj as $media_id => $media ) {
 					foreach ( $media as $content_id => $types ) {
-						$_types = array_map( [ 'BEA\Find_Media\Helper\Helper', 'humanize_object_type' ], $types );
+						$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
 						$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>',
 							get_edit_post_link( $content_id ),
 							get_the_title( $content_id ),

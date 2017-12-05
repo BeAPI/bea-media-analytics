@@ -27,6 +27,45 @@ class Helper {
 	}
 
 	/**
+	 * From links into a text, get the inserted html image ids
+	 *
+	 * @param $text
+	 *
+	 * @author Maxime CULEA
+	 *
+	 * @since  1.0.0
+	 *
+	 * @return array
+	 */
+	static function get_media_from_links( $text ) {
+		$img_ids = [];
+		if ( empty( $text ) ) {
+			return $img_ids;
+		}
+
+		/**
+		 * Match all wp-image-{media_id} from img html classes
+		 * @see : https://regex101.com/r/63ILkx/1
+		 */
+		preg_match_all( '/href="([^"\\\']+)"/', $text, $urls );
+		if ( empty( $urls ) ) {
+			return $img_ids;
+		}
+
+		global $wpdb;
+		foreach ( $urls[1] as $url ) {
+			// Check if retrieved media from href really exists for the current site
+			$attachment_id = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", $url ) );
+			if ( empty( $attachment_id ) ) {
+				continue;
+			}
+			$img_ids[] = (int) $attachment_id[0];
+		}
+
+		return $img_ids;
+	}
+
+	/**
 	 * Merge new data with old ones in order to have the same array format :
 	 * [ {id} => [ 'type_1', 'type_2', ... ], ... ]
 	 *
@@ -64,34 +103,5 @@ class Helper {
 		}
 
 		return $old;
-	}
-
-	/**
-	 * Get from the db type an understandable label for display purpose
-	 *
-	 * @param $type
-	 *
-	 * @since 1.0.0
-	 * @author Maxime CULEA
-	 *
-	 * @return string
-	 */
-	public static function humanize_object_type( $type ) {
-		switch ( $type ) {
-			case 'post_content' :
-				$label = _x( 'Post content', 'Label for humanizing object types', 'bea-find-media' );
-			break;
-			case 'post_thumbnail' :
-				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-find-media' );
-			break;
-			case 'acf' :
-				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-find-media' );
-			break;
-			default :
-				$label = '';
-			break;
-		}
-
-		return $label;
 	}
 }
