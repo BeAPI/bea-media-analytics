@@ -1,0 +1,13 @@
+{
+  "name": "bea/bea-find-media",
+  "description": "Find where medias are used across your site(s).",
+  "minimum-stability": "stable",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Be API",
+      "email": "technique@beapi.fr"
+    }
+  ],
+  "type" : "wordpress-plugin"
+}
