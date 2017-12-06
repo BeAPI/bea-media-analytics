@@ -11,7 +11,7 @@ class DB {
 	/**
 	 * On blog deletion, Manage to delete all data from the blog
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @author Maxime CULEA
 	 *
@@ -33,7 +33,7 @@ class DB {
 	 * @param $object_id
 	 * @param $object_type
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @author Maxime CULEA
 	 */
@@ -47,15 +47,15 @@ class DB {
 			return;
 		}
 
+		/**
+		 * Before insert, delete all data against object_id
+		 * To ensure to not store useless data
+		 */
+		self::delete_all_object_id( $object_id, $object_type );
+
 		$blog_id = get_current_blog_id();
 		foreach ( $media_ids as $media_id => $types ) {
 			foreach ( $types as $type ) {
-				// Check if raw exists for insert
-				$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", $blog_id, $type, $media_id, $object_id, $object_type ) );
-				if ( ! empty( $column_exists ) ) {
-					continue;
-				}
-
 				$db_table->db->insert( $db_table->get_table_name(), [
 					'blog_id'     => $blog_id,
 					'type'        => $type,
@@ -73,7 +73,7 @@ class DB {
 	 * @param $object_id
 	 * @param $object_type
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @author Maxime CULEA
 	 */
@@ -83,15 +83,11 @@ class DB {
 			return;
 		}
 
-		$db_table->db->delete(
-			DB_Table::get_instance()->get_table_name(),
-			[
-				'blog_id'       => get_current_blog_id(),
-				'object_id'     => $object_id,
-				'object_type'   => $object_type,
-			],
-			[ '%d', '%d', '%s' ]
-		);
+		$db_table->db->delete( DB_Table::get_instance()->get_table_name(), [
+			'blog_id'     => get_current_blog_id(),
+			'object_id'   => $object_id,
+			'object_type' => $object_type,
+		], [ '%d', '%d', '%s' ] );
 	}
 
 	/**
@@ -99,7 +95,7 @@ class DB {
 	 *
 	 * @param int $media_id
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @author Maxime CULEA
 	 */
@@ -109,14 +105,10 @@ class DB {
 			return;
 		}
 
-		$db_table->db->delete(
-			DB_Table::get_instance()->get_table_name(),
-			[
-				'blog_id'  => get_current_blog_id(),
-				'media_id' => $media_id,
-			],
-			[ '%d', '%d' ]
-		);
+		$db_table->db->delete( DB_Table::get_instance()->get_table_name(), [
+			'blog_id'  => get_current_blog_id(),
+			'media_id' => $media_id,
+		], [ '%d', '%d' ] );
 	}
 
 	/**
@@ -124,7 +116,7 @@ class DB {
 	 *
 	 * @param int $media_id
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return int
@@ -143,7 +135,7 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param int $counter How many times used.
+		 * @param int $counter  How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.find_media.db.get_counter', $counter, $media_id );
@@ -154,7 +146,7 @@ class DB {
 	 *
 	 * @param int $media_id
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -175,9 +167,34 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $data The indexed data, reordoned.
-		 * @param int $media_id Media ID looking for.
+		 * @param array $data     The indexed data, reordoned.
+		 * @param int   $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.find_media.db.get_data', $data, $media_id );
+	}
+
+	/**
+	 * Check if a data exists into db
+	 *
+	 * @param string $type
+	 * @param int    $media_id
+	 * @param int    $object_id
+	 * @param string $object_type
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return bool
+	 */
+	public static function exists( $type, $media_id, $object_id, $object_type ) {
+		$db_table = DB_Table::get_instance();
+		if ( ! $db_table->table_exists() ) {
+			return false;
+		}
+
+		// Check if raw exists for insert
+		$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", get_current_blog_id(), $type, $media_id, $object_id, $object_type ) );
+
+		return ! empty( $column_exists );
 	}
 }
