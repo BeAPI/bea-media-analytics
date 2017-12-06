@@ -1,6 +1,6 @@
 <?php namespace BEA\Find_Media;
 
-class Helpers{
+class Helpers {
 	/**
 	 * Get from the db type an understandable label for display purpose
 	 *
@@ -28,5 +28,47 @@ class Helpers{
 		}
 
 		return $label;
+	}
+
+
+	/**
+	 * Check image validity vs DB
+	 *
+	 * @param int $image_id
+	 *
+	 * @author Amaury BALMER
+	 * @since  1.0.0
+	 *
+	 * @return bool
+	 */
+	public static function check_image_id( $image_id ) {
+		if ( 0 === (int) $image_id ) {
+			return false;
+		}
+
+		$object = get_post( $image_id );
+		if ( false == $object || is_wp_error( $object ) ) {
+			return false;
+		}
+
+		if ( $object->post_type !== 'attachment' ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Check given array of image for validation vs DB
+	 *
+	 * @param array $image_ids
+	 *
+	 * @author Amaury BALMER
+	 * @since  1.0.0
+	 *
+	 * @return array
+	 */
+	public static function check_image_ids( $image_ids ) {
+		return array_filter( $image_ids, [ 'BEA\Find_Media\Helpers', 'check_image_id' ], ARRAY_FILTER_USE_KEY );
 	}
 }

@@ -1,6 +1,7 @@
 <?php namespace BEA\Find_Media\Admin;
 
 use BEA\Find_Media\DB;
+use BEA\Find_Media\Helpers;
 use BEA\Find_Media\Singleton;
 
 class Post {
@@ -36,6 +37,9 @@ class Post {
 		if ( empty( $image_ids ) ) {
 			return;
 		}
+
+		// Validate image IDs
+		$image_ids = Helpers::check_image_ids( $image_ids );
 
 		DB::insert( $image_ids, $post_id, 'post' );
 	}
