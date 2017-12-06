@@ -19,7 +19,7 @@ class DB_Table {
 	}
 
 	public function get_table_name() {
-		return $this->db->bea_find_media ?: false;
+		return $this->db->bea_find_media ?? false;
 	}
 
 	public function add_table_to_db_object() {
