@@ -16,7 +16,7 @@ class Media {
 		add_filter( 'attachment_fields_to_edit', [ $this, 'edit_view' ], 20, 2 );
 
 		// Custom admin columns
-		add_filter( 'manage_media_columns', [ $this, 'admin_columns_header' ] );
+		add_filter( 'manage_media_columns', [ $this, 'admin_columns_header' ], 10, 2 );
 		add_action( 'manage_media_custom_column', [ $this, 'admin_columns_values' ], 10, 2 );
 		// TODO : No inline hook + css
 		add_action( 'admin_head', function () {
