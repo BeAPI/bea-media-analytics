@@ -37,7 +37,34 @@ class Post {
 			return;
 		}
 
+		// Make an image IDs validation
+		$image_ids = array_filter( $image_ids, [ $this, 'check_image_id' ], ARRAY_FILTER_USE_KEY );
+
 		DB::insert( $image_ids, $post_id, 'post' );
+	}
+
+	/**
+	 * Check image validity vs DB
+	 *
+	 * @param integer $image_id
+	 *
+	 * @return bool
+	 */
+	public function check_image_id( $image_id ) {
+		if ( 0 === (int) $image_id ) {
+			return false;
+		}
+
+		$object = get_post($image_id);
+		if ( false == $object || is_wp_error($object) ) {
+			return false;
+		}
+
+		if ( $object->post_type !== 'attachment' ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
