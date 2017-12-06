@@ -22,6 +22,9 @@ class Media {
 		add_action( 'admin_head', function () {
 			echo '<style type="text/css">.column-bea-find-media-counter { width: 7%; }</style>';
 		} );
+
+		// Warning on delete
+		add_filter( 'media_row_actions', [ $this, 'delete_from_list_warning' ], 20, 3 );
 	}
 
 	/**
@@ -43,11 +46,7 @@ class Media {
 			} else {
 				$label = sprintf( __( '%s times.', 'bea-find-media' ), esc_html( $counter ) );
 			}
-			$html = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>',
-				get_edit_post_link( $media->ID ),
-				_x( 'View media usage.', 'title for the usage link', 'bea-find-media' ),
-				$label
-			);
+			$html = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-find-media' ), $label );
 		} else {
 			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-find-media' ) );
 		}
@@ -90,11 +89,7 @@ class Media {
 				foreach ( $obj as $media_id => $media ) {
 					foreach ( $media as $content_id => $types ) {
 						$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
-						$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>',
-							get_edit_post_link( $content_id ),
-							get_the_title( $content_id ),
-							implode( ', ', $_types )
-						);
+						$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
 					}
 				}
 			}
@@ -162,5 +157,29 @@ class Media {
 		} else {
 			printf( '<a href="%s">%s</a>', esc_url( get_edit_post_link( $media_id ) ), esc_html( $counter ) );
 		}
+	}
+
+	/**
+	 * Change the delete action on the fly to launch custom JS event for media delete warning
+	 *
+	 * @param $actions
+	 * @param $media
+	 * @param $detached
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return mixed
+	 */
+	public function delete_from_list_warning( $actions, $media, $detached ) {
+		// Not used, then default actions
+		if ( empty( DB::get_counter( $media->ID ) ) ) {
+			return $actions;
+		}
+
+		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_find_media_warn(); )
+		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn({$media->ID});'", $actions['delete'] );
+
+		return $actions;
 	}
 }
