@@ -33,7 +33,6 @@ class Index_Site extends \WP_CLI_Command {
 			Post::index_post( $post->ID, $post, true );
 			\WP_CLI::log( sprintf( 'Starting indexing blog id %s.', $post->ID ) );
 		}
-		//\WP_CLI::runcommand( sprintf( 'post update %s --field --defer-term-counting', implode( ' ', $contents_q->posts ) ) );
 
 		\WP_CLI::success( sprintf( '%s indexed contents for blog id : %s !', count( $contents_q->posts ), get_current_blog_id() ) );
 	}
