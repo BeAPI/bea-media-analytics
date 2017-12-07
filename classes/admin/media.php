@@ -26,7 +26,6 @@ class Media {
 		add_filter( 'media_row_actions', [ $this, 'delete_from_list_warning' ], 20, 3 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_scripts' ], 10 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'localize_scripts' ], 40 );
 	}
 
 	/**
@@ -172,7 +171,7 @@ class Media {
 	}
 
 	/**
-	 * Change the delete action on the fly to launch custom JS event for media delete warning
+	 * Change the delete action on the fly to launch custom JS event for media delete warning on list view
 	 *
 	 * @param $actions
 	 * @param $media
@@ -195,25 +194,26 @@ class Media {
 		return $actions;
 	}
 
+	/**
+	 * Registers admin scripts
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 */
 	public function register_scripts() {
 		wp_register_script( 'bea-find-media', BEA_FIND_MEDIA_URL . 'assets/js/media-warning.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
 	}
 
+	/**
+	 * Enqueue admin scripts
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 */
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
 		if ( is_admin() && 'attachment' === $screen->post_type && 'upload' === $screen->base ) {
 			wp_enqueue_script( 'bea-find-media' );
 		}
-	}
-
-	public function localize_scripts() {
-		$strings = [
-			'i18n' => [
-				'time_singular'   => __( 'time', 'bea-find-media' ),
-				'time_plural'     => __( 'times', 'bea-find-media' ),
-				'warning_confirm' => _x( "This media is currently used %s. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' ),
-			]
-		];
-		wp_localize_script( 'bea-find-media', 'bea_find_media', $strings );
 	}
 }

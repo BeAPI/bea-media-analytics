@@ -6,6 +6,9 @@ class Main {
 	protected function init() {
 		add_filter( 'bea.find_media.db.get_data', [ $this, 'format_indexed_values' ], 100 );
 		add_action( 'init', [ $this, 'init_translations' ] );
+
+		// JS i18n
+		add_action( 'admin_enqueue_scripts', [ $this, 'localize_scripts' ], 40 );
 	}
 
 	/**
@@ -46,6 +49,23 @@ class Main {
 		}
 
 		return $out;
+	}
+
+	/**
+	 * Localize plugin strings, especially for i18n
+	 *
+	 * @since 1.0.0
+	 * @author Maxime CULEA
+	 */
+	public function localize_scripts() {
+		$strings = [
+			'i18n' => [
+				'time_singular'   => __( 'time', 'bea-find-media' ),
+				'time_plural'     => __( 'times', 'bea-find-media' ),
+				'warning_confirm' => _x( "This media is currently used %s. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' ),
+			]
+		];
+		wp_localize_script( 'bea-find-media', 'bea_find_media', $strings );
 	}
 
 	public function init_translations() {
