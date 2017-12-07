@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BEA - Find Media\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 14:18+0000\n"
-"PO-Revision-Date: 2017-12-05 14:25+0000\n"
-"Last-Translator: beapi <mculea@beapi.fr>\n"
+"POT-Creation-Date: 2017-12-07 13:29+0000\n"
+"PO-Revision-Date: 2017-12-07 13:33+0000\n"
+"Last-Translator: beapi <amaury@beapi.fr>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1\n"
@@ -25,44 +25,86 @@ msgid ""
 "server is currently running PHP version %s."
 msgstr ""
 
-#: classes/admin/media.php:41
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://beapi.fr"
+msgstr ""
+
+#: classes/helpers.php:17
+msgctxt "Label for humanizing object types"
+msgid "Post content"
+msgstr "Contenu"
+
+#: classes/helpers.php:20
+msgctxt "Label for humanizing object types"
+msgid "Post thumbnail"
+msgstr "Image à la une"
+
+#: classes/helpers.php:23
+msgctxt "Label for humanizing object types"
+msgid "Advanced Custom Fields"
+msgstr "Champs ACF"
+
+#: classes/admin/media.php:212
+msgid "time"
+msgstr "fois"
+
+#: classes/admin/media.php:213
+msgid "times"
+msgstr "fois"
+
+#: classes/admin/media.php:214
+#, php-format
+msgctxt ""
+"Popup for confirmation media delete. %s will display the number with the "
+"singular / plural string (time/times)."
+msgid ""
+"This media is currently used %s. Are you sure you want to delete it ?\n"
+"This action is irreversible !\n"
+"«Cancel» to stop, «OK» to delete."
+msgstr ""
+"Ce média est à présent utilisé %s. Voulez-vous vraiment le supprimer ?\n"
+"Cette action ne peut pas être annulée.\n"
+"« Annuler » pour arrêter, « OK » pour supprimer."
+
+#: classes/admin/media.php:47
 msgid "One time."
 msgstr "Une fois."
 
-#: classes/admin/media.php:43
+#: classes/admin/media.php:49
 #, php-format
 msgid "%s times."
 msgstr "%s fois."
 
-#: classes/admin/media.php:47
+#: classes/admin/media.php:51
 msgctxt "title for the usage link"
 msgid "View media usage."
 msgstr "Voir l'utilisation du média."
 
-#: classes/admin/media.php:51
+#: classes/admin/media.php:53
 msgid "Not used anywhere."
 msgstr "Utilisé nul part."
 
-#: classes/admin/media.php:55
+#: classes/admin/media.php:57
 msgid "Usage :"
 msgid_plural "Usages :"
 msgstr[0] "Usage :"
 msgstr[1] "Usages :"
 
-#: classes/admin/media.php:68
+#: classes/admin/media.php:81
 msgid "This media is not used."
 msgstr "Ce média n'est pas utilisé."
 
-#: classes/admin/media.php:70
+#: classes/admin/media.php:83
 msgid "This media is used once :"
 msgstr "Ce média est utilisé une fois :"
 
-#: classes/admin/media.php:72
+#: classes/admin/media.php:85
 #, php-format
 msgid "This media is used %s times :"
 msgstr "Ce média est utilisé %s fois :"
 
-#: classes/admin/media.php:137
+#: classes/admin/media.php:146
 msgctxt "Admin column name"
 msgid "Usage"
 msgstr "Usage"
@@ -74,11 +116,6 @@ msgstr "BEA - Find Media"
 #. Description of the plugin
 msgid "Find where medias are used across your site(s)."
 msgstr "Trouver où sont utilisés les médias sur le site."
-
-#. URI of the plugin
-#. Author URI of the plugin
-msgid "https://beapi.fr"
-msgstr ""
 
 #. Author of the plugin
 msgid "Be API Technical team"

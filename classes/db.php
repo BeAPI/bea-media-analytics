@@ -128,7 +128,7 @@ class DB {
 		}
 
 		$counter = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
-		$counter = $counter ?: 0;
+		$counter = (int) $counter ?? 0;
 
 		/**
 		 * Filter the media's counter for a third party add-on, for example CSF.
