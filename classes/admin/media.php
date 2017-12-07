@@ -189,9 +189,27 @@ class Media {
 		}
 
 		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_find_media_warn(); )
-		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn({$media->ID});'", $actions['delete'] );
+		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn_list({$media->ID});'", $actions['delete'] );
 
 		return $actions;
+	}
+
+	/**
+	 * Change the delete action on the fly to launch custom JS event for media delete warning on single view
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return mixed
+	 */
+	public function delete_from_single_warning() {
+		// Not used, then default actions
+		$counter = DB::get_counter( get_the_ID() );
+		if ( empty( $counter ) ) {
+			return;
+		}
+
+		echo "<script type='text/javascript'>(function ($, w) {jQuery('#delete-action a').attr('onclick','return bea_find_media_warn_single(".esc_js($counter).");');})(jQuery, window);</script>";
 	}
 
 	/**
@@ -201,7 +219,7 @@ class Media {
 	 * @author Maxime CULEA
 	 */
 	public function register_scripts() {
-		wp_register_script( 'bea-find-media', BEA_FIND_MEDIA_URL . 'assets/js/media-warning.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
+		wp_register_script( 'bea-find-media', BEA_FIND_MEDIA_URL . 'assets/js/bea-find-media.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
 	}
 
 	/**
@@ -212,8 +230,12 @@ class Media {
 	 */
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
-		if ( is_admin() && 'attachment' === $screen->post_type && 'upload' === $screen->base ) {
+		if ( is_admin() && 'attachment' === $screen->post_type && in_array( $screen->base, [ 'upload', 'post' ] ) ) {
 			wp_enqueue_script( 'bea-find-media' );
+
+			if ( 'post' === $screen->base ) {
+				add_action( 'admin_footer', [ $this, 'delete_from_single_warning' ] );
+			}
 		}
 	}
 }
