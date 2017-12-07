@@ -191,6 +191,7 @@ class Media {
 
 		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_find_media_warn(); )
 		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn({$media->ID});'", $actions['delete'] );
+
 		return $actions;
 	}
 
@@ -208,7 +209,9 @@ class Media {
 	public function localize_scripts() {
 		$strings = [
 			'i18n' => [
-				'warning_confirm' => _x( "This media is currently used %s times. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete', 'bea-find-media' ),
+				'time_singular'   => __( 'time', 'bea-find-media' ),
+				'time_plural'     => __( 'times', 'bea-find-media' ),
+				'warning_confirm' => _x( "This media is currently used %s. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' ),
 			]
 		];
 		wp_localize_script( 'bea-find-media', 'bea_find_media', $strings );
