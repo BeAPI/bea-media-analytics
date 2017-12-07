@@ -80,7 +80,7 @@ function plugins_loaded_bea_find_media_plugin() {
 	\BEA\Find_Media\WP_Cli\Main::get_instance();
 
 	// Admin
-	if ( is_admin() ) {
+	if ( is_admin() || defined( 'WP_CLI' ) ) {
 		\BEA\Find_Media\Admin\Main::get_instance();
 		\BEA\Find_Media\Admin\Post::get_instance();
 		\BEA\Find_Media\Admin\Media::get_instance();
