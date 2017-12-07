@@ -1,6 +1,5 @@
 <?php namespace BEA\Find_Media\Admin;
 
-use BEA\Find_Media\Helper\Helper;
 use BEA\Find_Media\Singleton;
 use BEA\Find_Media\DB;
 
@@ -16,7 +15,7 @@ class Media {
 		add_filter( 'attachment_fields_to_edit', [ $this, 'edit_view' ], 20, 2 );
 
 		// Custom admin columns
-		add_filter( 'manage_media_columns', [ $this, 'admin_columns_header' ], 10, 2 );
+		add_filter( 'manage_media_columns', [ $this, 'admin_columns_header' ] );
 		add_action( 'manage_media_custom_column', [ $this, 'admin_columns_values' ], 10, 2 );
 		// TODO : No inline hook + css
 		add_action( 'admin_head', function () {
@@ -25,6 +24,9 @@ class Media {
 
 		// Warning on delete
 		add_filter( 'media_row_actions', [ $this, 'delete_from_list_warning' ], 20, 3 );
+		add_action( 'admin_enqueue_scripts', [ $this, 'register_scripts' ], 10 );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'localize_scripts' ], 40 );
 	}
 
 	/**
@@ -62,6 +64,17 @@ class Media {
 		return $form_fields;
 	}
 
+	/**
+	 * Display into media's edit view, the number of indexed
+	 *
+	 * @param $form_fields
+	 * @param $media
+	 *
+	 * @since  1.0.0
+	 * @author Maxime CULEA
+	 *
+	 * @return array
+	 */
 	public function edit_view( $form_fields, $media ) {
 		$counter = DB::get_counter( $media->ID );
 		if ( 0 === $counter ) {
@@ -123,14 +136,13 @@ class Media {
 	 * Add custom headers for attachment
 	 *
 	 * @param $headers
-	 * @param $post_type
 	 *
 	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return mixed
 	 */
-	public function admin_columns_header( $headers, $post_type ) {
+	public function admin_columns_header( $headers ) {
 		$headers['bea-find-media-counter'] = _x( 'Usage', 'Admin column name', 'bea-find-media' );
 
 		return $headers;
@@ -179,7 +191,26 @@ class Media {
 
 		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_find_media_warn(); )
 		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn({$media->ID});'", $actions['delete'] );
-
 		return $actions;
+	}
+
+	public function register_scripts() {
+		wp_register_script( 'bea-find-media', BEA_FIND_MEDIA_URL . 'assets/js/media-warning.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
+	}
+
+	public function enqueue_scripts() {
+		$screen = get_current_screen();
+		if ( is_admin() && 'attachment' === $screen->post_type && 'upload' === $screen->base ) {
+			wp_enqueue_script( 'bea-find-media' );
+		}
+	}
+
+	public function localize_scripts() {
+		$strings = [
+			'i18n' => [
+				'warning_confirm' => _x( "This media is currently used %s times. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete', 'bea-find-media' ),
+			]
+		];
+		wp_localize_script( 'bea-find-media', 'bea_find_media', $strings );
 	}
 }
