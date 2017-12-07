@@ -8,7 +8,7 @@ class Post {
 	use Singleton;
 
 	protected function init() {
-		add_action( 'save_post', [ $this, 'index_post' ], 20, 3 );
+		add_action( 'save_post', [ __CLASS__, 'index_post' ], 20, 3 );
 		add_action( 'delete_post', [ $this, 'delete_post' ] );
 	}
 
@@ -18,7 +18,7 @@ class Post {
 	 * @author Maxime CULEA
 	 * @since 1.0.0
 	 */
-	public function index_post( $post_id, $post, $update ) {
+	public static function index_post( $post_id, $post, $update ) {
 		if ( in_array( $post->post_status, [ 'trash', 'auto-draft', 'inherit' ] ) ) {
 			return;
 		}
