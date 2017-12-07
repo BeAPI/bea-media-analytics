@@ -1,5 +1,5 @@
 # BEA Find Media
-Find where medias are used across your site(s).
+Find where medias are used across your site.
 
 # 1 - Single media view
 
