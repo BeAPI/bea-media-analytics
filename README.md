@@ -3,50 +3,13 @@
 If you want to see which media is used, or not, and where ? This plugin is for you.
 By installing this plugin you will index where your media are used and display further informations.
 
-## Features 
+== BANNIERE ==
 
-For now the supported contents for indexation are post types by focusing on :
-
-- Post content ( gallery, image, links )
-- Post thumbnail
-- [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/)
-
-## More feature to come
-
-As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
-- More fields support (excerpt, post meta, etc)
-- More type of support (widget, etc)
-- More support (polylang, -wpml-, etc)
-- Media expiration
-- Find unused media
-- Media replacement
-
-## Languages
-
-This plugin is translated into the following languages :
-- English
-- French
-- More to come
-
-# How it Works
-
-## 1 - Single media view
-
-Display where it's used or redirect to the corresponding view
-
-## 2 - Site view
-
-Display all occurences of media use for ACF, post_thumbnail, post_content.
-
-## 3 - [CSF] Emmiter view
-
-Display all blog's where synced media are used
-
-## 4 - Prompt on delete
+# How ?
 
 # Requirements
 
-- There is no requirement for WordPress.
+- [WordPress](https://wordpress.org/) 4.7+
 - Tested up to 4.9.1.
 - **PHP 7.0** is required !!
 
@@ -69,6 +32,51 @@ At plugin deactivation, all blog's data are **deleted** to ensure to not weighin
 - Include `"bea/bea-find-media": "dev-master" in your composer file for last master's commits or a tag released.
 - Nothing more, this plugin is ready to use !
 
+# What ?
+
+## Features 
+
+For now the supported contents for indexation are post types by focusing on :
+
+- Post content ( gallery, image, links )
+- Post thumbnail
+- [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/)
+
+### 1 - Single media view
+
+Display where it's used or redirect to the corresponding view
+
+### 2 - Site view
+
+Display all occurences of media use for ACF, post_thumbnail, post_content.
+
+### 3 - [CSF] Emmiter view
+
+Display all blog's where synced media are used
+
+### 4 - Prompt on delete
+
+## More features to come
+
+As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
+- More fields support (excerpt, post meta, etc)
+- More type of support (widget, etc)
+- More support (polylang, -wpml-, etc)
+- Media expiration
+- Find unused media
+- Media replacement
+
+## Issues and features request
+
+If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](https://github.com/BeAPI/bea-find-media/issues/new).
+
+## Languages
+
+This plugin is translated into the following languages :
+- English
+- French
+- More to come
+
 # For developers
 
 ## WP-Cli
@@ -86,6 +94,16 @@ The [REST Api](https://developer.wordpress.org/rest-api/) has been used to displ
 ## JSON API
 
 WordPress is working a lot with the JSON API, that's why why the `bea_find_media_counter` attribute has been added into attachment's JSON responses.
+
+# Who ?
+
+Created by [Be API](https://beapi.fr/), the French WordPress leader Agency. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com/) some fun and talented guys. So we will be pleased to work with you.
+
+Maintained by [Maxime CULEA](https://maximeculea.fr).
+
+## License
+
+BEA - Find Media is licensed under the [GPLv2 or later](https://github.com/BeAPI/bea-find-media/blob/master/LICENSE).
 
 # Changelog ##
 
