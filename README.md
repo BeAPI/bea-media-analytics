@@ -46,17 +46,27 @@ For now the supported contents for indexation are post types by focusing on :
 
 ### 1 - Single media view
 
-Display where it's used or redirect to the corresponding view
+In the single edit view, a bloc has been added to display the number of usages, where and what type.
 
-### 2 - Site view
+![Single media view](assets/images/screenshot-1.png)
 
-Display all occurences of media use for ACF, post_thumbnail, post_content.
+### 2 - Media library modal view
 
-### 3 - [CSF] Emmiter view
+In the media library modal view, when a media is selected, a bloc has been added to display the number of usages.
 
-Display all blog's where synced media are used
+![Media library modal view](assets/images/screenshot-2.png)
 
-### 4 - Prompt on delete
+### 3 - Media library view
+
+On the media admin library view, an admin column has been added to display the number of usages.
+
+![Media library view](assets/images/screenshot-3.png)
+
+### 4 - Prompt on media delete
+
+On media delete, if it has usages (based on indexed contents), a warning will prompt to confirm the media deletion.
+
+![Prompt on media delete](assets/images/screenshot-4.png)
 
 ## More features to come
 
@@ -67,6 +77,7 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - Media expiration
 - Find unused media
 - Media replacement
+- Content Sync Fusion
 
 ## Languages
 
