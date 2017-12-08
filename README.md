@@ -60,7 +60,7 @@ Display all blog's where synced media are used
 
 ## More features to come
 
-As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
+As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
 - More fields support (excerpt, post meta, etc)
 - More type of support (widget, etc)
 - More support (polylang, -wpml-, etc)
@@ -68,9 +68,19 @@ As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=i
 - Find unused media
 - Media replacement
 
-## Issues and features request
+## Contributing
 
-If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](https://github.com/BeAPI/bea-find-media/issues/new).
+Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull requests to be merged but also receive the best support.
+
+### Issues & features request / proposal
+
+If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](../../issues/new). Please provide as much info as needed in order to help us resolving / approve your request.
+
+### Translation request / proposal
+
+_Waiting WordPress plugin : If you want to translate BEA - Find Media, the best way is to use the official way :
+[WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-find-media)._
+You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
 
 ## Languages
 
@@ -101,11 +111,11 @@ WordPress is working a lot with the JSON API, that's why why the `bea_find_media
 
 Created by [Be API](https://beapi.fr/), the French WordPress leader Agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com/) some fun and talented guys. So we will be pleased to work with you.
 
-Maintained by [Maxime CULEA](https://maximeculea.fr).
+This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and [Be Api team](https://beapi.fr) which means we do not guarantee some free support. Be patient and consider reporting an [issue](#issues-features-request-/-proposal).
 
 ## License
 
-BEA - Find Media is licensed under the [GPLv3 or later](https://github.com/BeAPI/bea-find-media/blob/master/LICENSE.md).
+BEA - Find Media is licensed under the [GPLv3 or later](LICENSE.md).
 
 # Changelog ##
 
