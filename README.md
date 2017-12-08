@@ -80,6 +80,7 @@ If you identify any errors or have an idea for improving the plugin, feel free t
 
 _Waiting WordPress plugin : If you want to translate BEA - Find Media, the best way is to use the official way :
 [WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-find-media)._
+
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
 
 ## Languages
