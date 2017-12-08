@@ -68,6 +68,13 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - Find unused media
 - Media replacement
 
+## Languages
+
+This plugin is translated into the following languages :
+- English
+- French
+- More to come
+
 ## Contributing
 
 Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
@@ -82,13 +89,6 @@ _Waiting WordPress plugin : If you want to translate BEA - Find Media, the best 
 [WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-find-media)._
 
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
-
-## Languages
-
-This plugin is translated into the following languages :
-- English
-- French
-- More to come
 
 # For developers
 
