@@ -1,11 +1,13 @@
 # BEA - Find Media
 
 If you want to see which media is used, or not, and where ? This plugin is for you.
-By installing this plugin you will index where your media are used and display further informations.
+By installing this plugin you will index where your media are used and display further informations but also warn you about deleting used medias. 
 
 == BANNIERE ==
 
 # How ?
+
+A table is created for indexing where media are used. This is done when saving contents but could also be forced with the [wp-cli command](#force-indexation) or just by activating the plugin. 
 
 # Requirements
 
@@ -15,7 +17,7 @@ By installing this plugin you will index where your media are used and display f
 
 # Installation
 
-At plugin activation, a single cron will be added in order to index your contents. It generally takes 10-15 min to begin.
+At plugin activation, a single will be added in order to index your contents. It generally takes 10-15 min to begin.
 
 At plugin deactivation, all blog's data are **deleted** to ensure to not weighing the DB and clean reindexation if reactivated.
 
