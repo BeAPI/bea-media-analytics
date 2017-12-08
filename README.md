@@ -103,7 +103,7 @@ Maintained by [Maxime CULEA](https://maximeculea.fr).
 
 ## License
 
-BEA - Find Media is licensed under the [GPLv2 or later](https://github.com/BeAPI/bea-find-media/blob/master/LICENSE.md).
+BEA - Find Media is licensed under the [GPLv3 or later](https://github.com/BeAPI/bea-find-media/blob/master/LICENSE.md).
 
 # Changelog ##
 
