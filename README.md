@@ -90,21 +90,21 @@ _Waiting WordPress plugin : If you want to translate BEA - Find Media, the best 
 
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
 
-# For developers
+## For developers
 
-## WP-Cli
+### WP-Cli
 
-### Force indexation
+#### Force indexation
 
 [WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved from all contents supported.
 
 `wp bea_find_media index_site` and optionally on a multisite `wp bea_find_media index_site --url={url}`.
 
-## REST Api
+### REST Api
 
 The [REST Api](https://developer.wordpress.org/rest-api/) has been used to display the number of usage for an attachment. The route `exemple.com/wp-json/wp/v2/media/{id}/` will return a custom field called `bea_find_media_counter` which represents how many times it has been used into supported contents.
 
-## JSON API
+### JSON API
 
 WordPress is working a lot with the JSON API, that's why why the `bea_find_media_counter` attribute has been added into attachment's JSON responses.
 
