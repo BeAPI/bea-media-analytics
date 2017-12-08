@@ -13,7 +13,7 @@ For now the supported contents for indexation are post types by focusing on :
 
 ## More feature to come
 
-As you can see some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
+As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
 - More fields support (excerpt, post meta, etc)
 - More type of support (widget, etc)
 - More support (polylang, -wpml-, etc)
@@ -23,7 +23,7 @@ As you can see some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is
 
 ## Languages
 
-This plugin is translated into following languages :
+This plugin is translated into the following languages :
 - English
 - French
 - More to come
