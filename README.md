@@ -70,7 +70,7 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 
 ## Contributing
 
-Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull requests to be merged but also receive the best support.
+Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
 
 ### Issues & features request / proposal
 
