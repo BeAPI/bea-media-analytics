@@ -14,7 +14,7 @@ Please note:
 * PHP : 
 * WordPress : 
 
-#### Steps to Reproduce
+#### Steps to reproduce
 
 1. 
 2. 
