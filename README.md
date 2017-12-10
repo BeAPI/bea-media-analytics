@@ -108,9 +108,14 @@ You can, of course, just [create a pull request](../../compare) to our repositor
 
 #### Force indexation
 
-[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved from all contents supported.
+[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_find_media index_site`
+ 
+##### Multisite
 
-`wp bea_find_media index_site` and optionally on a multisite `wp bea_find_media index_site --url={url}`.
+Optionally on a multisite :
+* for a site : `wp bea_find_media index_site --url={url}`
+* for the entire network : `wp bea_find_media index_site --url={url}`
+* for all sites of all networks : `wp bea_find_media index_site --url=$(wp site list --fields=url)`
 
 ### REST Api
 
