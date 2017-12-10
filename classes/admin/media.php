@@ -50,10 +50,10 @@ class Media {
 			/**
 			 * Filter the title for the modal view
 			 *
-			 * @since 1.0.0
+			 * @since 1.0.1
 			 *
-			 * @param string $label        Depending on counter, display the single or multiple title.
-			 * @param int    $post_content The number of usages.
+			 * @param string $label   Depending on counter, display the single or multiple title.
+			 * @param int    $counter The number of usages.
 			 */
 			$label = apply_filters( 'bea.find_media.media.modal_view_title', $label, $counter );
 			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-find-media' ), $label );
@@ -94,6 +94,16 @@ class Media {
 		}
 
 		/**
+		 * Filter the title for the edit view
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param string $title   Depending on counter, display the title.
+		 * @param int    $counter The number of usages.
+		 */
+		$title = apply_filters( 'bea.find_media.media.edit_view_title', $title, $counter );
+
+		/**
 		 * $amlt = new Admin_Media_List_Table();
 		 * ob_start();
 		 * $amlt->display();
@@ -116,6 +126,16 @@ class Media {
 			}
 			$html .= '</ul>';
 		}
+
+		/**
+		 * Filter the title for the edit view
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param string $html The formatted HTML for edit view display.
+		 * @param array  $data All DB usages from the current media.
+		 */
+		$html = apply_filters( 'bea.find_media.media.edit_view_html', $html, $data );
 
 		$form_fields['bea_find_media_edit'] = [
 			'label'         => $title,
