@@ -6,5 +6,38 @@ class Main {
 
 	use Singleton;
 
-	protected function init() {}
+	protected function init() {
+		// Only working for emitter sites
+		if ( ! $this->is_emitter() ) {
+			return;
+		}
+		
+		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
+	}
+
+	/**
+	 * Check if current site is an emitter one
+	 *
+	 * @since  1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return bool
+	 */
+	public function is_emitter() {
+		return true;
+	}
+
+	/**
+	 * Change the title for CSF
+	 *
+	 * @param string $title
+	 *
+	 * @since  1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return string
+	 */
+	public function admin_column_title( $title ) {
+		return _x( 'Usage (CSF)', 'Admin column name for CSF', 'bea-find-media' );
+	}
 }
