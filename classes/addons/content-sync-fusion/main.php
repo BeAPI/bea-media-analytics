@@ -15,6 +15,7 @@ class Main {
 
 		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
 		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
+		add_filter( 'bea.find_media.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
 
 		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
 	}
@@ -97,8 +98,8 @@ class Main {
 	/**
 	 * Change the modal view's title for CSF
 	 *
-	 * @param $label
-	 * @param $counter
+	 * @param string $label
+	 * @param int    $counter
 	 *
 	 * @since  1.0.1
 	 * @author Maxime CULEA
@@ -113,5 +114,28 @@ class Main {
 		}
 
 		return $label;
+	}
+
+	/**
+	 * Change the edit view's title for CSF
+	 *
+	 * @param string $title
+	 * @param int    $counter
+	 *
+	 * @since  1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return string
+	 */
+	public function edit_view_title( $title, $counter ) {
+		if ( 0 === $counter ) {
+			$title = __( 'This media is not used.', 'bea-find-media' );
+		} elseif ( 1 == $counter ) {
+			$title = __( 'This media is used once across all synchronized sites :', 'bea-find-media' );
+		} else {
+			$title = sprintf( __( 'This media is used %s times across all synchronized sites :', 'bea-find-media' ), $counter );
+		}
+
+		return $title;
 	}
 }
