@@ -11,7 +11,7 @@ class Main {
 		if ( ! $this->is_emitter() ) {
 			return;
 		}
-		
+
 		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
 	}
 
@@ -24,7 +24,13 @@ class Main {
 	 * @return bool
 	 */
 	public function is_emitter() {
-		return true;
+		// Get syncs for current post_type and mode set to "auto"
+		$is_emitter = \BEA_CSF_Synchronizations::get( [
+			'post_type' => 'attachment',
+			'emitters'  => get_current_blog_id(),
+		], 'AND', false, true );
+
+		return ! empty( $is_emitter );
 	}
 
 	/**
