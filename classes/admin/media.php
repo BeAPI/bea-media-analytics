@@ -142,7 +142,7 @@ class Media {
 	 * @return mixed
 	 */
 	public function admin_columns_header( $headers ) {
-		$headers['bea-find-media-counter'] = _x( 'Usage', 'Admin column name', 'bea-find-media' );
+		$headers['bea-find-media-counter'] = apply_filters( 'bea.find_media.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-find-media' ) );
 
 		return $headers;
 	}
