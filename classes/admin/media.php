@@ -47,7 +47,16 @@ class Media {
 			} else {
 				$label = sprintf( __( '%s times.', 'bea-find-media' ), esc_html( $counter ) );
 			}
-			$html = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-find-media' ), $label );
+			/**
+			 * Filter the title for the modal view
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $label        Depending on counter, display the single or multiple title.
+			 * @param int    $post_content The number of usages.
+			 */
+			$label = apply_filters( 'bea.find_media.media.modal_view_title', $label, $counter );
+			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-find-media' ), $label );
 		} else {
 			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-find-media' ) );
 		}
@@ -142,6 +151,13 @@ class Media {
 	 * @return mixed
 	 */
 	public function admin_columns_header( $headers ) {
+		/**
+		 * Filter the admin column title
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param string $title
+		 */
 		$headers['bea-find-media-counter'] = apply_filters( 'bea.find_media.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-find-media' ) );
 
 		return $headers;
@@ -209,7 +225,7 @@ class Media {
 			return;
 		}
 
-		echo "<script type='text/javascript'>(function ($, w) {jQuery('#delete-action a').attr('onclick','return bea_find_media_warn_single(".esc_js($counter).");');})(jQuery, window);</script>";
+		echo "<script type='text/javascript'>(function ($, w) {jQuery('#delete-action a').attr('onclick','return bea_find_media_warn_single(" . esc_js( $counter ) . ");');})(jQuery, window);</script>";
 	}
 
 	/**
