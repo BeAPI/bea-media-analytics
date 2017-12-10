@@ -14,6 +14,8 @@ class Main {
 		}
 
 		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
+		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
+
 		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
 	}
 
@@ -90,5 +92,26 @@ class Main {
 		}
 
 		return $counter;
+	}
+
+	/**
+	 * Change the modal view's title for CSF
+	 *
+	 * @param $label
+	 * @param $counter
+	 *
+	 * @since  1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return string
+	 */
+	public function modal_view_title( $label, $counter ) {
+		if ( 1 === $counter ) {
+			$label = __( 'One single time across all synchronized sites.', 'bea-find-media' );
+		} else {
+			$label = sprintf( __( '%s times across all synchronized sites.', 'bea-find-media' ), esc_html( $counter ) );
+		}
+
+		return $label;
 	}
 }
