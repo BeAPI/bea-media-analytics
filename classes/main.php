@@ -96,6 +96,15 @@ class Main {
 				'warning_confirm' => _x( "This media is currently used %s. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' ),
 			]
 		];
+
+		/**
+		 * Filter strings for localize scripts usage
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param array $strings
+		 */
+		$strings = apply_filters( 'bea.find_media.main.localize_scripts', $strings );
 		wp_localize_script( 'bea-find-media', 'bea_find_media', $strings );
 	}
 

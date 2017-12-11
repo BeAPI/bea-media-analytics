@@ -17,6 +17,7 @@ class Main {
 		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
 		add_filter( 'bea.find_media.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
 		add_filter( 'bea.find_media.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
+		add_filter( 'bea.find_media.main.localize_scripts', [ $this, 'localize_scripts' ] );
 
 		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
 		add_filter( 'bea.find_media.db.get_data', [ $this, 'get_data' ], 20, 2 );
@@ -231,5 +232,20 @@ class Main {
 		}
 
 		return $html;
+	}
+
+	/**
+	 * Overwrite i18n strings for CSF context
+	 *
+	 * @param array $strings
+	 *
+	 * @since 1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return mixed
+	 */
+	public function localize_scripts( $strings ) {
+		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' );
+		return $strings;
 	}
 }
