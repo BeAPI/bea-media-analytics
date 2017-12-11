@@ -4,7 +4,7 @@ If you want to see which media is used and where ? This plugin is for you !
 
 By installing this plugin you will index where your media are used and display further informations and also warn you about deleting used medias. 
 
-<a href="https://beapi.fr">![Be API Github Banner](assets/images/banner-1300x300.png)</a>
+<a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-find-media">![Be API Github Banner](assets/images/banner-1300x300.png)</a>
 
 # How ?
 
@@ -129,7 +129,7 @@ WordPress is working a lot with the JSON API, that's why why the `bea_find_media
 
 Created by [Be API](https://beapi.fr/), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Be patient and consider reporting an [issue](#issues--features-request--proposal).
+This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-find-media), which means we do not guarantee some free support. Be patient and consider reporting an [issue](#issues--features-request--proposal).
 
 ## License
 
