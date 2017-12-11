@@ -16,6 +16,7 @@ class Main {
 		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
 		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
 		add_filter( 'bea.find_media.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
+		add_filter( 'bea.find_media.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
 
 		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
 		add_filter( 'bea.find_media.db.get_data', [ $this, 'get_data' ], 20, 2 );
@@ -152,7 +153,7 @@ class Main {
 	 * @param $data
 	 * @param $media_id
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.1
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -193,5 +194,42 @@ class Main {
 		}
 
 		return $data_by_blog;
+	}
+
+	/**
+	 * Change the media edit modal html for display each site details
+	 *
+	 * @param string $html
+	 * @param array  $data
+	 *
+	 * @since  1.0.1
+	 * @author Maxime CULEA
+	 *
+	 * @return string
+	 */
+	public function edit_view_html( $html, $data ) {
+		if ( empty( $data ) ) {
+			// Fake content to be empty
+			$html = ' ';
+		} else {
+			$html = '<ul>';
+			foreach ( $data as $blog_id => $blog_data ) {
+				switch_to_blog( $blog_id );
+				$html .= sprintf( '<li><a href="%s" target="_blank">%s</a></li><ul>', get_admin_url( $blog_id ), sprintf( _x( 'On site : %s', 'Each site details for media usage', 'bea-find-media' ), get_option( 'blogname' ) ) );
+				foreach ( $blog_data as $object_type => $obj ) {
+					foreach ( $obj as $media_id => $media ) {
+						foreach ( $media as $content_id => $types ) {
+							$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
+							$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
+						}
+					}
+				}
+				restore_current_blog();
+				$html .= '</ul>';
+			}
+			$html .= '</ul>';
+		}
+
+		return $html;
 	}
 }
