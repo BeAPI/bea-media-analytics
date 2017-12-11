@@ -127,7 +127,7 @@ WordPress is working a lot with the JSON API, that's why why the `bea_find_media
 
 # Who ?
 
-Created by [Be API](https://beapi.fr/), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+Created by [Be API](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-find-media), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
 This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-find-media), which means we do not guarantee some free support. Be patient and consider reporting an [issue](#issues--features-request--proposal).
 
