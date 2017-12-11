@@ -4,7 +4,7 @@ If you want to see which media is used and where ? This plugin is for you !
 
 By installing this plugin you will index where your media are used and display further informations and also warn you about deleting used medias. 
 
-<a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-find-media">![Be API Github Banner](assets/images/banner-github.png)</a>
+<a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-find-media">![Be API Github Banner](assets/images/banner-github-1.png)</a>
 
 # How ?
 
