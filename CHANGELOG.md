@@ -1,5 +1,9 @@
 # Changelog ##
 
+## 1.0.1 - 12 Dec 2017
+* Improve readme and add project templates.
+* Add Content Sync Fusion support.
+
 ## 1.0.0 - 7 Dec 2017
 * First version of the plugin.
 * Add screenshots.
