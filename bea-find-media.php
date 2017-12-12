@@ -3,7 +3,7 @@
  Plugin Name: BEA - Find Media
  Version: 1.0.1
  Plugin URI: https://github.com/BeAPI/bea-find-media
- Description: Find where medias are used across your site.
+ Description: Find where and how medias are used across your site.
  Author: Be API Technical team
  Author URI: https://beapi.fr/?utm_source=Plugin&utm_medium=Link&utm_campaign=bea-find-media
  Domain Path: languages
