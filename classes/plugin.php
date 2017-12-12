@@ -10,7 +10,7 @@ class Plugin {
 		DB::get_instance()->delete_blog( get_current_blog_id() );
 
 		// Index all content with a cron
-		wp_schedule_single_event( time(), 'cron_force_indexation' );
+		wp_schedule_single_event( time() + 60, 'bea.find_media.cron.force_indexation' );
 	}
 
 	public static function deactivate() {

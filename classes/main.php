@@ -1,5 +1,7 @@
 <?php namespace BEA\Find_Media;
 
+use \BEA\Find_Media\Admin\Post;
+
 class Main {
 	use Singleton;
 
@@ -7,7 +9,10 @@ class Main {
 		add_filter( 'bea.find_media.db.get_data', [ __CLASS__, 'format_indexed_values' ], 100 );
 		add_action( 'init', [ $this, 'init_translations' ] );
 
-		add_action( 'cron_force_indexation', [ $this, 'force_indexation' ] );
+		// Cron
+		add_action( 'bea.find_media.cron.force_indexation', [ $this, 'force_indexation' ] );
+		// Cron for test, to be deleted
+		add_action( 'bea_find_media_cron_force_indexation', [ $this, 'force_indexation' ] );
 
 		// JS i18n
 		add_action( 'admin_enqueue_scripts', [ $this, 'localize_scripts' ], 40 );
@@ -111,13 +116,21 @@ class Main {
 	}
 
 	/**
-	 * Manage to index all contents
+	 * Manage to index all contents for the current site
 	 *
 	 * @since  1.0.1
 	 * @author Maxime CULEA
 	 */
 	public function force_indexation() {
-		die( 'cron' );
+		$contents_q = new \WP_Query( [
+			'no_found_rows'  => true,
+			'nopaging'       => true,
+			'post_type'      => 'any',
+		] );
+
+		foreach ( $contents_q->posts as $_post ) {
+			Post::index_post( $_post->ID, $_post, true );
+		}
 	}
 
 	public function init_translations() {
