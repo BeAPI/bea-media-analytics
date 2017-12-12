@@ -1,6 +1,8 @@
 # Changelog ##
 
 ## 1.0.1 - 12 Dec 2017
+* On activation, handle force indexation.
+* Update languages with CSF strings
 * Improve readme and add project templates.
 * Add Content Sync Fusion support.
 
