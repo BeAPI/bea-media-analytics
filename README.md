@@ -45,9 +45,9 @@ For now the supported contents for indexation are post types by focusing on :
 - Post thumbnail
 - [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/)
 
-### Compatibility
+### Third party support
 
-This plugin is compatible with 3 party ones :
+This plugin has third party support with following plugins :
 
 #### [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion)
 
@@ -86,7 +86,7 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - Media expiration
 - Find unused media
 - Media replacement
-- More file's types
+- More file's mime types
 
 ## Languages
 
