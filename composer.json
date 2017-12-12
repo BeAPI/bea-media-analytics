@@ -1,6 +1,6 @@
 {
   "name": "bea/bea-find-media",
-  "description": "Find where medias are used across your site.",
+  "description": "Find where and how medias are used across your site.",
   "minimum-stability": "stable",
   "license": "GPL-2.0",
   "authors": [
