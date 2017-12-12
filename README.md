@@ -45,6 +45,14 @@ For now the supported contents for indexation are post types by focusing on :
 - Post thumbnail
 - [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/)
 
+### Compatibility
+
+This plugin is compatible with 3 party ones :
+
+#### [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion)
+
+The usage counter will now consider synced sites to reveal how many times a media has been used across all synchronized sites.
+
 ### 1 - Single media view
 
 In the single edit view, a bloc has been added to display the number of usages, where and what type.
@@ -78,7 +86,7 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - Media expiration
 - Find unused media
 - Media replacement
-- Content Sync Fusion
+- More file's types
 
 ## Languages
 
