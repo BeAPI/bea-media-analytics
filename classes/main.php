@@ -9,11 +9,6 @@ class Main {
 		add_filter( 'bea.find_media.db.get_data', [ __CLASS__, 'format_indexed_values' ], 100 );
 		add_action( 'init', [ $this, 'init_translations' ] );
 
-		// Cron
-		add_action( 'bea.find_media.cron.force_indexation', [ $this, 'force_indexation' ] );
-		// Cron for test, to be deleted
-		add_action( 'bea_find_media_cron_force_indexation', [ $this, 'force_indexation' ] );
-
 		// JS i18n
 		add_action( 'admin_enqueue_scripts', [ $this, 'localize_scripts' ], 40 );
 	}
