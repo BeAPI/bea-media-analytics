@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 13:28+0000\n"
+"POT-Creation-Date: 2017-12-12 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -41,57 +41,15 @@ msgctxt "Label for humanizing object types"
 msgid "Advanced Custom Fields"
 msgstr ""
 
-#: classes/admin/media.php:47
-msgid "One time."
-msgstr ""
-
-#: classes/admin/media.php:49
-#, php-format
-msgid "%s times."
-msgstr ""
-
-#: classes/admin/media.php:51
-msgctxt "title for the usage link"
-msgid "View media usage."
-msgstr ""
-
-#: classes/admin/media.php:53
-msgid "Not used anywhere."
-msgstr ""
-
-#: classes/admin/media.php:57
-msgid "Usage :"
-msgid_plural "Usages :"
-msgstr[0] ""
-msgstr[1] ""
-
-#: classes/admin/media.php:81
-msgid "This media is not used."
-msgstr ""
-
-#: classes/admin/media.php:83
-msgid "This media is used once :"
-msgstr ""
-
-#: classes/admin/media.php:85
-#, php-format
-msgid "This media is used %s times :"
-msgstr ""
-
-#: classes/admin/media.php:146
-msgctxt "Admin column name"
-msgid "Usage"
-msgstr ""
-
-#: classes/admin/media.php:212
+#: classes/main.php:96
 msgid "time"
 msgstr ""
 
-#: classes/admin/media.php:213
+#: classes/main.php:97
 msgid "times"
 msgstr ""
 
-#: classes/admin/media.php:214
+#: classes/main.php:98
 #, php-format
 msgctxt ""
 "Popup for confirmation media delete. %s will display the number with the "
@@ -102,19 +60,107 @@ msgid ""
 "«Cancel» to stop, «OK» to delete."
 msgstr ""
 
+#: classes/admin/media.php:46
+msgid "One time."
+msgstr ""
+
+#: classes/admin/media.php:48
+#, php-format
+msgid "%s times."
+msgstr ""
+
+#: classes/admin/media.php:59
+msgctxt "title for the usage link"
+msgid "View media usage."
+msgstr ""
+
+#: classes/admin/media.php:61
+msgid "Not used anywhere."
+msgstr ""
+
+#: classes/admin/media.php:65
+msgid "Usage :"
+msgid_plural "Usages :"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/admin/media.php:89 classes/addons/content-sync-fusion/main.php:138
+msgid "This media is not used."
+msgstr ""
+
+#: classes/admin/media.php:91
+msgid "This media is used once :"
+msgstr ""
+
+#: classes/admin/media.php:93
+#, php-format
+msgid "This media is used %s times :"
+msgstr ""
+
+#: classes/admin/media.php:181
+msgctxt "Admin column name"
+msgid "Usage"
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:52
+msgctxt "Admin column name for CSF"
+msgid "Usage (CSF)"
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:117
+msgid "One single time across all synchronized sites."
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:119
+#, php-format
+msgid "%s times across all synchronized sites."
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:140
+msgid "This media is used once across all synchronized sites :"
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:142
+#, php-format
+msgid "This media is used %s times across all synchronized sites :"
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:219
+#, php-format
+msgctxt "Each site details for media usage"
+msgid "On site : %s"
+msgstr ""
+
+#: classes/addons/content-sync-fusion/main.php:248
+#, php-format
+msgctxt ""
+"Popup for confirmation media delete for CSF. %s will display the number with "
+"the singular / plural string (time/times)."
+msgid ""
+"This media is currently used %s across all synchronized sites. Are you sure "
+"you want to delete it ?\n"
+"This action is irreversible !\n"
+"«Cancel» to stop, «OK» to delete."
+msgstr ""
+
 #. Name of the plugin
 msgid "BEA - Find Media"
 msgstr ""
 
 #. Description of the plugin
-msgid "Find where medias are used across your site(s)."
+msgid "Find where and how medias are used across your site."
 msgstr ""
 
 #. URI of the plugin
-#. Author URI of the plugin
-msgid "https://beapi.fr"
+msgid "https://github.com/BeAPI/bea-find-media"
 msgstr ""
 
 #. Author of the plugin
 msgid "Be API Technical team"
+msgstr ""
+
+#. Author URI of the plugin
+msgid ""
+"https://beapi.fr/?utm_source=Plugin&utm_medium=Link&utm_campaign=bea-find-"
+"media"
 msgstr ""
