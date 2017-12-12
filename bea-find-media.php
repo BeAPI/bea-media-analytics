@@ -71,6 +71,8 @@ function plugins_loaded_bea_find_media_plugin() {
 
 	// Client
 	\BEA\Find_Media\Main::get_instance();
+	\BEA\Find_Media\Cron::get_instance();
+
 
 	// Api
 	\BEA\Find_Media\API\Json::get_instance();
