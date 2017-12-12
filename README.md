@@ -88,6 +88,10 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - Media replacement
 - More file's mime types
 
+## Next Roadmap
+- [39](https://github.com/BeAPI/bea-find-media/issues/39) : Improve display
+- [33](https://github.com/BeAPI/bea-find-media/issues/33) : Ensure a lot of file's mime types support
+
 ## Languages
 
 This plugin is translated into the following languages :
