@@ -20,19 +20,19 @@ A table is created for indexing where media are used. This is done when saving c
 
 At plugin activation, a single event will be added in order to index your contents. It generally takes 10-15 min to do so.
 
-At plugin deactivation, all blog's data are **deleted** to ensure not to weighing the DB and also for further reactivation.
+At plugin deactivation, all blog's data are **deleted** to ensure not to weighing the DB and also for further safe reactivation.
 
 ## WordPress
 
 - Download and install using the built-in WordPress plugin installer.
-- Site Activate in the "Plugins" area of the admin.
+- Site activate in the "Plugins" area of the admin.
 - Optionally drop the entire `bea-find-media` directory into mu-plugins.
 - Nothing more, this plugin is ready to use !
 
-## Composer
+## [Composer](http://composer.rarst.net/)
 
 - Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-find-media" }`.
-- Include `"bea/bea-find-media": "dev-master" in your composer file for last master's commits or a tag released.
+- Include `"bea/bea-find-media": "dev-master"` in your composer file for last master's commits or a tag released.
 - Nothing more, this plugin is ready to use !
 
 # What ?
