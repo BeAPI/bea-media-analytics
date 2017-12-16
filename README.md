@@ -49,9 +49,7 @@ For now the supported contents for indexation are post types by focusing on :
 
 This plugin has third party support with following plugins :
 
-#### [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion)
-
-The usage counter will now consider synced sites to reveal how many times a media has been used across all synchronized sites.
+* [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion) : the usage counter will now consider synced sites to reveal how many times a media has been used across all synchronized sites.
 
 ### 1 - Single media view
 
@@ -82,7 +80,7 @@ On media delete, if it has usages (based on indexed contents), a warning will pr
 As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
 - More fields support (excerpt, post meta, etc)
 - More type of support (widget, etc)
-- More support (polylang, -wpml-, etc)
+- More support (elementor, visual composer, polylang, -wpml-, etc)
 - Media expiration
 - Find unused media
 - Media replacement
