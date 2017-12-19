@@ -1,16 +1,22 @@
 {
-	"name"				: "bea/bea-find-media",
-	"description"		: "Find where and how medias are used across your site.",
-	"keywords"   		: [ "wordpress-plugin", "media", "single-site", "multisite", "wordpress" ],
-	"homepage"   		: "https://github.com/BeAPI/bea-find-media",
-	"authors"			: [
+	"name":"bea/bea-find-media",
+	"description":"Find where and how medias are used across your site.",
+	"keywords":[
+		"wordpress-plugin",
+		"media",
+		"single-site",
+		"multisite",
+		"wordpress"
+	],
+	"homepage":"https://github.com/BeAPI/bea-find-media",
+	"authors":[
 		{
-			"name": "Be API",
-			"email": "technique@beapi.fr",
-			"homepage": "http://scribu.net/"
+			"name":"Be API",
+			"email":"technique@beapi.fr",
+			"homepage":"http://scribu.net/"
 		}
 	],
-	"type" 				: "wordpress-plugin",
-	"minimum-stability" : "stable",
-	"license"    		: "GPL-3.0+"
+	"type":"wordpress-plugin",
+	"minimum-stability":"stable",
+	"license":"GPL-3.0+"
 }
