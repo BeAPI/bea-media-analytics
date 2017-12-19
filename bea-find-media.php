@@ -5,7 +5,7 @@
  Plugin URI: https://github.com/BeAPI/bea-find-media
  Description: Find where and how medias are used across your site.
  Author: Be API Technical team
- Author URI: https://beapi.fr/?utm_source=Plugin&utm_medium=Link&utm_campaign=bea-find-media
+ Author URI: https://beapi.fr
  Domain Path: languages
  Text Domain: bea-find-media
 
