@@ -3,7 +3,8 @@ Contributors: beapi, maximeculea
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, multisite, single site,
 Requires at least: 4.7
-Tested up to: 4.8.2
+Requires php: 7.0
+Tested up to: 4.9.1
 Stable tag: trunk
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-find-media/blob/master/LICENSE.md
@@ -114,6 +115,3 @@ For the indexation of all the supported contents, the blog id is used. So on the
 - Prompt warnings for media delete.
 - Create plugin with table and indexation.
 - Init plugin.
-
-== Upgrade Notice ==
-
