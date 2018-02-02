@@ -75,7 +75,7 @@ msgid "Find where and how medias are used across your site."
 msgstr "Trouver où et comment sont utilisés les médias au sein du site entier."
 
 #. URI of the plugin
-msgid "https://github.com/BeAPI/bea-find-media"
+msgid "https://github.com/BeAPI/bea-media-analytics"
 msgstr ""
 
 #. Author URI of the plugin

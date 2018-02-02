@@ -708,4 +708,4 @@ WRITTEN OFFER
 The source code for any program binaries or compressed scripts that are
 included with BEA - Find Media can be freely obtained at the following URL:
 
-    https://github.com/BeAPI/bea-find-media/
+    https://github.com/BeAPI/bea-media-analytics/

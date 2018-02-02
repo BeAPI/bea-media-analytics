@@ -1,4 +1,4 @@
-<a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-find-media">![Be API Github Banner](assets/images/banner-github.png)</a>
+<a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-media-analytics">![Be API Github Banner](assets/images/banner-github.png)</a>
 
 # BEA - Find Media
 
@@ -26,13 +26,13 @@ At plugin deactivation, all blog's data are **deleted** to ensure not to weighin
 
 - Download and install using the built-in WordPress plugin installer.
 - Site Activate in the "Plugins" area of the admin.
-- Optionally drop the entire `bea-find-media` directory into mu-plugins.
+- Optionally drop the entire `bea-media-analytics` directory into mu-plugins.
 - Nothing more, this plugin is ready to use !
 
 ## Composer
 
-- Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-find-media" }`.
-- Include `"bea/bea-find-media": "dev-master" in your composer file for last master's commits or a tag released.
+- Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-media-analytics" }`.
+- Include `"bea/bea-media-analytics": "dev-master" in your composer file for last master's commits or a tag released.
 - Nothing more, this plugin is ready to use !
 
 # What ?
@@ -89,8 +89,8 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - More file's mime types
 
 ## Next Roadmap
-- [39](https://github.com/BeAPI/bea-find-media/issues/39) : Improve display
-- [33](https://github.com/BeAPI/bea-find-media/issues/33) : Ensure a lot of file's mime types support
+- [39](https://github.com/BeAPI/bea-media-analytics/issues/39) : Improve display
+- [33](https://github.com/BeAPI/bea-media-analytics/issues/33) : Ensure a lot of file's mime types support
 
 ## Languages
 
@@ -110,7 +110,7 @@ If you identify any errors or have an idea for improving the plugin, feel free t
 ### Translation request / proposal
 
 _Waiting WordPress plugin : If you want to translate BEA - Find Media, the best way is to use the official way :
-[WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-find-media)._
+[WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-media-analytics)._
 
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
 
@@ -139,9 +139,9 @@ WordPress is working a lot with the JSON API, that's why why the `bea_find_media
 
 # Who ?
 
-Created by [Be API](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-find-media), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+Created by [Be API](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-media-analytics), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-find-media), which means we do not guarantee some free support. Consider reporting an [issue](#issues--features-request--proposal) and be patient. 
+This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr/?utm_source=GitHub&utm_medium=Link&utm_campaign=bea-media-analytics), which means we do not guarantee some free support. Consider reporting an [issue](#issues--features-request--proposal) and be patient. 
 
 ## License
 

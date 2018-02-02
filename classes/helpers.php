@@ -14,13 +14,13 @@ class Helpers {
 	public static function humanize_object_type( $type ) {
 		switch ( $type ) {
 			case 'post_content' :
-				$label = _x( 'Post content', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Post content', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			case 'post_thumbnail' :
-				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			case 'acf' :
-				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			default :
 				$label = '';

@@ -17,12 +17,12 @@ class Compatibility {
 		}
 
 		// Load the textdomain
-		load_plugin_textdomain( 'bea-find-media', false, BEA_FIND_MEDIA_PLUGIN_DIRNAME . '/languages' );
+		load_plugin_textdomain( 'bea-media-analytics', false, BEA_FIND_MEDIA_PLUGIN_DIRNAME . '/languages' );
 
-		trigger_error( sprintf( __( 'Plugin Boilerplate requires PHP version %s or greater to be activated.', 'bea-find-media' ), BEA_FIND_MEDIA_MIN_PHP_VERSION ) );
+		trigger_error( sprintf( __( 'Plugin Boilerplate requires PHP version %s or greater to be activated.', 'bea-media-analytics' ), BEA_FIND_MEDIA_MIN_PHP_VERSION ) );
 
 		// Deactive self
-		deactivate_plugins( BEA_FIND_MEDIA_DIR . 'bea-find-media.php' );
+		deactivate_plugins( BEA_FIND_MEDIA_DIR . 'bea-media-analytics.php' );
 
 		unset( $_GET['activate'] );
 
@@ -34,7 +34,7 @@ class Compatibility {
 	 */
 	public static function admin_notices() {
 		echo '<div class="notice error is-dismissible">';
-		echo '<p>' . esc_html( sprintf( __( 'Plugin Boilerplate require PHP version %s or greater to be activated. Your server is currently running PHP version %s.', 'bea-find-media' ), BEA_FIND_MEDIA_MIN_PHP_VERSION, PHP_VERSION ) ) . '</p>';
+		echo '<p>' . esc_html( sprintf( __( 'Plugin Boilerplate require PHP version %s or greater to be activated. Your server is currently running PHP version %s.', 'bea-media-analytics' ), BEA_FIND_MEDIA_MIN_PHP_VERSION, PHP_VERSION ) ) . '</p>';
 		echo '</div>';
 	}
 }

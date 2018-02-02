@@ -49,7 +49,7 @@ class Main {
 	 * @return string
 	 */
 	public function admin_column_title( $title ) {
-		return _x( 'Usage (CSF)', 'Admin column name for CSF', 'bea-find-media' );
+		return _x( 'Usage (CSF)', 'Admin column name for CSF', 'bea-media-analytics' );
 	}
 
 	/**
@@ -114,9 +114,9 @@ class Main {
 	 */
 	public function modal_view_title( $label, $counter ) {
 		if ( 1 === $counter ) {
-			$label = __( 'One single time across all synchronized sites.', 'bea-find-media' );
+			$label = __( 'One single time across all synchronized sites.', 'bea-media-analytics' );
 		} else {
-			$label = sprintf( __( '%s times across all synchronized sites.', 'bea-find-media' ), esc_html( $counter ) );
+			$label = sprintf( __( '%s times across all synchronized sites.', 'bea-media-analytics' ), esc_html( $counter ) );
 		}
 
 		return $label;
@@ -135,11 +135,11 @@ class Main {
 	 */
 	public function edit_view_title( $title, $counter ) {
 		if ( 0 === $counter ) {
-			$title = __( 'This media is not used.', 'bea-find-media' );
+			$title = __( 'This media is not used.', 'bea-media-analytics' );
 		} elseif ( 1 == $counter ) {
-			$title = __( 'This media is used once across all synchronized sites :', 'bea-find-media' );
+			$title = __( 'This media is used once across all synchronized sites :', 'bea-media-analytics' );
 		} else {
-			$title = sprintf( __( 'This media is used %s times across all synchronized sites :', 'bea-find-media' ), $counter );
+			$title = sprintf( __( 'This media is used %s times across all synchronized sites :', 'bea-media-analytics' ), $counter );
 		}
 
 		return $title;
@@ -216,7 +216,7 @@ class Main {
 			$html = '<ul>';
 			foreach ( $data as $blog_id => $blog_data ) {
 				switch_to_blog( $blog_id );
-				$html .= sprintf( '<li><a href="%s" target="_blank">%s</a></li><ul>', get_admin_url( $blog_id ), sprintf( _x( 'On site : %s', 'Each site details for media usage', 'bea-find-media' ), get_option( 'blogname' ) ) );
+				$html .= sprintf( '<li><a href="%s" target="_blank">%s</a></li><ul>', get_admin_url( $blog_id ), sprintf( _x( 'On site : %s', 'Each site details for media usage', 'bea-media-analytics' ), get_option( 'blogname' ) ) );
 				foreach ( $blog_data as $object_type => $obj ) {
 					foreach ( $obj as $media_id => $media ) {
 						foreach ( $media as $content_id => $types ) {
@@ -245,7 +245,7 @@ class Main {
 	 * @return mixed
 	 */
 	public function localize_scripts( $strings ) {
-		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' );
+		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-media-analytics' );
 		return $strings;
 	}
 }

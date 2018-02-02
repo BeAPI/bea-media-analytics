@@ -19,7 +19,7 @@ class Media {
 		add_action( 'manage_media_custom_column', [ $this, 'admin_columns_values' ], 10, 2 );
 		// TODO : No inline hook + css
 		add_action( 'admin_head', function () {
-			echo '<style type="text/css">.column-bea-find-media-counter { width: 7%; }</style>';
+			echo '<style type="text/css">.column-bea-media-analytics-counter { width: 7%; }</style>';
 		} );
 
 		// Warning on delete
@@ -43,9 +43,9 @@ class Media {
 		$counter = DB::get_counter( $media->ID );
 		if ( ! empty( $counter ) ) {
 			if ( 1 == $counter ) {
-				$label = __( 'One time.', 'bea-find-media' );
+				$label = __( 'One time.', 'bea-media-analytics' );
 			} else {
-				$label = sprintf( __( '%s times.', 'bea-find-media' ), esc_html( $counter ) );
+				$label = sprintf( __( '%s times.', 'bea-media-analytics' ), esc_html( $counter ) );
 			}
 			/**
 			 * Filter the title for the modal view
@@ -56,13 +56,13 @@ class Media {
 			 * @param int    $counter The number of usages.
 			 */
 			$label = apply_filters( 'bea.find_media.media.modal_view_title', $label, $counter );
-			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-find-media' ), $label );
+			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-media-analytics' ), $label );
 		} else {
-			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-find-media' ) );
+			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-media-analytics' ) );
 		}
 
 		$form_fields['bea_find_media_view'] = [
-			'label'         => __( 'Usage :', 'bea-find-media' ),
+			'label'         => __( 'Usage :', 'bea-media-analytics' ),
 			'input'         => 'html',
 			'html'          => $html,
 			'show_in_edit'  => false,
@@ -86,11 +86,11 @@ class Media {
 	public function edit_view( $form_fields, $media ) {
 		$counter = DB::get_counter( $media->ID );
 		if ( 0 === $counter ) {
-			$title = __( 'This media is not used.', 'bea-find-media' );
+			$title = __( 'This media is not used.', 'bea-media-analytics' );
 		} elseif ( 1 == $counter ) {
-			$title = __( 'This media is used once :', 'bea-find-media' );
+			$title = __( 'This media is used once :', 'bea-media-analytics' );
 		} else {
-			$title = sprintf( __( 'This media is used %s times :', 'bea-find-media' ), $counter );
+			$title = sprintf( __( 'This media is used %s times :', 'bea-media-analytics' ), $counter );
 		}
 
 		/**
@@ -178,7 +178,7 @@ class Media {
 		 *
 		 * @param string $title
 		 */
-		$headers['bea-find-media-counter'] = apply_filters( 'bea.find_media.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-find-media' ) );
+		$headers['bea-media-analytics-counter'] = apply_filters( 'bea.find_media.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-media-analytics' ) );
 
 		return $headers;
 	}
@@ -194,7 +194,7 @@ class Media {
 	 */
 	public function admin_columns_values( $column_name, $media_id ) {
 		$counter = '';
-		if ( 'bea-find-media-counter' === $column_name ) {
+		if ( 'bea-media-analytics-counter' === $column_name ) {
 			$counter = DB::get_counter( $media_id );
 		}
 
@@ -255,7 +255,7 @@ class Media {
 	 * @author Maxime CULEA
 	 */
 	public function register_scripts() {
-		wp_register_script( 'bea-find-media', BEA_FIND_MEDIA_URL . 'assets/js/bea-find-media.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
+		wp_register_script( 'bea-media-analytics', BEA_FIND_MEDIA_URL . 'assets/js/bea-media-analytics.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
 	}
 
 	/**
@@ -267,7 +267,7 @@ class Media {
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
 		if ( is_admin() && 'attachment' === $screen->post_type && in_array( $screen->base, [ 'upload', 'post' ] ) ) {
-			wp_enqueue_script( 'bea-find-media' );
+			wp_enqueue_script( 'bea-media-analytics' );
 
 			if ( 'post' === $screen->base ) {
 				add_action( 'admin_footer', [ $this, 'delete_from_single_warning' ] );
