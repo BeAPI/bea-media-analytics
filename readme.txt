@@ -58,7 +58,7 @@ This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the
 
 At plugin activation, a single event will be added in order to index your contents. It generally takes 10-15 min to do so.
 
-At plugin deactivation, all blog's data are deleted.
+At plugin deactivation, all data stored by this plugin will be **deleted** to ensure not to weighing the DB and also for further safe reactivation.
 
 = Requirements =
 - WordPress 4.7+

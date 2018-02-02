@@ -20,7 +20,7 @@ A table is created for indexing where media are used. This is done when saving c
 
 At plugin activation, a single event will be added in order to index your contents. It generally takes 10-15 min to do so.
 
-At plugin deactivation, all blog's data are **deleted** to ensure not to weighing the DB and also for further safe reactivation.
+At plugin deactivation, all data stored by this plugin will be **deleted** to ensure not to weighing the DB and also for further safe reactivation.
 
 ## WordPress
 
