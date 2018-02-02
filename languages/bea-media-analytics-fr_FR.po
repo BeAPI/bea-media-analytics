@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: BEA - Media Analytics\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-12 14:44+0000\n"
-"PO-Revision-Date: 2017-12-12 14:47+0000\n"
+"PO-Revision-Date: 2018-02-02 16:56+0000\n"
 "Last-Translator: admin <dev-email@flywheel.local>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -23,6 +23,14 @@ msgstr ""
 msgid ""
 "Plugin Boilerplate require PHP version %s or greater to be activated. Your "
 "server is currently running PHP version %s."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/BeAPI/bea-media-analytics"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://beapi.fr/"
 msgstr ""
 
 #: classes/addons/content-sync-fusion/main.php:52
@@ -73,16 +81,6 @@ msgstr ""
 #. Description of the plugin
 msgid "Find where and how media are used across your site."
 msgstr "Trouver où et comment sont utilisés les médias au sein du site entier."
-
-#. URI of the plugin
-msgid "https://github.com/BeAPI/bea-media-analytics"
-msgstr ""
-
-#. Author URI of the plugin
-msgid ""
-"https://beapi.fr/?utm_source=Plugin&utm_medium=Link&utm_campaign=bea-find-"
-"media"
-msgstr ""
 
 #: classes/helpers.php:17
 msgctxt "Label for humanizing object types"
