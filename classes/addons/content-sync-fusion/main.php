@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\Addons\Content_Sync_Fusion;
+<?php namespace BEA\Media_Analytics\Addons\Content_Sync_Fusion;
 
-use BEA\Find_Media\DB_Table;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\DB_Table;
+use BEA\Media_Analytics\Singleton;
 
 class Main {
 
@@ -13,17 +13,17 @@ class Main {
 			return;
 		}
 
-		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
-		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
-		add_filter( 'bea.find_media.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
-		add_filter( 'bea.find_media.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
-		add_filter( 'bea.find_media.main.localize_scripts', [ $this, 'localize_scripts' ] );
+		add_filter( 'bea.media_analytics.media.admin_column_title', [ $this, 'admin_column_title' ] );
+		add_filter( 'bea.media_analytics.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
+		add_filter( 'bea.media_analytics.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
+		add_filter( 'bea.media_analytics.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
+		add_filter( 'bea.media_analytics.main.localize_scripts', [ $this, 'localize_scripts' ] );
 
-		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
-		add_filter( 'bea.find_media.db.get_data', [ $this, 'get_data' ], 20, 2 );
+		add_filter( 'bea.media_analytics.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
+		add_filter( 'bea.media_analytics.db.get_data', [ $this, 'get_data' ], 20, 2 );
 		// Filter array values for MS
-		remove_filter( 'bea.find_media.db.get_data', [ 'BEA\Find_Media\Main', 'format_indexed_values' ], 100 );
-		add_filter( 'bea.find_media.db.get_data', [ 'BEA\Find_Media\Main', 'format_indexed_values_ms' ], 120 );
+		remove_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values' ], 100 );
+		add_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values_ms' ], 120 );
 	}
 
 	/**
@@ -49,7 +49,7 @@ class Main {
 	 * @return string
 	 */
 	public function admin_column_title( $title ) {
-		return _x( 'Usage (CSF)', 'Admin column name for CSF', 'bea-find-media' );
+		return _x( 'Usage (CSF)', 'Admin column name for CSF', 'bea-media-analytics' );
 	}
 
 	/**
@@ -114,9 +114,9 @@ class Main {
 	 */
 	public function modal_view_title( $label, $counter ) {
 		if ( 1 === $counter ) {
-			$label = __( 'One single time across all synchronized sites.', 'bea-find-media' );
+			$label = __( 'One single time across all synchronized sites.', 'bea-media-analytics' );
 		} else {
-			$label = sprintf( __( '%s times across all synchronized sites.', 'bea-find-media' ), esc_html( $counter ) );
+			$label = sprintf( __( '%s times across all synchronized sites.', 'bea-media-analytics' ), esc_html( $counter ) );
 		}
 
 		return $label;
@@ -135,11 +135,11 @@ class Main {
 	 */
 	public function edit_view_title( $title, $counter ) {
 		if ( 0 === $counter ) {
-			$title = __( 'This media is not used.', 'bea-find-media' );
+			$title = __( 'This media is not used.', 'bea-media-analytics' );
 		} elseif ( 1 == $counter ) {
-			$title = __( 'This media is used once across all synchronized sites :', 'bea-find-media' );
+			$title = __( 'This media is used once across all synchronized sites :', 'bea-media-analytics' );
 		} else {
-			$title = sprintf( __( 'This media is used %s times across all synchronized sites :', 'bea-find-media' ), $counter );
+			$title = sprintf( __( 'This media is used %s times across all synchronized sites :', 'bea-media-analytics' ), $counter );
 		}
 
 		return $title;
@@ -216,11 +216,11 @@ class Main {
 			$html = '<ul>';
 			foreach ( $data as $blog_id => $blog_data ) {
 				switch_to_blog( $blog_id );
-				$html .= sprintf( '<li><a href="%s" target="_blank">%s</a></li><ul>', get_admin_url( $blog_id ), sprintf( _x( 'On site : %s', 'Each site details for media usage', 'bea-find-media' ), get_option( 'blogname' ) ) );
+				$html .= sprintf( '<li><a href="%s" target="_blank">%s</a></li><ul>', get_admin_url( $blog_id ), sprintf( _x( 'On site : %s', 'Each site details for media usage', 'bea-media-analytics' ), get_option( 'blogname' ) ) );
 				foreach ( $blog_data as $object_type => $obj ) {
 					foreach ( $obj as $media_id => $media ) {
 						foreach ( $media as $content_id => $types ) {
-							$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
+							$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
 							$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
 						}
 					}
@@ -245,7 +245,7 @@ class Main {
 	 * @return mixed
 	 */
 	public function localize_scripts( $strings ) {
-		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-find-media' );
+		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-media-analytics' );
 		return $strings;
 	}
 }

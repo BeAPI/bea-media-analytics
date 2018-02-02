@@ -1,4 +1,4 @@
-BEA - Find Media / Find where medias are used across your site.
+BEA - Media Analytics / Find where media are used across your site.
 
 Copyright 2017-2018 Be API and contributors
 
@@ -19,11 +19,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 This program incorporates work covered by the following copyright and
 permission notices:
 
-  BEA - Find Media / Find where medias are used across your site.
+  BEA - Media Analytics / Find where media are used across your site.
 
   Copyright 2017-2018 Be API and contributors
 
-  BEA - Find Media is released under the GPL
+  BEA - Media Analytics is released under the GPL
  
  
 ===============================================================================
@@ -706,6 +706,6 @@ Public License instead of this License.  But first, please read
 WRITTEN OFFER
 
 The source code for any program binaries or compressed scripts that are
-included with BEA - Find Media can be freely obtained at the following URL:
+included with BEA - Media Analytics can be freely obtained at the following URL:
 
-    https://github.com/BeAPI/bea-find-media/
+    https://github.com/BeAPI/bea-media-analytics/

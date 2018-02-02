@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media\Admin;
+<?php namespace BEA\Media_Analytics\Admin;
 
 class Admin_Media_List_Table extends \WP_List_Table {
 

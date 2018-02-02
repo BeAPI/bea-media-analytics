@@ -1,6 +1,6 @@
 <a href="https://beapi.fr">![Be API Github Banner](assets/images/banner-github.png)</a>
 
-# BEA - Find Media
+# BEA - Media Analytics
 
 If you want to see which media is used and where ? This plugin is for you !
 
@@ -26,13 +26,13 @@ At plugin deactivation, all blog's data are **deleted** to ensure not to weighin
 
 - Download and install using the built-in WordPress plugin installer.
 - Site activate in the "Plugins" area of the admin.
-- Optionally drop the entire `bea-find-media` directory into mu-plugins.
+- Optionally drop the entire `bea-media-analytics` directory into mu-plugins.
 - Nothing more, this plugin is ready to use !
 
 ## [Composer](http://composer.rarst.net/)
 
-- Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-find-media" }`.
-- Include `"bea/bea-find-media": "dev-master"` in your composer file for last master's commits or a tag released.
+- Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-media-analytics" }`.
+- Include `"bea/bea-media-analytics": "dev-master"` in your composer file for last master's commits or a tag released.
 - Nothing more, this plugin is ready to use !
 
 # What ?
@@ -87,8 +87,8 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - More file's mime types
 
 ## Next Roadmap
-- [39](https://github.com/BeAPI/bea-find-media/issues/39) : Improve display
-- [33](https://github.com/BeAPI/bea-find-media/issues/33) : Ensure a lot of file's mime types support
+- [39](https://github.com/BeAPI/bea-media-analytics/issues/39) : Improve display
+- [33](https://github.com/BeAPI/bea-media-analytics/issues/33) : Ensure a lot of file's mime types support
 
 ## Languages
 
@@ -107,8 +107,8 @@ If you identify any errors or have an idea for improving the plugin, feel free t
 
 ### Translation request / proposal
 
-_Waiting WordPress plugin : If you want to translate BEA - Find Media, the best way is to use the official way :
-[WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-find-media)._
+If you want to translate BEA - Media Analytics, the best way is to use the official way :
+[WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-media-analytics).
 
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
 
@@ -118,22 +118,22 @@ You can, of course, just [create a pull request](../../compare) to our repositor
 
 #### Force indexation
 
-[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_find_media index_site`
+[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_media_analytics index_site`
  
 ##### Multisite
 
 Optionally on a multisite :
-* for a site : `wp bea_find_media index_site --url={url}`
-* for the entire network : `wp bea_find_media index_site --url={url}`
-* for all sites of all networks : `wp bea_find_media index_site --url=$(wp site list --fields=url)`
+* for a site : `wp bea_media_analytics index_site --url={url}`
+* for the entire network : `wp bea_media_analytics index_site --url={url}`
+* for all sites of all networks : `wp bea_media_analytics index_site --url=$(wp site list --fields=url)`
 
 ### REST Api
 
-The [REST Api](https://developer.wordpress.org/rest-api/) has been used to display the number of usage for an attachment. The route `exemple.com/wp-json/wp/v2/media/{id}/` will return a custom field called `bea_find_media_counter` which represents how many times it has been used into supported contents.
+The [REST Api](https://developer.wordpress.org/rest-api/) has been used to display the number of usage for an attachment. The route `exemple.com/wp-json/wp/v2/media/{id}/` will return a custom field called `bea_media_analytics_counter` which represents how many times it has been used into supported contents.
 
 ### JSON API
 
-WordPress is working a lot with the JSON API, that's why why the `bea_find_media_counter` attribute has been added into attachment's JSON responses.
+WordPress is working a lot with the JSON API, that's why why the `bea_media_analytics_counter` attribute has been added into attachment's JSON responses.
 
 # Who ?
 
@@ -145,4 +145,4 @@ If you really like what we do or want to thank us for our quick work, feel free 
 
 ## License
 
-BEA - Find Media is licensed under the [GPLv3 or later](LICENSE.md).
+BEA - Media Analytics is licensed under the [GPLv3 or later](LICENSE.md).

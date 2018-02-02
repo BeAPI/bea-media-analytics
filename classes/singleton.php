@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 /**
  * Singleton base class for having singleton implementation
@@ -9,7 +9,7 @@
  * /!\ The get_instance method have to be implemented !
  *
  * Class Singleton
- * @package BEA\Find_Media
+ * @package BEA\Media_Analytics
  */
 trait Singleton {
 

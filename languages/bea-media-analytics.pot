@@ -144,15 +144,15 @@ msgid ""
 msgstr ""
 
 #. Name of the plugin
-msgid "BEA - Find Media"
+msgid "BEA - Media Analytics"
 msgstr ""
 
 #. Description of the plugin
-msgid "Find where and how medias are used across your site."
+msgid "Find where and how media are used across your site."
 msgstr ""
 
 #. URI of the plugin
-msgid "https://github.com/BeAPI/bea-find-media"
+msgid "https://github.com/BeAPI/bea-media-analytics"
 msgstr ""
 
 #. Author of the plugin

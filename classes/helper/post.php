@@ -1,6 +1,6 @@
-<?php namespace BEA\Find_Media\Helper;
+<?php namespace BEA\Media_Analytics\Helper;
 
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\Singleton;
 
 class Post extends Helper {
 

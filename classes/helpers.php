@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 class Helpers {
 	/**
@@ -14,13 +14,13 @@ class Helpers {
 	public static function humanize_object_type( $type ) {
 		switch ( $type ) {
 			case 'post_content' :
-				$label = _x( 'Post content', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Post content', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			case 'post_thumbnail' :
-				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Post thumbnail', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			case 'acf' :
-				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-find-media' );
+				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			default :
 				$label = '';
@@ -69,6 +69,6 @@ class Helpers {
 	 * @return array
 	 */
 	public static function check_image_ids( $image_ids ) {
-		return array_filter( $image_ids, [ 'BEA\Find_Media\Helpers', 'check_image_id' ], ARRAY_FILTER_USE_KEY );
+		return array_filter( $image_ids, [ 'BEA\Media_Analytics\Helpers', 'check_image_id' ], ARRAY_FILTER_USE_KEY );
 	}
 }

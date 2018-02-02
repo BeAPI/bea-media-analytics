@@ -1,19 +1,13 @@
 {
-	"name":"bea/bea-find-media",
-	"description":"Find where and how medias are used across your site.",
-	"keywords":[
-		"wordpress-plugin",
-		"media",
-		"single-site",
-		"multisite",
-		"wordpress"
-	],
-	"homepage":"https://github.com/BeAPI/bea-find-media",
+	"name":"bea/bea-media-analytics",
+	"description":"Find where and how media are used across your site.",
+	"keywords":[ "uploads", "sanitize" ],
+	"homepage":"https://github.com/BeAPI/bea-media-analytics",
 	"authors":[
 		{
 			"name":"Be API",
 			"email":"technique@beapi.fr",
-			"homepage":"http://beapi.fr"
+			"homepage":"https://beapi.fr/"
 		}
 	],
 	"type":"wordpress-plugin",

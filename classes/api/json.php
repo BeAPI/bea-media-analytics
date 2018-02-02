@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\API;
+<?php namespace BEA\Media_Analytics\API;
 
-use BEA\Find_Media\DB;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\DB;
+use BEA\Media_Analytics\Singleton;
 
 class Json {
 	use Singleton;
@@ -24,7 +24,7 @@ class Json {
 	 */
 	public function wp_prepare_attachment_for_js( $response, $attachment, $meta ) {
 		// Add media
-		$response[ 'bea_find_media_counter' ] = (string) DB::get_counter( $response['id'] );
+		$response[ 'bea_media_analytics_counter' ] = (string) DB::get_counter( $response['id'] );
 		return $response;
 	}
 }

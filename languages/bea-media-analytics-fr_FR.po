@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BEA - Find Media\n"
+"Project-Id-Version: BEA - Media Analytics\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-12 14:44+0000\n"
 "PO-Revision-Date: 2017-12-12 14:47+0000\n"
@@ -71,11 +71,11 @@ msgstr ""
 "« Annuler » pour arrêter, « OK » pour supprimer."
 
 #. Description of the plugin
-msgid "Find where and how medias are used across your site."
+msgid "Find where and how media are used across your site."
 msgstr "Trouver où et comment sont utilisés les médias au sein du site entier."
 
 #. URI of the plugin
-msgid "https://github.com/BeAPI/bea-find-media"
+msgid "https://github.com/BeAPI/bea-media-analytics"
 msgstr ""
 
 #. Author URI of the plugin
@@ -164,8 +164,8 @@ msgid "Usage"
 msgstr "Usage"
 
 #. Name of the plugin
-msgid "BEA - Find Media"
-msgstr "BEA - Find Media"
+msgid "BEA - Media Analytics"
+msgstr "BEA - Media Analytics"
 
 #. Author of the plugin
 msgid "Be API Technical team"

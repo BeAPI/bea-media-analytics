@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media\Addons\Content_Sync_Fusion;
+<?php namespace BEA\Media_Analytics\Addons\Content_Sync_Fusion;
 
 class Helper {
 	/**
