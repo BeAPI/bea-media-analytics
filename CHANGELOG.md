@@ -1,7 +1,7 @@
 # Changelog ##
 
 ## 2.0.0 - 02 Feb 2018
-* Rename plugin from BEA - Find Media into BEA - Media Analytics
+* Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"
 
 ## 1.0.1 - 12 Dec 2017
 * On activation, handle force indexation.

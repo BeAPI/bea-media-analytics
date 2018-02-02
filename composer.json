@@ -1,7 +1,7 @@
 {
 	"name":"bea/bea-media-analytics",
 	"description":"Find where and how media are used across your site.",
-	"keywords":[ "uploads", "sanitize" ],
+	"keywords":[ "uploads", "sanitize", "find", "media", "usage", "find media", "multisite", "single site" ],
 	"homepage":"https://github.com/BeAPI/bea-media-analytics",
 	"authors":[
 		{

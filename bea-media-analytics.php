@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: BEA - Media Analytics
- Version: 1.0.1
+ Version: 2.0.0
  Plugin URI: https://github.com/BeAPI/bea-media-analytics
  Description: Find where and how media are used across your site.
  Author: Be API Technical team
