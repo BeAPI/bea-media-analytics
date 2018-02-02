@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\Addons;
+<?php namespace BEA\Media_Analytics\Addons;
 
-use BEA\Find_Media\Addons\Content_Sync_Fusion\Main as CSF;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\Addons\Content_Sync_Fusion\Main as CSF;
+use BEA\Media_Analytics\Singleton;
 
 class Main {
 

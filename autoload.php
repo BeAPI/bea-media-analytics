@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 /**
  * An example of a general-purpose implementation that includes the optional
@@ -186,10 +186,10 @@ class Autoloader {
 }
 
 // instantiate the loader
-$loader = new \BEA\Find_Media\Autoloader;
+$loader = new \BEA\Media_Analytics\Autoloader;
 
 // register the autoloader
 $loader->register();
 
 // register the base directories for the namespace prefix
-$loader->addNamespace( 'BEA\Find_Media', BEA_FIND_MEDIA_DIR . 'classes' );
+$loader->addNamespace( 'BEA\Media_Analytics', BEA_MEDIA_ANALYTICS_DIR . 'classes' );

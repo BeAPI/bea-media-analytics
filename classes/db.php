@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 class DB {
 
@@ -138,7 +138,7 @@ class DB {
 		 * @param int $counter  How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
-		return apply_filters( 'bea.find_media.db.get_counter', $counter, $media_id );
+		return apply_filters( 'bea.media_analytics.db.get_counter', $counter, $media_id );
 	}
 
 	/**
@@ -170,7 +170,7 @@ class DB {
 		 * @param array $data     The indexed data, reordoned.
 		 * @param int   $media_id Media ID looking for.
 		 */
-		return apply_filters( 'bea.find_media.db.get_data', $data, $media_id );
+		return apply_filters( 'bea.media_analytics.db.get_data', $data, $media_id );
 	}
 
 	/**

@@ -1,12 +1,12 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
-use \BEA\Find_Media\Admin\Post;
+use \BEA\Media_Analytics\Admin\Post;
 
 class Main {
 	use Singleton;
 
 	protected function init() {
-		add_filter( 'bea.find_media.db.get_data', [ __CLASS__, 'format_indexed_values' ], 100 );
+		add_filter( 'bea.media_analytics.db.get_data', [ __CLASS__, 'format_indexed_values' ], 100 );
 		add_action( 'init', [ $this, 'init_translations' ] );
 
 		// JS i18n
@@ -106,8 +106,8 @@ class Main {
 		 *
 		 * @param array $strings
 		 */
-		$strings = apply_filters( 'bea.find_media.main.localize_scripts', $strings );
-		wp_localize_script( 'bea-media-analytics', 'bea_find_media', $strings );
+		$strings = apply_filters( 'bea.media_analytics.main.localize_scripts', $strings );
+		wp_localize_script( 'bea-media-analytics', 'bea_media_analytics', $strings );
 	}
 
 	/**
@@ -130,6 +130,6 @@ class Main {
 
 	public function init_translations() {
 		// Load translations
-		load_plugin_textdomain( 'bea-media-analytics', false, BEA_FIND_MEDIA_PLUGIN_DIRNAME . '/languages' );
+		load_plugin_textdomain( 'bea-media-analytics', false, BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME . '/languages' );
 	}
 }

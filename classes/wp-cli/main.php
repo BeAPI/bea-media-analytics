@@ -1,6 +1,6 @@
-<?php Namespace BEA\Find_Media\WP_Cli;
+<?php Namespace BEA\Media_Analytics\WP_Cli;
 
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\Singleton;
 
 class Main {
 
@@ -8,7 +8,7 @@ class Main {
 
 	protected function init() {
 		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::add_command( 'bea_find_media', 'BEA\Find_Media\WP_Cli\Index_Site' );
+			\WP_CLI::add_command( 'bea_media_analytics', 'BEA\Media_Analytics\WP_Cli\Index_Site' );
 		}
 	}
 }

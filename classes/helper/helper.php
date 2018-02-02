@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media\Helper;
+<?php namespace BEA\Media_Analytics\Helper;
 
 class Helper {
 	/**

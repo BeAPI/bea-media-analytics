@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\API;
+<?php namespace BEA\Media_Analytics\API;
 
-use BEA\Find_Media\DB;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\DB;
+use BEA\Media_Analytics\Singleton;
 
 class Rest_Api {
 	use Singleton;
@@ -20,7 +20,7 @@ class Rest_Api {
 			return;
 		}
 
-		register_rest_field( [ 'attachment' ], 'bea_find_media_counter', [
+		register_rest_field( [ 'attachment' ], 'bea_media_analytics_counter', [
 			'get_callback' => [ $this, 'get_media_counter' ],
 			'schema'       => [
 				'description' => 'Display the attachment\'s counter for media use.',

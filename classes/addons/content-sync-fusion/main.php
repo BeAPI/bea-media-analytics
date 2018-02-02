@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\Addons\Content_Sync_Fusion;
+<?php namespace BEA\Media_Analytics\Addons\Content_Sync_Fusion;
 
-use BEA\Find_Media\DB_Table;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\DB_Table;
+use BEA\Media_Analytics\Singleton;
 
 class Main {
 
@@ -13,17 +13,17 @@ class Main {
 			return;
 		}
 
-		add_filter( 'bea.find_media.media.admin_column_title', [ $this, 'admin_column_title' ] );
-		add_filter( 'bea.find_media.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
-		add_filter( 'bea.find_media.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
-		add_filter( 'bea.find_media.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
-		add_filter( 'bea.find_media.main.localize_scripts', [ $this, 'localize_scripts' ] );
+		add_filter( 'bea.media_analytics.media.admin_column_title', [ $this, 'admin_column_title' ] );
+		add_filter( 'bea.media_analytics.media.modal_view_title', [ $this, 'modal_view_title' ], 20, 2 );
+		add_filter( 'bea.media_analytics.media.edit_view_title', [ $this, 'edit_view_title' ], 20, 2 );
+		add_filter( 'bea.media_analytics.media.edit_view_html', [ $this, 'edit_view_html' ], 20, 2 );
+		add_filter( 'bea.media_analytics.main.localize_scripts', [ $this, 'localize_scripts' ] );
 
-		add_filter( 'bea.find_media.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
-		add_filter( 'bea.find_media.db.get_data', [ $this, 'get_data' ], 20, 2 );
+		add_filter( 'bea.media_analytics.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
+		add_filter( 'bea.media_analytics.db.get_data', [ $this, 'get_data' ], 20, 2 );
 		// Filter array values for MS
-		remove_filter( 'bea.find_media.db.get_data', [ 'BEA\Find_Media\Main', 'format_indexed_values' ], 100 );
-		add_filter( 'bea.find_media.db.get_data', [ 'BEA\Find_Media\Main', 'format_indexed_values_ms' ], 120 );
+		remove_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values' ], 100 );
+		add_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values_ms' ], 120 );
 	}
 
 	/**
@@ -220,7 +220,7 @@ class Main {
 				foreach ( $blog_data as $object_type => $obj ) {
 					foreach ( $obj as $media_id => $media ) {
 						foreach ( $media as $content_id => $types ) {
-							$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
+							$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
 							$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
 						}
 					}

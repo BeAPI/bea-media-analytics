@@ -1,13 +1,16 @@
 {
-  "name": "bea/bea-media-analytics",
-  "description": "Find where and how medias are used across your site.",
-  "minimum-stability": "stable",
-  "license": "GPL-2.0",
-  "authors": [
-    {
-      "name": "Be API",
-      "email": "technique@beapi.fr"
-    }
-  ],
-  "type" : "wordpress-plugin"
+	"name":"bea/bea-media-analytics",
+	"description":"Find where and how media are used across your site.",
+	"keywords":[ "uploads", "sanitize" ],
+	"homepage":"https://github.com/BeAPI/bea-media-analytics",
+	"authors":[
+		{
+			"name":"Be API",
+			"email":"technique@beapi.fr",
+			"homepage":"https://beapi.fr/"
+		}
+	],
+	"type":"wordpress-plugin",
+	"minimum-stability":"stable",
+	"license":"GPL-3.0+"
 }

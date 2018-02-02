@@ -1,7 +1,7 @@
-<?php namespace BEA\Find_Media\Admin;
+<?php namespace BEA\Media_Analytics\Admin;
 
-use BEA\Find_Media\Singleton;
-use BEA\Find_Media\DB;
+use BEA\Media_Analytics\Singleton;
+use BEA\Media_Analytics\DB;
 
 class Media {
 	use Singleton;
@@ -55,13 +55,13 @@ class Media {
 			 * @param string $label   Depending on counter, display the single or multiple title.
 			 * @param int    $counter The number of usages.
 			 */
-			$label = apply_filters( 'bea.find_media.media.modal_view_title', $label, $counter );
+			$label = apply_filters( 'bea.media_analytics.media.modal_view_title', $label, $counter );
 			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-media-analytics' ), $label );
 		} else {
 			$html = sprintf( '<span class="value">%s</span>', __( 'Not used anywhere.', 'bea-media-analytics' ) );
 		}
 
-		$form_fields['bea_find_media_view'] = [
+		$form_fields['bea_media_analytics_view'] = [
 			'label'         => __( 'Usage :', 'bea-media-analytics' ),
 			'input'         => 'html',
 			'html'          => $html,
@@ -101,7 +101,7 @@ class Media {
 		 * @param string $title   Depending on counter, display the title.
 		 * @param int    $counter The number of usages.
 		 */
-		$title = apply_filters( 'bea.find_media.media.edit_view_title', $title, $counter );
+		$title = apply_filters( 'bea.media_analytics.media.edit_view_title', $title, $counter );
 
 		/**
 		 * $amlt = new Admin_Media_List_Table();
@@ -119,7 +119,7 @@ class Media {
 			foreach ( $data as $object_type => $obj ) {
 				foreach ( $obj as $media_id => $media ) {
 					foreach ( $media as $content_id => $types ) {
-						$_types = array_map( [ 'BEA\Find_Media\Helpers', 'humanize_object_type' ], $types );
+						$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
 						$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
 					}
 				}
@@ -135,9 +135,9 @@ class Media {
 		 * @param string $html The formatted HTML for edit view display.
 		 * @param array  $data All DB usages from the current media.
 		 */
-		$html = apply_filters( 'bea.find_media.media.edit_view_html', $html, $data );
+		$html = apply_filters( 'bea.media_analytics.media.edit_view_html', $html, $data );
 
-		$form_fields['bea_find_media_edit'] = [
+		$form_fields['bea_media_analytics_edit'] = [
 			'label'         => $title,
 			'input'         => 'html',
 			'html'          => $html,
@@ -178,7 +178,7 @@ class Media {
 		 *
 		 * @param string $title
 		 */
-		$headers['bea-media-analytics-counter'] = apply_filters( 'bea.find_media.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-media-analytics' ) );
+		$headers['bea-media-analytics-counter'] = apply_filters( 'bea.media_analytics.media.admin_column_title', _x( 'Usage', 'Admin column name', 'bea-media-analytics' ) );
 
 		return $headers;
 	}
@@ -224,8 +224,8 @@ class Media {
 			return $actions;
 		}
 
-		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_find_media_warn(); )
-		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_find_media_warn_list({$media->ID});'", $actions['delete'] );
+		// Change default one ( return showNotice.warn(); ) with our custom one ( return bea_media_analytics_warn(); )
+		$actions['delete'] = str_replace( "onclick='return showNotice.warn();'", "onclick='return bea_media_analytics_warn_list({$media->ID});'", $actions['delete'] );
 
 		return $actions;
 	}
@@ -245,7 +245,7 @@ class Media {
 			return;
 		}
 
-		echo "<script type='text/javascript'>(function ($, w) {jQuery('#delete-action a').attr('onclick','return bea_find_media_warn_single(" . esc_js( $counter ) . ");');})(jQuery, window);</script>";
+		echo "<script type='text/javascript'>(function ($, w) {jQuery('#delete-action a').attr('onclick','return bea_media_analytics_warn_single(" . esc_js( $counter ) . ");');})(jQuery, window);</script>";
 	}
 
 	/**
@@ -255,7 +255,7 @@ class Media {
 	 * @author Maxime CULEA
 	 */
 	public function register_scripts() {
-		wp_register_script( 'bea-media-analytics', BEA_FIND_MEDIA_URL . 'assets/js/bea-media-analytics.js', [ 'jquery' ], BEA_FIND_MEDIA_VERSION, true );
+		wp_register_script( 'bea-media-analytics', BEA_MEDIA_ANALYTICS_URL . 'assets/js/bea-media-analytics.js', [ 'jquery' ], BEA_MEDIA_ANALYTICS_VERSION, true );
 	}
 
 	/**

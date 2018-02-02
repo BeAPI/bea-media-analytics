@@ -1,8 +1,8 @@
-<?php namespace BEA\Find_Media\Admin;
+<?php namespace BEA\Media_Analytics\Admin;
 
-use BEA\Find_Media\DB;
-use BEA\Find_Media\Helpers;
-use BEA\Find_Media\Singleton;
+use BEA\Media_Analytics\DB;
+use BEA\Media_Analytics\Helpers;
+use BEA\Media_Analytics\Singleton;
 
 class Post {
 	use Singleton;
@@ -33,7 +33,7 @@ class Post {
 		 * @param array $image_ids Array of images id.
 		 * @param int $post_id Post ID.
 		 */
-		$image_ids = apply_filters( 'bea.find_media.post.index', [], $post_id );
+		$image_ids = apply_filters( 'bea.media_analytics.post.index', [], $post_id );
 		if ( empty( $image_ids ) ) {
 			return;
 		}
@@ -58,7 +58,7 @@ class Post {
 }
 
 // TEST
-add_filter( 'bea.find_media.post.index', function ( $media_ids ) {
+add_filter( 'bea.media_analytics.post.index', function ( $media_ids ) {
 	return $media_ids;
 	$media_ids[43] = [ 'post_content', 'post_thumbnail', 'acf' ];
 

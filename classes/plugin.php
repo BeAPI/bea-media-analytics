@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 class Plugin {
 	use Singleton;
@@ -12,7 +12,7 @@ class Plugin {
 		// For safety, delete existing data
 		DB::get_instance()->delete_blog( get_current_blog_id() );
 
-		Cron::schedule();
+		Crons::schedule();
 	}
 
 	/**
@@ -20,6 +20,6 @@ class Plugin {
 	 */
 	public static function deactivate() {
 		DB::get_instance()->delete_blog( get_current_blog_id() );
-		Cron::unschedule();
+		Crons::unschedule();
 	}
 }

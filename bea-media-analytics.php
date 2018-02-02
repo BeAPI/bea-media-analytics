@@ -1,11 +1,11 @@
 <?php
 /*
- Plugin Name: BEA - Find Media
+ Plugin Name: BEA - Media Analytics
  Version: 1.0.1
  Plugin URI: https://github.com/BeAPI/bea-media-analytics
- Description: Find where and how medias are used across your site.
+ Description: Find where and how media are used across your site.
  Author: Be API Technical team
- Author URI: https://beapi.fr/?utm_source=Plugin&utm_medium=Link&utm_campaign=bea-media-analytics
+ Author URI: https://beapi.fr
  Domain Path: languages
  Text Domain: bea-media-analytics
 
@@ -34,57 +34,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEA_FIND_MEDIA_VERSION', '1.0.1' );
-define( 'BEA_FIND_MEDIA_MIN_PHP_VERSION', '7.0' );
+define( 'BEA_MEDIA_ANALYTICS_VERSION', '2.0.0' );
+define( 'BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION', '7.0' );
 
 // Plugin URL and PATH
-define( 'BEA_FIND_MEDIA_URL', plugin_dir_url( __FILE__ ) );
-define( 'BEA_FIND_MEDIA_DIR', plugin_dir_path( __FILE__ ) );
-define( 'BEA_FIND_MEDIA_PLUGIN_DIRNAME', basename( rtrim( dirname( __FILE__ ), '/' ) ) );
+define( 'BEA_MEDIA_ANALYTICS_URL', plugin_dir_url( __FILE__ ) );
+define( 'BEA_MEDIA_ANALYTICS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME', basename( rtrim( dirname( __FILE__ ), '/' ) ) );
 
 
 // Check PHP min version
-if ( version_compare( PHP_VERSION, BEA_FIND_MEDIA_MIN_PHP_VERSION, '<' ) ) {
-	require_once( BEA_FIND_MEDIA_DIR . 'compat.php' );
+if ( version_compare( PHP_VERSION, BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION, '<' ) ) {
+	require_once( BEA_MEDIA_ANALYTICS_DIR . 'compat.php' );
 
 	// possibly display a notice, trigger error
-	add_action( 'admin_init', array( 'BEA\Find_Media\Compatibility', 'admin_init' ) );
+	add_action( 'admin_init', array( 'BEA\Media_Analytics\Compatibility', 'admin_init' ) );
 
 	// stop execution of this file
 	return;
 }
 
 // Autoload all the things \o/
-require_once BEA_FIND_MEDIA_DIR . 'autoload.php';
+require_once BEA_MEDIA_ANALYTICS_DIR . 'autoload.php';
 
 // Plugin activate/deactive hooks
-register_activation_hook( __FILE__, [ '\BEA\Find_Media\Plugin', 'activate' ] );
-register_deactivation_hook( __FILE__, [ '\BEA\Find_Media\Plugin', 'deactivate' ] );
+register_activation_hook( __FILE__, [ '\BEA\Media_Analytics\Plugin', 'activate' ] );
+register_deactivation_hook( __FILE__, [ '\BEA\Media_Analytics\Plugin', 'deactivate' ] );
 
-add_action( 'plugins_loaded', 'plugins_loaded_bea_find_media_plugin' );
+add_action( 'plugins_loaded', 'plugins_loaded_bea_media_analytics_plugin' );
 /** Init the plugin */
-function plugins_loaded_bea_find_media_plugin() {
+function plugins_loaded_bea_media_analytics_plugin() {
 	// DB
-	\BEA\Find_Media\DB_Table::get_instance();
+	\BEA\Media_Analytics\DB_Table::get_instance();
 
 	// Client
-	\BEA\Find_Media\Main::get_instance();
+	\BEA\Media_Analytics\Main::get_instance();
 	// Addons
-	\BEA\Find_Media\Addons\Main::get_instance();
+	\BEA\Media_Analytics\Addons\Main::get_instance();
 	// Crons
-	\BEA\Find_Media\Crons::get_instance();
+	\BEA\Media_Analytics\Crons::get_instance();
 
 	// Api
-	\BEA\Find_Media\API\Json::get_instance();
-	\BEA\Find_Media\API\Rest_Api::get_instance();
+	\BEA\Media_Analytics\API\Json::get_instance();
+	\BEA\Media_Analytics\API\Rest_Api::get_instance();
 
 	// WP Cli
-	\BEA\Find_Media\WP_Cli\Main::get_instance();
+	\BEA\Media_Analytics\WP_Cli\Main::get_instance();
 
 	// Admin or wp-cli context
 	if ( is_admin() || defined( 'WP_CLI' ) ) {
-		\BEA\Find_Media\Admin\Main::get_instance();
-		\BEA\Find_Media\Admin\Post::get_instance();
-		\BEA\Find_Media\Admin\Media::get_instance();
+		\BEA\Media_Analytics\Admin\Main::get_instance();
+		\BEA\Media_Analytics\Admin\Post::get_instance();
+		\BEA\Media_Analytics\Admin\Media::get_instance();
 	}
 }

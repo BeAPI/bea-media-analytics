@@ -1,8 +1,8 @@
-<?php namespace BEA\Find_Media\Admin;
+<?php namespace BEA\Media_Analytics\Admin;
 
-use BEA\Find_Media\Helper\Helper;
-use BEA\Find_Media\Singleton;
-use BEA\Find_Media\Helper\Post;
+use BEA\Media_Analytics\Helper\Helper;
+use BEA\Media_Analytics\Singleton;
+use BEA\Media_Analytics\Helper\Post;
 
 class Main {
 	/**
@@ -12,14 +12,14 @@ class Main {
 
 	protected function init() {
 		// Indexation
-		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_content' ], 10, 2 );
-		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_thumbnail' ], 10, 2 );
-		add_filter( 'bea.find_media.post.index', [ $this, 'add_media_from_post_acf_fields' ], 10, 2 );
+		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_content' ], 10, 2 );
+		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_thumbnail' ], 10, 2 );
+		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_acf_fields' ], 10, 2 );
 
 		// Indexation for post content
-		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
-		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_links' ], 10, 2 );
-		add_filter( 'bea.find_media.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
+		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
+		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_links' ], 10, 2 );
+		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class Main {
 		 * @param array $found_medias Array of found images id.
 		 * @param string $post_content Post content.
 		 */
-		$found_medias = apply_filters( 'bea.find_media.helper.get_media.post_content', [], $post_content );
+		$found_medias = apply_filters( 'bea.media_analytics.helper.get_media.post_content', [], $post_content );
 		if ( empty( $found_medias ) ) {
 			return $media_ids;
 		}

@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 class DB_Table {
 
@@ -9,7 +9,7 @@ class DB_Table {
 
 	public $db_version = 20171201;
 
-	public $db_version_key = 'bea_wpdb_find_media_version';
+	public $db_version_key = 'bea_wpdb_media_analytics_version';
 
 	protected function init() {
 		$this->add_table_to_db_object();
@@ -19,7 +19,7 @@ class DB_Table {
 	}
 
 	public function get_table_name() {
-		return $this->db->bea_find_media ?? false;
+		return $this->db->bea_media_analytics ?? false;
 	}
 
 	public function add_table_to_db_object() {
@@ -29,8 +29,8 @@ class DB_Table {
 
 		// Setup plugin
 		$this->db                     = $GLOBALS['wpdb'];
-		$this->db->bea_find_media     = $this->db->base_prefix . 'bea_find_media';
-		$this->db->ms_global_tables[] = 'bea_find_media';
+		$this->db->bea_media_analytics     = $this->db->base_prefix . 'bea_media_analytics';
+		$this->db->ms_global_tables[] = 'bea_media_analytics';
 	}
 
 	public function upgrade_database( $old_version = 0 ) {

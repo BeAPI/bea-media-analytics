@@ -1,4 +1,4 @@
-<?php namespace BEA\Find_Media;
+<?php namespace BEA\Media_Analytics;
 
 class Helpers {
 	/**
@@ -69,6 +69,6 @@ class Helpers {
 	 * @return array
 	 */
 	public static function check_image_ids( $image_ids ) {
-		return array_filter( $image_ids, [ 'BEA\Find_Media\Helpers', 'check_image_id' ], ARRAY_FILTER_USE_KEY );
+		return array_filter( $image_ids, [ 'BEA\Media_Analytics\Helpers', 'check_image_id' ], ARRAY_FILTER_USE_KEY );
 	}
 }

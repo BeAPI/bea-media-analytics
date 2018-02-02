@@ -1,6 +1,6 @@
 <a href="https://beapi.fr/?utm_source=GitHub&utm_medium=Banner&utm_campaign=bea-media-analytics">![Be API Github Banner](assets/images/banner-github.png)</a>
 
-# BEA - Find Media
+# BEA - Media Analytics
 
 If you want to see which media is used and where ? This plugin is for you !
 
@@ -109,7 +109,7 @@ If you identify any errors or have an idea for improving the plugin, feel free t
 
 ### Translation request / proposal
 
-_Waiting WordPress plugin : If you want to translate BEA - Find Media, the best way is to use the official way :
+_Waiting WordPress plugin : If you want to translate BEA - Media Analytics, the best way is to use the official way :
 [WordPress.org GlotPress](https://translate.wordpress.org/projects/wp-plugins/bea-media-analytics)._
 
 You can, of course, just [create a pull request](../../compare) to our repository if you already done the translation.
@@ -120,22 +120,22 @@ You can, of course, just [create a pull request](../../compare) to our repositor
 
 #### Force indexation
 
-[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_find_media index_site`
+[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_media_analytics index_site`
  
 ##### Multisite
 
 Optionally on a multisite :
-* for a site : `wp bea_find_media index_site --url={url}`
-* for the entire network : `wp bea_find_media index_site --url={url}`
-* for all sites of all networks : `wp bea_find_media index_site --url=$(wp site list --fields=url)`
+* for a site : `wp bea_media_analytics index_site --url={url}`
+* for the entire network : `wp bea_media_analytics index_site --url={url}`
+* for all sites of all networks : `wp bea_media_analytics index_site --url=$(wp site list --fields=url)`
 
 ### REST Api
 
-The [REST Api](https://developer.wordpress.org/rest-api/) has been used to display the number of usage for an attachment. The route `exemple.com/wp-json/wp/v2/media/{id}/` will return a custom field called `bea_find_media_counter` which represents how many times it has been used into supported contents.
+The [REST Api](https://developer.wordpress.org/rest-api/) has been used to display the number of usage for an attachment. The route `exemple.com/wp-json/wp/v2/media/{id}/` will return a custom field called `bea_media_analytics_counter` which represents how many times it has been used into supported contents.
 
 ### JSON API
 
-WordPress is working a lot with the JSON API, that's why why the `bea_find_media_counter` attribute has been added into attachment's JSON responses.
+WordPress is working a lot with the JSON API, that's why why the `bea_media_analytics_counter` attribute has been added into attachment's JSON responses.
 
 # Who ?
 
@@ -145,4 +145,4 @@ This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the
 
 ## License
 
-BEA - Find Media is licensed under the [GPLv3 or later](LICENSE.md).
+BEA - Media Analytics is licensed under the [GPLv3 or later](LICENSE.md).
