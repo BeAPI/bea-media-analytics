@@ -43,7 +43,7 @@ For now the supported contents for indexation are post types by focusing on :
 
 - Post content ( gallery, image, links )
 - Post thumbnail
-- [Advanced Custom Fields](https://fr.wordpress.org/plugins/advanced-custom-fields/)
+- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)
 
 ### Third party support
 

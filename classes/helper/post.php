@@ -19,7 +19,7 @@ class Post extends Helper {
 	 * @return array Media ids
 	 */
 	public function get_media_from_acf_fields( $post_id ) {
-		// ACF is installed and enabled ?
+		// ACF PRO is installed and enabled ?
 		if ( ! function_exists( 'acf_get_field_groups' ) ) {
 			return [];
 		}
