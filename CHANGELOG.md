@@ -1,6 +1,6 @@
 # Changelog ##
 
-## 2.0.0 - 02 Feb 2018
+## 2.0.1 - 02 Feb 2018
 * Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"
 * Improve readme
 * English screenshots

@@ -1,4 +1,4 @@
-<a href="https://beapi.fr">![Be API Github Banner](assets/images/banner-github.png)</a>
+<a href="https://beapi.fr">![Be API Github Banner](.wordpress.org/banner-github.png)</a>
 
 # BEA - Media Analytics
 
@@ -55,25 +55,25 @@ This plugin has third party support with following plugins :
 
 In the single edit view, a bloc has been added to display the number of usages, where and what type.
 
-![Single media view](assets/images/screenshot-1.png)
+![Single media view](.wordpress.org/screenshot-1.png)
 
 ### 2 - Media library modal view
 
 In the media library modal view, when a media is selected, a bloc has been added to display the number of usages.
 
-![Media library modal view](assets/images/screenshot-2.png)
+![Media library modal view](.wordpress.org/screenshot-2.png)
 
 ### 3 - Media library view
 
 On the media admin library view, an admin column has been added to display the number of usages.
 
-![Media library view](assets/images/screenshot-3.png)
+![Media library view](.wordpress.org/screenshot-3.png)
 
 ### 4 - Prompt on media delete
 
 On media delete, if it has usages (based on indexed contents), a warning will prompt to confirm the media deletion.
 
-![Prompt on media delete](assets/images/screenshot-4.png)
+![Prompt on media delete](.wordpress.org/screenshot-4.png)
 
 ## More features to come
 

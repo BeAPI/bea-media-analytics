@@ -7,7 +7,7 @@ Requires php: 7.0
 Tested up to: 4.9.1
 Stable tag: trunk
 License: GPLv3 or later
-License URI: https://github.com/BeAPI/bea-find-media/blob/master/LICENSE.md
+License URI: https://github.com/BeAPI/bea-media-analytics/blob/master/LICENSE.md
 
 Find where and how medias are used across your site.
 
@@ -35,7 +35,7 @@ This plugin has third party support with following plugins :
 
 ## More features to come
 
-As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
+As you can see, some [issues](https://github.com/BeAPI/bea-media-analytics/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) are feature requests :
 - More fields support (excerpt, post meta, etc)
 - More type of support (widget, etc)
 - More support (elementor, visual composer, polylang, -wpml-, etc)
@@ -45,14 +45,14 @@ As you can see, some [issues](https://github.com/BeAPI/bea-find-media/issues?q=i
 - More file's mime types
 
 ## Next Roadmap
-- [39](https://github.com/BeAPI/bea-find-media/issues/39) : Improve display
-- [33](https://github.com/BeAPI/bea-find-media/issues/33) : Ensure a lot of file's mime types support
+- [39](https://github.com/BeAPI/bea-media-analytics/issues/39) : Improve display
+- [33](https://github.com/BeAPI/bea-media-analytics/issues/33) : Ensure a lot of file's mime types support
 
-= Who ?
+## Who ?
 
 Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-find-media/issues) and be patient.
+This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-media-analytics/issues) and be patient.
 
 == Installation ==
 
@@ -68,10 +68,6 @@ At plugin deactivation, all data stored by this plugin will be **deleted** to en
 = WordPress =
 - Download and install using the built-in WordPress plugin installer.
 - Site activate in the "Plugins" area of the admin.
-- Nothing more, this plugin is ready to use !
-
-= Composer =
-- Include `"wpackagist-plugin/bea-find-media": "dev-trunk"`
 - Nothing more, this plugin is ready to use !
 
 == Frequently Asked Questions ==
@@ -97,7 +93,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 
 == Changelog ==
 
-= 2.0.0 - 02 Feb 2018 =
+= 2.0.1 - 02 Feb 2018 =
 - Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"
 - Improve readme
 - English screenshots
