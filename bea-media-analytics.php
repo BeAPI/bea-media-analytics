@@ -8,6 +8,7 @@
  Author URI: https://beapi.fr
  Domain Path: languages
  Text Domain: bea-media-analytics
+ Contributors: Maxime Culea, Amaury Balmer
 
  ----
 
