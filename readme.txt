@@ -4,7 +4,7 @@ Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
 Requires at least: 4.7
 Requires php: 7.0
-Tested up to: 4.9.1
+Tested up to: 4.9.3
 Stable tag: trunk
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-media-analytics/blob/master/LICENSE.md
@@ -62,7 +62,7 @@ At plugin deactivation, all data stored by this plugin will be **deleted** to en
 
 = Requirements =
 - WordPress 4.7+
-- Tested up to 4.9.1.
+- Tested up to 4.9.3.
 - PHP 7.0 is required !!
 
 = WordPress =
