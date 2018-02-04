@@ -54,6 +54,8 @@ Created by [Be API](https://beapi.fr), the French WordPress leader agency since 
 
 This plugin is only maintained, which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-media-analytics/issues) and be patient.
 
+To facilitate the process of submitting an issue and quicker answer, we only use Github, so don't use WP.Org support, it will not be considered. 
+
 == Installation ==
 
 At plugin activation, a single event will be added in order to index your contents. It generally takes 10-15 min to do so.
