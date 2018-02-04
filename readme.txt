@@ -1,5 +1,5 @@
 === BEA - Media Analytics ===
-Contributors: beapi, maximeculea
+Contributors: beapi, maximeculea, momo360modena
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
 Requires at least: 4.7
