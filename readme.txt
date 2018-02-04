@@ -1,7 +1,7 @@
 === BEA - Find Media ===
 Contributors: beapi, maximeculea
 Donate link: http://paypal.me/BeAPI
-Tags: find, media, usage, find media, multisite, single site,
+Tags: find, media, usage, find media, analytics
 Requires at least: 4.7
 Requires php: 7.0
 Tested up to: 4.9.1
@@ -52,7 +52,7 @@ As you can see, some [issues](https://github.com/BeAPI/bea-media-analytics/issue
 
 Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-media-analytics/issues) and be patient.
+This plugin is only maintained, which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-media-analytics/issues) and be patient.
 
 == Installation ==
 
@@ -92,6 +92,9 @@ For the indexation of all the supported contents, the blog id is used. So on the
 4. On media delete, if it has usages (based on indexed contents), a warning will prompt to confirm the media deletion.
 
 == Changelog ==
+
+= 2.0.2 - 04 Feb 2018 =
+- Go to WP.Org
 
 = 2.0.1 - 02 Feb 2018 =
 - Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"

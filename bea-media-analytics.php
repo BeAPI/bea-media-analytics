@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: BEA - Media Analytics
- Version: 2.0.1
+ Version: 2.0.2
  Plugin URI: https://github.com/BeAPI/bea-media-analytics
  Description: Find where and how media are used across your site.
  Author: Be API Technical team
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEA_MEDIA_ANALYTICS_VERSION', '2.0.1' );
+define( 'BEA_MEDIA_ANALYTICS_VERSION', '2.0.2' );
 define( 'BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION', '7.0' );
 
 // Plugin URL and PATH
