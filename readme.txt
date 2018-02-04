@@ -9,13 +9,13 @@ Stable tag: trunk
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-media-analytics/blob/master/LICENSE.md
 
-Find where and how medias are used across your site.
+Find where and how media are used across your site.
 
 == Description ==
 
 If you want to see which media is used and where? This plugin is for you!
 
-By installing this plugin you will index where your medias are used, display further informations about where they are used and also warn you about deleting used ones.
+By installing this plugin you will index where your media are used, display further informations about where how are used and also warn you about deleting used ones.
 
 A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli command.  
 
@@ -25,7 +25,7 @@ For now the supported contents for indexation are post types by focusing on :
 
 - Post content ( gallery, image, links )
 - Post thumbnail
-- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)
+- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)'s fields
 
 ### Third party support
 

@@ -4,7 +4,7 @@
 
 If you want to see which media is used and where ? This plugin is for you !
 
-By installing this plugin you will index where your medias are used, display further informations about where they are used and also warn you about deleting used ones. 
+By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones. 
 
 # How ?
 
@@ -43,7 +43,7 @@ For now the supported contents for indexation are post types by focusing on :
 
 - Post content ( gallery, image, links )
 - Post thumbnail
-- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)
+- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)'s fields
 
 ### Third party support
 
