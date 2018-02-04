@@ -1,6 +1,6 @@
 # Changelog ##
 
-## 2.0.2 - 04 Feb 2018
+## 2.0.3 - 04 Feb 2018
 * Go to WP.Org
 
 ## 2.0.1 - 02 Feb 2018

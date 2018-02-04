@@ -96,7 +96,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
 
-= 2.0.1 - 02 Feb 2018 =
+= 2.0.3 - 02 Feb 2018 =
 - Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"
 - Improve readme
 - English screenshots
