@@ -1,4 +1,4 @@
-=== BEA - Find Media ===
+=== BEA - Media Analytics ===
 Contributors: beapi, maximeculea
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
@@ -72,13 +72,13 @@ At plugin deactivation, all data stored by this plugin will be **deleted** to en
 
 == Frequently Asked Questions ==
 
-= Can I use BEA - Find Media into a single site ? =
+= Can I use BEA - Media Analytics into a single site ? =
 
 Yes.
 
 This plugin simply plug on the media's admin area and index all the supported contents for further info display. 
 
-= Can I use BEA - Find Media into a multisite ? =
+= Can I use BEA - Media Analytics into a multisite ? =
 
 Yes.
 
