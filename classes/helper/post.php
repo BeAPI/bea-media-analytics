@@ -6,7 +6,18 @@ class Post extends Helper {
 
 	use Singleton;
 
+	/**
+	 * All kind of field that involve object fields
+	 *
+	 * @var array
+	 */
 	private $_acf_fields = array();
+
+	/**
+	 * Retrieved medias from acf fields
+	 *
+	 * @var array
+	 */
 	private $_found_medias = array();
 
 	/**
@@ -43,11 +54,12 @@ class Post extends Helper {
 		// Keep only valid ID && remove zero values
 		return array_filter( array_map( 'intval', $this->_found_medias ) );
 	}
+
 	/**
 	 * Recursive way to extract all possible fields for a post
 	 * TODO : Maybe better save this fields somewhere (one time)
 	 *
-	 * @since 2.0.4
+	 * @since  2.0.4
 	 *
 	 * @author Maxime CULEA
 	 *
@@ -84,7 +96,7 @@ class Post extends Helper {
 	/**
 	 * From media fields, get media ids
 	 *
-	 * @since 2.0.4
+	 * @since  2.0.4
 	 *
 	 * @author Maxime CULEA
 	 *
