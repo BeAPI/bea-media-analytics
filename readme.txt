@@ -19,13 +19,37 @@ By installing this plugin you will index where your media are used, display furt
 
 A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli command.  
 
-## Features 
+## Features
 
 For now the supported contents for indexation are post types by focusing on :
-
-- Post content ( gallery, image, links )
-- Post thumbnail
-- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)'s fields
+<ul>
+  <li>Post content ( gallery, image, links )</li>
+  <li>Post thumbnail</li>
+  <li><a href="https://www.advancedcustomfields.com/">Advanced Custom Fields PRO</a>'s fields :
+      <ul>
+        <li>"content fields" :
+          <ul>
+            <li>File</li>
+            <li>Gallery</li>
+            <li>Image</li>
+            <li>Post object</li>
+            <li>Page link</li>
+            <li>Relationship</li>
+            <li>Textarea</li>
+            <li>Wysiwyg</li>
+          </ul>
+        </li>
+        <li>"structuring fields" which can reuse the above "content fields"
+          <ul>
+            <li>Clone</li>
+            <li>Flexible</li>
+            <li>Group</li>
+            <li>Repeater</li>
+          </ul>
+        </li>
+      </ul>
+  </li>
+</ul>
 
 ### Third party support
 
@@ -94,6 +118,10 @@ For the indexation of all the supported contents, the blog id is used. So on the
 4. On media delete, if it has usages (based on indexed contents), a warning will prompt to confirm the media deletion.
 
 == Changelog ==
+
+= Next
+- Handle Group, Clone and Repeater ACF fields
+- Add ACF's Textarea and Wysiwyg support
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org

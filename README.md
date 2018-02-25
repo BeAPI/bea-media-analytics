@@ -40,10 +40,34 @@ At plugin deactivation, all data stored by this plugin will be **deleted** to en
 ## Features 
 
 For now the supported contents for indexation are post types by focusing on :
-
-- Post content ( gallery, image, links )
-- Post thumbnail
-- [Advanced Custom Fields PRO](https://www.advancedcustomfields.com/)'s fields
+<ul>
+  <li>Post content ( gallery, image, links )</li>
+  <li>Post thumbnail</li>
+  <li><a href="https://www.advancedcustomfields.com/">Advanced Custom Fields PRO</a>'s fields :
+      <ul>
+        <li>"content fields" :
+          <ul>
+            <li>File</li>
+            <li>Gallery</li>
+            <li>Image</li>
+            <li>Post object</li>
+            <li>Page link</li>
+            <li>Relationship</li>
+            <li>Textarea</li>
+            <li>Wysiwyg</li>
+          </ul>
+        </li>
+        <li>"structuring fields" which can reuse the above "content fields"
+          <ul>
+            <li>Clone</li>
+            <li>Flexible</li>
+            <li>Group</li>
+            <li>Repeater</li>
+          </ul>
+        </li>
+      </ul>
+  </li>
+</ul>
 
 ### Third party support
 
