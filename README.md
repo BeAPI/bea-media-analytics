@@ -53,6 +53,8 @@ For now the supported contents for indexation are post types by focusing on :
             <li>Post object</li>
             <li>Page link</li>
             <li>Relationship</li>
+            <li>Textarea</li>
+            <li>Wysiwyg</li>
           </ul>
         </li>
         <li>"structuring fields" which can reuse the above "content fields"

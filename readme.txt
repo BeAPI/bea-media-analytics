@@ -35,6 +35,8 @@ For now the supported contents for indexation are post types by focusing on :
             <li>Post object</li>
             <li>Page link</li>
             <li>Relationship</li>
+            <li>Textarea</li>
+            <li>Wysiwyg</li>
           </ul>
         </li>
         <li>"structuring fields" which can reuse the above "content fields"
@@ -119,6 +121,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 
 = Next
 - Handle Group, Clone and Repeater ACF fields
+- Add ACF's Textarea and Wysiwyg support
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
