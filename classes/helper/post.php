@@ -117,6 +117,10 @@ class Post extends Helper {
 	 * @param array $fields
 	 */
 	private function recursive_get_post_medias( $fields ) {
+		if ( empty( $fields ) ) {
+			return;
+		}
+
 		foreach ( $fields as $key => $field ) {
 			if ( is_array( $field ) ) {
 				// If not final key => field, recursively relaunch
