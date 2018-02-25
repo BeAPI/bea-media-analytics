@@ -7,14 +7,21 @@ class Post extends Helper {
 	use Singleton;
 
 	/**
-	 * All kind of field that involve object fields
+	 * All kind of field that involve object
 	 *
 	 * @var array
 	 */
-	private $_acf_fields = array();
+	private $_acf_object_fields = array();
 
 	/**
-	 * Retrieved medias from acf fields
+	 * All kind of field that involve textual fields
+	 *
+	 * @var array
+	 */
+	private $_acf_textual_fields = array();
+
+	/**
+	 * Retrieved medias from ACF fields
 	 *
 	 * @var array
 	 */
@@ -42,8 +49,9 @@ class Post extends Helper {
 		}
 
 		// Get only fields with medias
-		$this->_acf_fields   = array();
-		$this->_found_medias = array();
+		$this->_acf_object_fields  = array();
+		$this->_acf_textual_fields = array();
+		$this->_found_medias       = array();
 
 		// Get media possible fields
 		$this->recursive_get_post_media_fields( get_field_objects( $post_id ) );
@@ -85,10 +93,16 @@ class Post extends Helper {
 				'post_object',
 				'relationship',
 				'file',
-				'page_link'
+				'page_link',
 			] ) ) {
-				// All type of ACF Fieds which involve media
-				$this->_acf_fields[ $field['key'] ] = $field['name'];
+				// All type of ACF Fields which involve media as object
+				$this->_acf_object_fields[ $field['key'] ] = $field['name'];
+			} elseif ( in_array( $field['type'], [
+				'wysiwyg',
+				'textarea',
+			] ) ) {
+				// All type of ACF Fields which are textual
+				$this->_acf_textual_fields[ $field['key'] ] = $field['name'];
 			}
 		}
 	}
@@ -109,13 +123,17 @@ class Post extends Helper {
 				$this->recursive_get_post_medias( $field );
 			}
 
-			if ( empty( $field ) || is_array( $field ) || ! in_array( $key, $this->_acf_fields ) ) {
+			if ( empty( $field ) || is_array( $field ) ) {
 				// Go to next one if empty, array (already recursively relaunched) and the key is not a media field
 				continue;
 			}
 
 			// Save the media ID
-			$this->_found_medias = array_merge( $this->_found_medias, (array) $field );
+			if ( in_array( $key, $this->_acf_object_fields ) ) {
+				$this->_found_medias = array_merge( $this->_found_medias, (array) $field );
+			} elseif ( in_array( $key, $this->_acf_textual_fields ) ) {
+				$this->_found_medias = array_merge( $this->_found_medias, Post::get_media_from_text( $field ) );
+			}
 		}
 	}
 }
