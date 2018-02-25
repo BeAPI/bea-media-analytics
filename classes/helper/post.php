@@ -77,7 +77,7 @@ class Post extends Helper {
 					$this->recursive_get_post_media_fields( $layout_field['sub_fields'] );
 				}
 			} elseif ( in_array( $field['type'], [ 'repeater', 'clone', 'group' ] ) ) {
-				// Repeater is recursive structure with sub_fields
+				// Repeater, Clone and Group fields is a recursive structure with sub_fields
 				$this->recursive_get_post_media_fields( $field['sub_fields'] );
 			} elseif ( in_array( $field['type'], [
 				'image',
