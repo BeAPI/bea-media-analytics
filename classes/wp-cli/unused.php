@@ -5,7 +5,7 @@ use BEA\Media_Analytics\Helper\API;
 class Unused extends \WP_CLI_Command {
 
 	/**
-	 * Work with unused medias
+	 * Work with unused media
 	 *
 	 * ##
 	 * <action> : Action to be launched. Could be list or delete.
@@ -35,7 +35,7 @@ class Unused extends \WP_CLI_Command {
 	}
 
 	/**
-	 * Handle wp cli to list unused medias
+	 * Handle wp cli to list unused media
 	 *
 	 * @since future
 	 *
@@ -62,11 +62,24 @@ class Unused extends \WP_CLI_Command {
 	}
 
 	/**
-	 * Handle wp cli to list unused medias
+	 * Handle wp cli to delete unused media
 	 *
 	 * @since future
 	 *
 	 * @author Maxime CULEA
 	 */
-	private function delete() {}
+	private function delete() {
+		$medias = API::get_unused_media();
+		if ( empty( $medias ) ) {
+			\WP_CLI::error( "wp bea_media_analytics unused delete : All media are used." );
+			return;
+		}
+
+		$progress = \WP_CLI\Utils\make_progress_bar( 'wp bea_media_analytics unused delete', count( $medias ) );
+		foreach ( $medias as $media_id ) {
+			\WP_CLI::runcommand( sprintf( 'post delete %d --force', $media_id ) );
+			$progress->tick();
+		}
+		$progress->finish();
+	}
 }
