@@ -158,9 +158,6 @@ class DB {
 		}
 
 		$data = $db_table->db->get_results( $db_table->db->prepare( "SELECT * FROM " . DB_Table::get_instance()->get_table_name() . " WHERE blog_id = %d AND media_id = %d", get_current_blog_id(), $media_id ) );
-		if ( empty( $data ) ) {
-			return [];
-		}
 
 		/**
 		 * Filter saved indexed data against the given media
