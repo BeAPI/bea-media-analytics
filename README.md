@@ -4,7 +4,8 @@
 
 If you want to see which media is used and where ? This plugin is for you !
 
-By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones. 
+By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones.
+Therefore, you will easily [delete unused medias](#unused-media).
 
 # How ?
 
@@ -106,7 +107,6 @@ As you can see, some [issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Aquesti
 - More type of support (widget, etc)
 - More support (elementor, visual composer, polylang, -wpml-, etc)
 - Media expiration
-- Find unused media
 - Media replacement
 - More file's mime types
 
@@ -140,9 +140,11 @@ You can, of course, just [create a pull request](../../compare) to our repositor
 
 ### WP-Cli
 
+[WP-CLi](http://wp-cli.org) has been implemented to execute some useful commands.
+
 #### Force indexation
 
-[WP-CLi](http://wp-cli.org) has been implemented to execute, only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_media_analytics index_site`
+Only on the given site, an indexation of all retrieved data from all supported contents : `wp bea_media_analytics index_site`
  
 ##### Multisite
 
@@ -150,6 +152,18 @@ Optionally on a multisite :
 * for a site : `wp bea_media_analytics index_site --url={url}`
 * for the entire network : `wp bea_media_analytics index_site --url={url}`
 * for all sites of all networks : `wp bea_media_analytics index_site --url=$(wp site list --fields=url)`
+
+#### Unused media
+
+Quickly retrieve unused media for the current site (even with Content Sync Fusion) : `wp bea_media_analytics unused <action>`
+
+##### List
+
+List all unused media : `wp bea_media_analytics unused list`
+
+##### Delete
+
+Delete all unused media : `wp bea_media_analytics unused delete`
 
 ### REST Api
 

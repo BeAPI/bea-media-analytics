@@ -3,6 +3,7 @@
 ## Next
 * Handle Group, Clone and Repeater ACF fields
 * Add ACF's Textarea and Wysiwyg support
+* Add WP CLI command to list and delete unused media
 
 ## 2.0.3 - 04 Feb 2018
 * Go to WP.Org
