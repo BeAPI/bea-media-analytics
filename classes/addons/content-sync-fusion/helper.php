@@ -38,7 +38,7 @@ class Helper {
 
 			if ( 'all' === $sync->receivers[0] ) {
 				// Get all sites
-				$blogs = \BEA_CSF_Admin_Synchronizations_Network::get_sites_from_network( 0 );
+				$blogs = \BEA_CSF_Synchronizations::get_sites_from_network();
 				foreach ( $blogs as $blog ) {
 					// Exclude emitters
 					if ( ! in_array( $blog['blog_id'], $sync->emitters ) ) {

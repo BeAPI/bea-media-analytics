@@ -16,6 +16,7 @@ Find where and how media are used across your site.
 If you want to see which media is used and where? This plugin is for you!
 
 By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones.
+Therefore, you will easily delete unused medias.
 
 A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli command.  
 
@@ -64,7 +65,6 @@ As you can see, some [issues](https://github.com/BeAPI/bea-media-analytics/issue
 - More type of support (widget, etc)
 - More support (elementor, visual composer, polylang, -wpml-, etc)
 - Media expiration
-- Find unused media
 - Media replacement
 - More file's mime types
 
@@ -122,6 +122,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 = Next
 - Handle Group, Clone and Repeater ACF fields
 - Add ACF's Textarea and Wysiwyg support
+- Add WP CLI command to list and delete unused media
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
