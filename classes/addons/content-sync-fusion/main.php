@@ -22,8 +22,14 @@ class Main {
 		add_filter( 'bea.media_analytics.db.get_counter', [ $this, 'get_counter' ], 20, 2 );
 		add_filter( 'bea.media_analytics.db.get_data', [ $this, 'get_data' ], 20, 2 );
 		// Filter array values for MS
-		remove_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values' ], 100 );
-		add_filter( 'bea.media_analytics.db.get_data', [ 'BEA\Media_Analytics\Main', 'format_indexed_values_ms' ], 120 );
+		remove_filter( 'bea.media_analytics.db.get_data', [
+			'BEA\Media_Analytics\Main',
+			'format_indexed_values'
+		], 100 );
+		add_filter( 'bea.media_analytics.db.get_data', [
+			'BEA\Media_Analytics\Main',
+			'format_indexed_values_ms'
+		], 120 );
 	}
 
 	/**
@@ -180,9 +186,11 @@ class Main {
 			return $data;
 		}
 
-		$data_by_blog                     = [];
-		$data_by_blog[ $emitter_blog_id ] = $data;
-		$table_name                       = DB_Table::get_instance()->get_table_name();
+		$data_by_blog = [];
+		if ( ! empty( $data ) ) {
+			$data_by_blog[ $emitter_blog_id ] = $data;
+		}
+		$table_name = DB_Table::get_instance()->get_table_name();
 		foreach ( $receivers_blogs_ids as $receiver_blog_id ) {
 			// Get the receiver media id
 			$receiver_media_id = Helper::get_receiver_obj_id_from_emitter_obj_id( $emitter_blog_id, $receiver_blog_id, $media_id );
@@ -239,13 +247,14 @@ class Main {
 	 *
 	 * @param array $strings
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.1
 	 * @author Maxime CULEA
 	 *
 	 * @return mixed
 	 */
 	public function localize_scripts( $strings ) {
 		$strings['i18n']['warning_confirm'] = _x( "This media is currently used %s across all synchronized sites. Are you sure you want to delete it ?\nThis action is irreversible !\n«Cancel» to stop, «OK» to delete.", 'Popup for confirmation media delete for CSF. %s will display the number with the singular / plural string (time/times).', 'bea-media-analytics' );
+
 		return $strings;
 	}
 }
