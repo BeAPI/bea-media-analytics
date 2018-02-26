@@ -3,6 +3,16 @@
 use BEA\Media_Analytics\DB;
 
 class API {
+
+	/**
+	 * Get unused media
+	 *
+	 * @since future
+	 *
+	 * @author Maxime CULEA
+	 *
+	 * @return array
+	 */
 	public static function get_unused_media() {
 		$_medias = [];
 		$medias = new \WP_Query( [
