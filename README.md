@@ -70,12 +70,6 @@ For now the supported contents for indexation are post types by focusing on :
   </li>
 </ul>
 
-### Third party support
-
-This plugin has third party support with following plugins :
-
-* [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion) : the usage counter will now consider synced sites to reveal how many times a media has been used across all synchronized sites.
-
 ### 1 - Single media view
 
 In the single edit view, a bloc has been added to display the number of usages, where and what type.
@@ -99,6 +93,12 @@ On the media admin library view, an admin column has been added to display the n
 On media delete, if it has usages (based on indexed contents), a warning will prompt to confirm the media deletion.
 
 ![Prompt on media delete](.wordpress.org/screenshot-4.png)
+
+### Third party support
+
+This plugin has third party support with following plugins :
+
+* [Content Sync Fusion](https://github.com/BeAPI/bea-content-sync-fusion) : the usage counter will now consider synced sites to reveal how many times a media has been used across all synchronized sites.
 
 ## More features to come
 
