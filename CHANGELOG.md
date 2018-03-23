@@ -1,17 +1,18 @@
 # Changelog ##
 
 ## Next
-* Handle Group, Clone and Repeater ACF fields
-* Add ACF's Textarea and Wysiwyg support
-* Add WP CLI command to list and delete unused media
+* Handle Group, Clone and Repeater ACF fields.
+* Add ACF's Textarea and Wysiwyg support.
+* Add WP CLI command to list and delete unused media.
+* Finally lower PHP requirements to 5.6.
 
 ## 2.0.3 - 04 Feb 2018
-* Go to WP.Org
+* Go to WP.Org.
 
 ## 2.0.1 - 02 Feb 2018
-* Rename plugin from "BEA - Find Media" into "BEA - Media Analytics"
-* Improve readme
-* English screenshots
+* Rename plugin from "BEA - Find Media" into "BEA - Media Analytics".
+* Improve readme.
+* English screenshots.
 
 ## 1.0.1 - 12 Dec 2017
 * On activation, handle force indexation.
