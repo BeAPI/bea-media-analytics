@@ -22,6 +22,9 @@ class Helpers {
 			case 'acf' :
 				$label = _x( 'Advanced Custom Fields', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
+			case 'acf-option' :
+				$label = _x( 'Advanced Custom Fields (settings)', 'Label for humanizing object types', 'bea-media-analytics' );
+				break;
 			default :
 				$label = '';
 				break;

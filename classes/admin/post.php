@@ -62,11 +62,3 @@ class Post {
 		DB::delete_all_object_id( $post_id, 'post' );
 	}
 }
-
-// TEST
-add_filter( 'bea.media_analytics.post.index', function ( $media_ids ) {
-	return $media_ids;
-	$media_ids[43] = [ 'post_content', 'post_thumbnail', 'acf' ];
-
-	return $media_ids;
-} );

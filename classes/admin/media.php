@@ -52,8 +52,8 @@ class Media {
 			 *
 			 * @since 1.0.1
 			 *
-			 * @param string $label   Depending on counter, display the single or multiple title.
-			 * @param int    $counter The number of usages.
+			 * @param string $label Depending on counter, display the single or multiple title.
+			 * @param int $counter The number of usages.
 			 */
 			$label = apply_filters( 'bea.media_analytics.media.modal_view_title', $label, $counter );
 			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-media-analytics' ), $label );
@@ -98,8 +98,8 @@ class Media {
 		 *
 		 * @since 1.0.1
 		 *
-		 * @param string $title   Depending on counter, display the title.
-		 * @param int    $counter The number of usages.
+		 * @param string $title Depending on counter, display the title.
+		 * @param int $counter The number of usages.
 		 */
 		$title = apply_filters( 'bea.media_analytics.media.edit_view_title', $title, $counter );
 
@@ -119,8 +119,15 @@ class Media {
 			foreach ( $data as $object_type => $obj ) {
 				foreach ( $obj as $media_id => $media ) {
 					foreach ( $media as $content_id => $types ) {
+
 						$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
-						$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
+
+						if ( $content_id > 0 ) {
+							$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
+						} else {
+							$html .= sprintf( '<li>%s</li>', implode( ', ', $_types ) );
+						}
+
 					}
 				}
 			}
@@ -133,7 +140,7 @@ class Media {
 		 * @since 1.0.1
 		 *
 		 * @param string $html The formatted HTML for edit view display.
-		 * @param array  $data All DB usages from the current media.
+		 * @param array $data All DB usages from the current media.
 		 */
 		$html = apply_filters( 'bea.media_analytics.media.edit_view_html', $html, $data );
 

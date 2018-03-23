@@ -86,6 +86,7 @@ function plugins_loaded_bea_media_analytics_plugin() {
 	if ( is_admin() || defined( 'WP_CLI' ) ) {
 		\BEA\Media_Analytics\Admin\Main::get_instance();
 		\BEA\Media_Analytics\Admin\Post::get_instance();
+		\BEA\Media_Analytics\Admin\Option::get_instance();
 		\BEA\Media_Analytics\Admin\Media::get_instance();
 	}
 }

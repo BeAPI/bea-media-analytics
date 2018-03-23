@@ -7,7 +7,7 @@ class DB_Table {
 	/** @var object Database object (usually $GLOBALS['wpdb']) */
 	public $db = false;
 
-	public $db_version = 20171201;
+	public $db_version = 20180323;
 
 	public $db_version_key = 'bea_wpdb_media_analytics_version';
 
@@ -55,13 +55,14 @@ class DB_Table {
 		if ( ! $this->table_exists() ) {
 			// First activation
 			$this->create_table();
-		} elseif ( version_compare( (int) $old_version, 201609100001, '<=' ) ) {
+		//} elseif ( version_compare( (int) $old_version, 201609100001, '<=' ) ) {
 			/**
 			 * Update database structure from 1.0.1 to 2.0.0
 			 * TODO : for future use
 			 */
 		} else {
 			// Other case without any action
+			$this->create_table();
 			return;
 		}
 
@@ -85,7 +86,7 @@ class DB_Table {
 			blog_id bigint(20) NOT NULL,
 			type varchar(255) NOT NULL,
 			media_id bigint(20) NOT NULL,
-			object_id bigint(20) NOT NULL,
+			object_id varchar(255) NOT NULL,
 			object_type varchar(255) NOT NULL
 		) {$charset_collate};";
 
