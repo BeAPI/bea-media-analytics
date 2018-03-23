@@ -36,13 +36,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Plugin constants
 define( 'BEA_MEDIA_ANALYTICS_VERSION', '2.0.4' );
-define( 'BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION', '7.0' );
+define( 'BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION', '5.6' );
 
 // Plugin URL and PATH
 define( 'BEA_MEDIA_ANALYTICS_URL', plugin_dir_url( __FILE__ ) );
 define( 'BEA_MEDIA_ANALYTICS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME', basename( rtrim( dirname( __FILE__ ), '/' ) ) );
-
 
 // Check PHP min version
 if ( version_compare( PHP_VERSION, BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION, '<' ) ) {
