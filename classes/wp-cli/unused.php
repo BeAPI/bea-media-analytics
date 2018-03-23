@@ -26,7 +26,7 @@ class Unused extends \WP_CLI_Command {
 
 		switch ( $action ) {
 			case 'list' :
-				$this->list();
+				$this->list_medias();
 				break;
 			case 'delete' :
 				$this->delete();
@@ -41,7 +41,7 @@ class Unused extends \WP_CLI_Command {
 	 *
 	 * @author Maxime CULEA
 	 */
-	private function list() {
+	private function list_medias() {
 		$table  = [];
 		$medias = API::get_unused_media();
 		if ( ! empty( $medias ) ) {

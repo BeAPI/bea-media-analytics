@@ -96,12 +96,13 @@ class Main {
 		foreach ( $receivers_blogs_ids as $receiver_blog_id ) {
 			// Get the receiver media id
 			$receiver_media_id = Helper::get_receiver_obj_id_from_emitter_obj_id( $emitter_blog_id, $receiver_blog_id, $media_id );
+
 			// Get receiver media id usages
-			$_counter = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $table_name . " WHERE blog_id = %d AND media_id = %d", $receiver_blog_id, $receiver_media_id ) );
-			if ( empty( $_counter ) ) {
+			$_counter = (int) $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $table_name . " WHERE blog_id = %d AND media_id = %d", $receiver_blog_id, $receiver_media_id ) );
+			if ( 0 === $_counter ) {
 				continue;
 			}
-			$counter += (int) $_counter ?? 0;
+			$counter += $_counter;
 		}
 
 		return $counter;

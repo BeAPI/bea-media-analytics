@@ -19,7 +19,7 @@ class DB_Table {
 	}
 
 	public function get_table_name() {
-		return $this->db->bea_media_analytics ?? false;
+		return isset($this->db->bea_media_analytics) ? $this->db->bea_media_analytics : false;
 	}
 
 	public function add_table_to_db_object() {
@@ -33,7 +33,7 @@ class DB_Table {
 		$this->db->ms_global_tables[] = 'bea_media_analytics';
 	}
 
-	public function upgrade_database( $old_version = 0 ) {
+	public function upgrade_database() {
 		// Get current version
 		$old_version = get_network_option( - 1, $this->db_version_key );
 
