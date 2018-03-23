@@ -57,7 +57,7 @@ class Post extends Helper {
 		$this->recursive_get_post_media_fields( get_field_objects( $post_id ) );
 
 		// Use media fields to get media ids
-		$this->recursive_get_post_medias( get_fields( $post_id ) );
+		$this->recursive_get_post_medias( get_fields( $post_id, false ) );
 
 		// Keep only valid ID && remove zero values
 		return array_filter( array_map( 'intval', $this->_found_medias ) );
