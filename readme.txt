@@ -3,7 +3,7 @@ Contributors: beapi, maximeculea, momo360modena
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
 Requires at least: 4.7
-Requires php: 7.0
+Requires php: 5.6
 Tested up to: 4.9.3
 Stable tag: trunk
 License: GPLv3 or later
@@ -89,7 +89,7 @@ At plugin deactivation, all data stored by this plugin will be **deleted** to en
 = Requirements =
 - WordPress 4.7+
 - Tested up to 4.9.3.
-- PHP 7.0 is required !!
+- PHP 5.6+
 
 = WordPress =
 - Download and install using the built-in WordPress plugin installer.
@@ -120,9 +120,10 @@ For the indexation of all the supported contents, the blog id is used. So on the
 == Changelog ==
 
 = Next
-- Handle Group, Clone and Repeater ACF fields
-- Add ACF's Textarea and Wysiwyg support
-- Add WP CLI command to list and delete unused media
+- Handle Group, Clone and Repeater ACF fields.
+- Add ACF's Textarea and Wysiwyg support.
+- Add WP CLI command to list and delete unused media.
+- Finally lower PHP requirements to 5.6.
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
