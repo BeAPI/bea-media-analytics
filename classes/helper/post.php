@@ -43,12 +43,10 @@ class Post extends Helper {
 			return [];
 		}
 
-		/*
 		$new_post = get_post( $post_id );
 		if ( false === $new_post || is_wp_error( $new_post ) ) {
 			return [];
 		}
-		*/
 
 		// Get only fields with medias
 		$this->_acf_object_fields  = array();
@@ -59,7 +57,7 @@ class Post extends Helper {
 		$this->recursive_get_post_media_fields( get_field_objects( $post_id ) );
 
 		// Use media fields to get media ids
-		$this->recursive_get_post_medias( get_fields( $post_id ) );
+		$this->recursive_get_post_medias( get_fields( $post_id, false ) );
 
 		// Keep only valid ID && remove zero values
 		return array_filter( array_map( 'intval', $this->_found_medias ) );
@@ -119,24 +117,20 @@ class Post extends Helper {
 	 * @param array $fields
 	 */
 	private function recursive_get_post_medias( $fields ) {
-		if ( empty( $fields ) ) {
-			return;
-		}
-
 		foreach ( $fields as $key => $field ) {
-			//if ( is_array( $field ) ) {
+			if ( is_array( $field ) ) {
 				// If not final key => field, recursively relaunch
-				//$this->recursive_get_post_medias( $field );
-			//}
+				$this->recursive_get_post_medias( $field );
+			}
 
-			//if ( empty( $field ) || is_array( $field ) ) {
+			if ( empty( $field ) || is_array( $field ) ) {
 				// Go to next one if empty, array (already recursively relaunched) and the key is not a media field
-				//continue;
-			//}
+				continue;
+			}
 
 			// Save the media ID
 			if ( in_array( $key, $this->_acf_object_fields ) ) {
-				$this->_found_medias = array_merge( $this->_found_medias, (array) $field['ID'] );
+				$this->_found_medias = array_merge( $this->_found_medias, (array) $field );
 			} elseif ( in_array( $key, $this->_acf_textual_fields ) ) {
 				$this->_found_medias = array_merge( $this->_found_medias, Post::get_media_from_text( $field ) );
 			}
