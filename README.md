@@ -13,7 +13,7 @@ A table is created for indexing where media are used. This is done when saving c
 
 # Requirements
 
-- [WordPress](https://wordpress.org/) 4.7+
+- [WordPress](https://wordpress.org/) 4.6+
 - Tested up to 4.9.3.
 - PHP 5.6+
 

@@ -2,7 +2,7 @@
 Contributors: beapi, maximeculea, momo360modena
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
-Requires at least: 4.7
+Requires at least: 4.6
 Requires php: 5.6
 Tested up to: 4.9.3
 Stable tag: trunk
@@ -87,7 +87,7 @@ At plugin activation, a single event will be added in order to index your conten
 At plugin deactivation, all data stored by this plugin will be **deleted** to ensure not to weighing the DB and also for further safe reactivation.
 
 = Requirements =
-- WordPress 4.7+
+- WordPress 4.6+
 - Tested up to 4.9.3.
 - PHP 5.6+
 
