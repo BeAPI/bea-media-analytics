@@ -8,22 +8,41 @@ class Option {
 	use Singleton;
 
 	protected function init() {
-		add_action( 'acf/save_post', [ __CLASS__, 'index_option' ], 20, 3 );
+		add_action( 'acf/save_post', [ __CLASS__, 'acf_save_post' ], 5000, 3 );
 	}
 
 	/**
-	 * On save option, index post's media
+	 * On save option, index option's media
 	 *
 	 * @author Maxime CULEA
 	 * @since  1.0.0
 	 *
 	 * @param $post_id
 	 */
-	public static function index_option( $post_id ) {
+	public static function acf_save_post( $post_id ) {
 		if ( $post_id !== 'options' ) {
 			return;
 		}
 
+		$pages = acf_options_page()->get_pages();
+		foreach ( $pages as $page ) {
+			// Save only current page data
+			if ( isset( $_GET['page'] ) && ! empty( $_GET['page'] ) ) {
+				if ( $page['menu_slug'] != $_GET['page'] ) {
+					continue;
+				}
+			}
+
+			self::index_page_option( $page['menu_slug'] );
+		}
+	}
+
+	/**
+	 * Index medias for a ACF option page
+	 *
+	 * @param string $page_menu_slug
+	 */
+	public static function index_page_option( $page_menu_slug ) {
 		/**
 		 * Fires once a post has been saved.
 		 *
@@ -32,9 +51,9 @@ class Option {
 		 * @since 1.0.0
 		 *
 		 * @param array $image_ids Array of images id.
-		 * @param int $post_id Post ID.
+		 * @param string $page_menu_slug ACF menu slug.
 		 */
-		$image_ids = apply_filters( 'bea.media_analytics.option.index', [], $post_id );
+		$image_ids = apply_filters( 'bea.media_analytics.option.index', [], $page_menu_slug );
 		if ( empty( $image_ids ) ) {
 			return;
 		}
@@ -42,10 +61,7 @@ class Option {
 		// Validate image IDs
 		$image_ids = Helpers::check_image_ids( $image_ids );
 
-		// Get unique ID for each option page
-		$screen = get_current_screen();
-
-		DB::insert( $image_ids, $screen->id, 'post' );
+		DB::insert( $image_ids, $page_menu_slug, 'acf-option' );
 	}
 
 }

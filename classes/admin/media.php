@@ -122,10 +122,11 @@ class Media {
 
 						$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
 
-						if ( $content_id > 0 ) {
+						if ( 'acf-option' == $types[0] ) {
+							$page = acf_options_page()->get_page( $content_id );
+							$html .= sprintf( '<li>%s : %s</li>', $page['page_title'], implode( ', ', $_types ) );
+						} elseif ( $content_id > 0 ) {
 							$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
-						} else {
-							$html .= sprintf( '<li>%s</li>', implode( ', ', $_types ) );
 						}
 
 					}

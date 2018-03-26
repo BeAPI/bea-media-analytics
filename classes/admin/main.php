@@ -3,6 +3,7 @@
 use BEA\Media_Analytics\Helper\Helper;
 use BEA\Media_Analytics\Singleton;
 use BEA\Media_Analytics\Helper\Post;
+use BEA\Media_Analytics\Helper\Option;
 
 class Main {
 	/**
@@ -104,7 +105,7 @@ class Main {
 	 * @return array
 	 */
 	public function add_media_from_option_acf_fields( $media_ids, $post_id ) {
-		return Helper::merge_old_with_new( $media_ids, Post::get_instance()->get_media_from_acf_fields( $post_id ), 'acf-option' );
+		return Helper::merge_old_with_new( $media_ids, Option::get_instance()->get_media_from_acf_fields( $post_id ), 'acf-option' );
 	}
 
 	/**
