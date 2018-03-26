@@ -15,7 +15,7 @@ class Index_Site extends \WP_CLI_Command {
 	 *
 	 * @synopsis
 	 */
-	function index_site() {
+	function __invoke() {
 		plugins_loaded_bea_media_analytics_plugin();
 
 		$contents_q = new \WP_Query( [
