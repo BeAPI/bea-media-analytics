@@ -96,7 +96,7 @@ class Option extends Helper {
 				foreach ( $field['layouts'] as $layout_field ) {
 					$this->recursive_get_post_media_fields( $layout_field['sub_fields'] );
 				}
-			} elseif ( in_array( $field['type'], [ 'repeater', 'clone', 'group' ] ) ) {
+			} elseif ( in_array( $field['type'], [ 'repeater', 'clone', 'group', 'component_field' ] ) ) {
 				// Repeater, Clone and Group fields is a recursive structure with sub_fields
 				$this->recursive_get_post_media_fields( $field['sub_fields'] );
 			} elseif ( in_array( $field['type'], [
@@ -145,9 +145,9 @@ class Option extends Helper {
 			}
 
 			// Save the media ID
-			if ( in_array( $key, $this->_acf_object_fields ) ) {
+			if ( in_array( $key, $this->_acf_object_fields ) || isset( $this->_acf_object_fields[ $key ] ) ) {
 				$this->_found_medias = array_merge( $this->_found_medias, (array) $field );
-			} elseif ( in_array( $key, $this->_acf_textual_fields ) ) {
+			} elseif ( in_array( $key, $this->_acf_textual_fields ) || isset( $this->_acf_textual_fields[ $key ] ) ) {
 				$this->_found_medias = array_merge( $this->_found_medias, Post::get_media_from_text( $field ) );
 			}
 		}
