@@ -155,11 +155,11 @@ Optionally on a multisite :
 
 #### Unused media
 
-Quickly retrieve unused media for the current site (even with Content Sync Fusion) : `wp bea_media_analytics unused <action>`
+Quickly retrieve unused media for the current site (even with Content Sync Fusion).
 
 ##### List
 
-List all unused media : `wp bea_media_analytics unused list`
+List all unused media : `wp bea_media_analytics unused enumerate`
 
 ##### Delete
 
