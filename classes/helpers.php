@@ -26,7 +26,7 @@ class Helpers {
 				$label = _x( 'Advanced Custom Fields (settings)', 'Label for humanizing object types', 'bea-media-analytics' );
 				break;
 			default :
-				$label = '';
+				$label = apply_filters( 'bea.media_analytics.helpers.humanize_object_type', '', $type );
 				break;
 		}
 

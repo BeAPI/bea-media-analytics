@@ -68,6 +68,8 @@ class Index_Site extends \WP_CLI_Command {
 			}
 		}
 
+		do_action_ref_array( 'bea.media_analytics.cli.index_site', array( &$i ) );
+
 		\WP_CLI::success( sprintf( '%s indexed contents for blog id : %d !', $i, get_current_blog_id() ) );
 	}
 }

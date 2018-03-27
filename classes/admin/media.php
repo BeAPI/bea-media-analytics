@@ -129,6 +129,8 @@ class Media {
 							$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
 						}
 
+						$html = apply_filters( 'bea.media_analytics.media.edit_view_context', $html, $types, $content_id, $media_id );
+
 					}
 				}
 			}
