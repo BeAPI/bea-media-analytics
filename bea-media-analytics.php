@@ -76,6 +76,7 @@ function plugins_loaded_bea_media_analytics_plugin() {
 
 	// Api
 	\BEA\Media_Analytics\API\Json::get_instance();
+	\BEA\Media_Analytics\API\Query::get_instance();
 	\BEA\Media_Analytics\API\Rest_Api::get_instance();
 
 	// WP Cli
