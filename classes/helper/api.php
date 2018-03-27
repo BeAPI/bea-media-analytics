@@ -14,24 +14,19 @@ class API {
 	 * @return array
 	 */
 	public static function get_unused_media() {
-		$_medias = [];
-		$medias = new \WP_Query( [
-			'post_type'     => 'attachment',
-			'post_status'   => 'any',
-			'no_found_rows' => true,
-			'fields'        => 'ids',
-			'nopaging'      => true
+		$medias_query = new \WP_Query( [
+			'post_type'           => 'attachment',
+			'post_status'         => 'any',
+			'no_found_rows'       => true,
+			'fields'              => 'ids',
+			'bea_media_analytics' => 'unused',
+			'nopaging'            => true
 		] );
-		if ( $medias->have_posts() ) {
-			foreach ( $medias->posts as $media_id ) {
-				if ( ! empty( DB::get_data( $media_id ) ) ) {
-					continue;
-				}
 
-				$_medias[] = $media_id;
-			}
+		if ( $medias_query->have_posts() ) {
+			return $medias_query->posts;
 		}
 
-		return $_medias;
+		return [];
 	}
 }
