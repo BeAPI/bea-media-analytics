@@ -50,25 +50,24 @@ class Index_Site extends \WP_CLI_Command {
 		if ( function_exists( 'acf_options_page' ) ) {
 			$pages = acf_options_page()->get_pages();
 
-			$total = count( $pages );
+			if ( empty( $pages ) ) {
+				\WP_CLI::warning( 'No settings page to index.' );
+			} else {
+				$total = count( $pages );
 
-			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Loop on options page for blog id %d', get_current_blog_id() ), $total );
-			foreach ( $pages as $page ) {
-				$i ++;
+				$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Loop on settings page for blog id %d', get_current_blog_id() ), $total );
+				foreach ( $pages as $page ) {
+					$i ++;
 
-				Option::index_page_option( $page['menu_slug'] );
+					Option::index_page_option( $page['menu_slug'] );
 
-				$progress->tick();
+					$progress->tick();
+				}
+
+				$progress->finish();
 			}
-
-			$progress->finish();
 		}
 
 		\WP_CLI::success( sprintf( '%s indexed contents for blog id : %d !', $i, get_current_blog_id() ) );
-	}
-
-
-	private function _index_options() {
-		acf_options_page()->get_pages();
 	}
 }
