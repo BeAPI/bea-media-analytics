@@ -18,7 +18,7 @@ If you want to see which media is used and where? This plugin is for you!
 By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones.
 Therefore, you will easily delete unused medias.
 
-A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli command.  
+A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli commands.
 
 ## Features
 
