@@ -1,13 +1,11 @@
 <?php namespace BEA\Media_Analytics\Helper;
 
-use BEA\Media_Analytics\DB;
-
 class API {
 
 	/**
 	 * Get unused media
 	 *
-	 * @since future
+	 * @since  future
 	 *
 	 * @author Maxime CULEA
 	 *
@@ -23,10 +21,6 @@ class API {
 			'nopaging'            => true
 		] );
 
-		if ( $medias_query->have_posts() ) {
-			return $medias_query->posts;
-		}
-
-		return [];
+		return $medias_query->have_posts() ? $medias_query->posts : [];
 	}
 }

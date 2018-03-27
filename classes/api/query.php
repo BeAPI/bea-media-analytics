@@ -7,16 +7,19 @@ class Query {
 	use Singleton;
 
 	protected function init() {
-		add_action( 'query_vars', array( __CLASS__, 'query_vars' ), 10 );
-		add_filter( 'posts_join', array( __CLASS__, 'posts_join' ), 10, 2 );
-		add_filter( 'posts_where', array( __CLASS__, 'posts_where' ), 10, 2 );
-		add_filter( 'posts_groupby', array( __CLASS__, 'posts_groupby' ), 10, 2 );
+		add_action( 'query_vars', [ $this, 'query_vars' ], 10 );
+		add_filter( 'posts_join', [ $this, 'posts_join' ], 10, 2 );
+		add_filter( 'posts_where', [ $this, 'posts_where' ], 10, 2 );
+		add_filter( 'posts_groupby', [ $this, 'posts_groupby' ], 10, 2 );
 	}
 
 	/**
 	 * Append a custom query var for this new filter on WP_Query
 	 *
 	 * @param array $vars
+	 *
+	 * @author Amaury Balmer
+	 * @since  future
 	 *
 	 * @return array
 	 */
@@ -29,8 +32,11 @@ class Query {
 	/**
 	 * Add join with plugin table for filter unused or used medias
 	 *
-	 * @param $join
-	 * @param WP_Query $query
+	 * @param           $join
+	 * @param \WP_Query $query
+	 *
+	 * @author Amaury Balmer
+	 * @since  future
 	 *
 	 * @return string
 	 */
@@ -51,8 +57,11 @@ class Query {
 	/**
 	 * Add join with plugin table for unused medias
 	 *
-	 * @param $where
-	 * @param WP_Query $query
+	 * @param          $where
+	 * @param  |WP_Query $query
+	 *
+	 * @author Amaury Balmer
+	 * @since  future
 	 *
 	 * @return string
 	 */
@@ -69,8 +78,11 @@ class Query {
 	/**
 	 * Add join with plugin table for unused medias
 	 *
-	 * @param $groupby
-	 * @param WP_Query $query
+	 * @param          $groupby
+	 * @param  |WP_Query $query
+	 *
+	 * @author Amaury Balmer
+	 * @since  future
 	 *
 	 * @return string
 	 */
