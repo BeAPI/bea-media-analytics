@@ -3,7 +3,7 @@
 class Admin_Media_List_Table extends \WP_List_Table {
 
 	// TODO : to be implemented !!
-	
+
 	function get_columns() {
 		$columns = [
 			'type'        => 'Type',

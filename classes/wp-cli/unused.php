@@ -6,9 +6,10 @@ class Unused extends \WP_CLI_Command {
 
 	/**
 	 * Handle wp cli to list unused media
+	 * Func could be name enumerate, but sub-command is registered against list
 	 *
 	 * ## EXAMPLES
-	 * wp bea_media_analytics unused enumerate --url=
+	 * wp bea_media_analytics unused list --url=
 	 *
 	 * @since  future
 	 * @author Maxime CULEA
@@ -31,7 +32,7 @@ class Unused extends \WP_CLI_Command {
 		if ( ! empty( $table ) ) {
 			\WP_CLI\Utils\format_items( 'table', $table, [ 'blog_id', 'media_id', 'media_title' ] );
 		} else {
-			\WP_CLI::error( "wp bea_media_analytics unused enumerate : All media are used." );
+			\WP_CLI::error( "wp bea_media_analytics unused list : All media are used." );
 		}
 	}
 

@@ -159,7 +159,7 @@ Quickly retrieve unused media for the current site (even with Content Sync Fusio
 
 ##### List
 
-List all unused media : `wp bea_media_analytics unused enumerate`
+List all unused media : `wp bea_media_analytics unused list`
 
 ##### Delete
 
