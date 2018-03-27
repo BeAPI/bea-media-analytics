@@ -75,7 +75,7 @@ class Unused extends \WP_CLI_Command {
 			return;
 		}
 
-		$progress = \WP_CLI\Utils\make_progress_bar( 'wp bea_media_analytics unused delete', count( $medias ) );
+		$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Deleting unused media on blog_id : %s', get_current_blog_id() ), count( $medias ) );
 		foreach ( $medias as $media_id ) {
 			wp_delete_attachment( $media_id, true );
 			$progress->tick();
