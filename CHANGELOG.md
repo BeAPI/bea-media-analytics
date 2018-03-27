@@ -7,6 +7,7 @@
 * Finally lower PHP requirements to 5.6.
 * Fix wp-cli command registering.
 * Improve speed of wp-cli.
+* Add wp-cli progress bar for indexation command.
 
 ## 2.0.3 - 04 Feb 2018
 * Go to WP.Org.
