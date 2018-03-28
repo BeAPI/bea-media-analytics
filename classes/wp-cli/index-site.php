@@ -21,7 +21,8 @@ class Index_Site extends \WP_CLI_Command {
 		$contents_q = new \WP_Query( [
 			'no_found_rows' => true,
 			'nopaging'      => true,
-			'post_type'     => 'any'
+			'post_type'     => 'any',
+			'post_status'   => 'any'
 		] );
 		if ( ! $contents_q->have_posts() ) {
 			\WP_CLI::error( sprintf( 'No content to index.' ) );
@@ -29,7 +30,7 @@ class Index_Site extends \WP_CLI_Command {
 			return;
 		}
 
-		$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s contents for blog_id %s', get_current_blog_id(), $contents_q->found_posts ), $contents_q->found_posts );
+		$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s contents for blog_id %s', $contents_q->post_count, get_current_blog_id() ), $contents_q->post_count );
 		foreach ( $contents_q->posts as $post ) {
 			Post::index_post( $post->ID, $post, true );
 			$progress->tick();
