@@ -51,6 +51,7 @@ For now the supported contents for indexation are post types by focusing on :
         </li>
       </ul>
   </li>
+  <li><a href="https://codecanyon.net/item/image-map-pro-for-wordpress-interactive-image-map-builder/2826664">Image Map Pro</a></li>
 </ul>
 
 ### Third party support
@@ -129,6 +130,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 - Improve speed of wp-cli.
 - Add wp-cli progress bar for indexation command.
 - Add Component Field support.
+- Add Image Map Pro support.
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
