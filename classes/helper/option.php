@@ -2,7 +2,7 @@
 
 use BEA\Media_Analytics\Singleton;
 
-class Post extends Helper {
+class Option extends Helper {
 
 	use Singleton;
 
@@ -30,21 +30,33 @@ class Post extends Helper {
 	/**
 	 * Parse post's ACF fields to get media ids
 	 *
-	 * @param int $post_id
+	 * @param string $page_menu_slug
 	 *
 	 * @author Amaury BALMER
-	 * @since  1.0.0
+	 * @since  future
 	 *
 	 * @return array Media ids
 	 */
-	public function get_media_from_acf_fields( $post_id ) {
+	public function get_media_from_acf_fields( $page_menu_slug ) {
 		// ACF PRO is installed and enabled ?
 		if ( ! function_exists( 'acf_get_field_groups' ) ) {
 			return [];
 		}
 
-		$new_post = get_post( $post_id );
-		if ( false === $new_post || is_wp_error( $new_post ) ) {
+		// get field groups
+		$field_groups = acf_get_field_groups( array(
+			'options_page' => $page_menu_slug
+		) );
+
+		$fields = array();
+		foreach ( $field_groups as $group ) {
+			$_fields = (array) acf_get_fields( $group );
+			foreach ( $_fields as $_field ) {
+				$fields[] = $_field;
+			}
+		}
+
+		if ( empty( $fields ) ) {
 			return [];
 		}
 
@@ -54,10 +66,10 @@ class Post extends Helper {
 		$this->_found_medias       = array();
 
 		// Get media possible fields
-		$this->recursive_get_post_media_fields( get_field_objects( $post_id ) );
+		$this->recursive_get_post_media_fields( $fields );
 
 		// Use media fields to get media ids
-		$this->recursive_get_post_medias( get_fields( $post_id, false ) );
+		$this->recursive_get_post_medias( get_fields( 'options', false ) );
 
 		// Keep only valid ID && remove zero values
 		return array_filter( array_map( 'intval', $this->_found_medias ) );
@@ -67,9 +79,8 @@ class Post extends Helper {
 	 * Recursive way to extract all possible fields for a post
 	 * TODO : Maybe better save this fields somewhere (one time)
 	 *
-	 * @since  2.0.4
-	 *
-	 * @author Maxime CULEA
+	 * @since  future
+	 * @author Amaury BALMER
 	 *
 	 * @param array $fields
 	 */
@@ -78,13 +89,18 @@ class Post extends Helper {
 			return;
 		}
 
-		foreach ( (array) $fields as $key => $field ) {
+		foreach ( (array) $fields as $field ) {
 			if ( in_array( $field['type'], array( 'flexible_content' ) ) ) {
 				// Flexible is recursive structure with sub_fields into layouts
 				foreach ( $field['layouts'] as $layout_field ) {
 					$this->recursive_get_post_media_fields( $layout_field['sub_fields'] );
 				}
-			} elseif ( in_array( $field['type'], [ 'repeater', 'clone', 'group', 'component_field' ] ) ) {
+			} elseif ( in_array( $field['type'], [
+				'repeater',
+				'clone',
+				'group',
+				'component_field',
+			] ) ) {
 				// Repeater, Clone and Group fields is a recursive structure with sub_fields
 				$this->recursive_get_post_media_fields( $field['sub_fields'] );
 			} elseif ( in_array( $field['type'], [
@@ -110,9 +126,8 @@ class Post extends Helper {
 	/**
 	 * From media fields, get media ids
 	 *
-	 * @since  2.0.4
-	 *
-	 * @author Maxime CULEA
+	 * @since  future
+	 * @author Amaury BALMER
 	 *
 	 * @param array $fields
 	 */

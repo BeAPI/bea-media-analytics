@@ -62,7 +62,7 @@ class DB {
 					'media_id'    => $media_id,
 					'object_id'   => $object_id,
 					'object_type' => $object_type,
-				], [ '%d', '%s', '%d', '%d', '%s' ] );
+				], [ '%d', '%s', '%d', '%s', '%s' ] );
 			}
 		}
 	}
@@ -87,7 +87,7 @@ class DB {
 			'blog_id'     => get_current_blog_id(),
 			'object_id'   => $object_id,
 			'object_type' => $object_type,
-		], [ '%d', '%d', '%s' ] );
+		], [ '%d', '%s', '%s' ] );
 	}
 
 	/**
@@ -134,7 +134,7 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param int $counter  How many times used.
+		 * @param int $counter How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.media_analytics.db.get_counter', $counter, $media_id );
@@ -163,8 +163,8 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $data     The indexed data, reordoned.
-		 * @param int   $media_id Media ID looking for.
+		 * @param array $data The indexed data, reordoned.
+		 * @param int $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.media_analytics.db.get_data', $data, $media_id );
 	}
@@ -173,8 +173,8 @@ class DB {
 	 * Check if a data exists into db
 	 *
 	 * @param string $type
-	 * @param int    $media_id
-	 * @param int    $object_id
+	 * @param int $media_id
+	 * @param int $object_id
 	 * @param string $object_type
 	 *
 	 * @since  1.0.0
@@ -189,7 +189,7 @@ class DB {
 		}
 
 		// Check if raw exists for insert
-		$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %d AND object_type = %s", get_current_blog_id(), $type, $media_id, $object_id, $object_type ) );
+		$column_exists = $db_table->db->get_var( $db_table->db->prepare( "SELECT count(id) FROM " . $db_table->get_table_name() . " WHERE blog_id = %d AND type = %s AND media_id = %d AND object_id = %s AND object_type = %s", get_current_blog_id(), $type, $media_id, $object_id, $object_type ) );
 
 		return ! empty( $column_exists );
 	}

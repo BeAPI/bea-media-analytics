@@ -3,6 +3,7 @@
 use BEA\Media_Analytics\Helper\Helper;
 use BEA\Media_Analytics\Singleton;
 use BEA\Media_Analytics\Helper\Post;
+use BEA\Media_Analytics\Helper\Option;
 
 class Main {
 	/**
@@ -15,6 +16,8 @@ class Main {
 		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_content' ], 10, 2 );
 		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_thumbnail' ], 10, 2 );
 		add_filter( 'bea.media_analytics.post.index', [ $this, 'add_media_from_post_acf_fields' ], 10, 2 );
+
+		add_filter( 'bea.media_analytics.option.index', [ $this, 'add_media_from_option_acf_fields' ], 10, 2 );
 
 		// Indexation for post content
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
@@ -88,6 +91,21 @@ class Main {
 	 */
 	public function add_media_from_post_acf_fields( $media_ids, $post_id ) {
 		return Helper::merge_old_with_new( $media_ids, Post::get_instance()->get_media_from_acf_fields( $post_id ), 'acf' );
+	}
+
+	/**
+	 * Get post's acf fields
+	 *
+	 * @param array $media_ids
+	 * @param int   $post_id
+	 *
+	 * @author Amaury BALMER
+	 * @since  future
+	 *
+	 * @return array
+	 */
+	public function add_media_from_option_acf_fields( $media_ids, $post_id ) {
+		return Helper::merge_old_with_new( $media_ids, Option::get_instance()->get_media_from_acf_fields( $post_id ), 'acf-option' );
 	}
 
 	/**

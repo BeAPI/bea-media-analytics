@@ -16,6 +16,7 @@ class Unused extends \WP_CLI_Command {
 	 *
 	 * @synopsis
 	 */
+
 	public function enumerate() {
 		$table  = [];
 		$medias = API::get_unused_media();

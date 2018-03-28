@@ -9,6 +9,7 @@ class Post {
 
 	protected function init() {
 		add_action( 'save_post', [ __CLASS__, 'index_post' ], 20, 3 );
+
 		add_action( 'delete_post', [ $this, 'delete_post' ] );
 	}
 
@@ -16,10 +17,15 @@ class Post {
 	 * On save post, index post's media
 	 *
 	 * @author Maxime CULEA
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 */
 	public static function index_post( $post_id, $post, $update ) {
 		if ( in_array( $post->post_status, [ 'trash', 'auto-draft', 'inherit' ] ) ) {
+			return;
+		}
+
+		// Avoid indexation for some post types
+		if ( in_array( $post->post_type, [ 'acf-field-group', 'acf-field' ] ) ) {
 			return;
 		}
 
@@ -31,7 +37,7 @@ class Post {
 		 * @since 1.0.0
 		 *
 		 * @param array $image_ids Array of images id.
-		 * @param int $post_id Post ID.
+		 * @param int   $post_id   Post ID.
 		 */
 		$image_ids = apply_filters( 'bea.media_analytics.post.index', [], $post_id );
 		if ( empty( $image_ids ) ) {
@@ -48,7 +54,7 @@ class Post {
 	 * On post delete, delete all associated data
 	 *
 	 * @author Maxime CULEA
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 *
 	 * @param $post_id
 	 */
@@ -56,11 +62,3 @@ class Post {
 		DB::delete_all_object_id( $post_id, 'post' );
 	}
 }
-
-// TEST
-add_filter( 'bea.media_analytics.post.index', function ( $media_ids ) {
-	return $media_ids;
-	$media_ids[43] = [ 'post_content', 'post_thumbnail', 'acf' ];
-
-	return $media_ids;
-} );

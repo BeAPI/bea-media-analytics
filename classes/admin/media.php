@@ -78,8 +78,9 @@ class Media {
 	 * @param $form_fields
 	 * @param $media
 	 *
-	 * @since  1.0.0
-	 * @author Maxime CULEA
+	 * @since   1.0.0
+	 * @updated future : acf-option case
+	 * @author  Maxime CULEA
 	 *
 	 * @return array
 	 */
@@ -119,8 +120,18 @@ class Media {
 			foreach ( $data as $object_type => $obj ) {
 				foreach ( $obj as $media_id => $media ) {
 					foreach ( $media as $content_id => $types ) {
+
 						$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
-						$html   .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
+
+						if ( 'acf-option' == $types[0] ) {
+							$page = acf_options_page()->get_page( $content_id );
+							$html .= sprintf( '<li>%s : %s</li>', $page['page_title'], implode( ', ', $_types ) );
+						} elseif ( $content_id > 0 ) {
+							$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
+						}
+
+						$html = apply_filters( 'bea.media_analytics.media.edit_view_context', $html, $types, $content_id, $media_id );
+
 					}
 				}
 			}
