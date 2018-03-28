@@ -28,12 +28,10 @@ class Index_Site extends \WP_CLI_Command {
 			'post_type'     => 'any',
 			'post_status'   => 'any'
 		] );
-
+    
 		if ( $contents_q->have_posts() ) {
-			$total = count( $contents_q->posts );
-
-			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Loop on posts for blog id %d', get_current_blog_id() ), $total );
-			foreach ( $contents_q->posts as $post ) {
+			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->post_count, get_current_blog_id() ), $contents_q->post_count );
+		  foreach ( $contents_q->posts as $post ) {
 				$i ++;
 
 				Post::index_post( $post->ID, $post, true );
@@ -41,7 +39,6 @@ class Index_Site extends \WP_CLI_Command {
 			}
 
 			$progress->finish();
-
 		} else {
 			\WP_CLI::warning( 'No post to index.' );
 		}

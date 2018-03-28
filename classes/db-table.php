@@ -28,9 +28,9 @@ class DB_Table {
 		}
 
 		// Setup plugin
-		$this->db                     = $GLOBALS['wpdb'];
-		$this->db->bea_media_analytics     = $this->db->base_prefix . 'bea_media_analytics';
-		$this->db->ms_global_tables[] = 'bea_media_analytics';
+		$this->db                      = $GLOBALS['wpdb'];
+		$this->db->bea_media_analytics = $this->db->base_prefix . 'bea_media_analytics';
+		$this->db->ms_global_tables[]  = 'bea_media_analytics';
 	}
 
 	public function upgrade_database() {

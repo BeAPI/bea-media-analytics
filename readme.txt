@@ -2,7 +2,7 @@
 Contributors: beapi, maximeculea, momo360modena
 Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
-Requires at least: 4.7
+Requires at least: 4.6
 Requires php: 5.6
 Tested up to: 4.9.3
 Stable tag: trunk
@@ -18,7 +18,7 @@ If you want to see which media is used and where? This plugin is for you!
 By installing this plugin you will index where your media are used, display further informations about how they are used and also warn you about deleting used ones.
 Therefore, you will easily delete unused medias.
 
-A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli command.  
+A table is created for indexing where media are used. This is done when saving contents but could also by activating the plugin or be forced with the wp-cli commands.
 
 ## Features
 
@@ -87,7 +87,7 @@ At plugin activation, a single event will be added in order to index your conten
 At plugin deactivation, all data stored by this plugin will be **deleted** to ensure not to weighing the DB and also for further safe reactivation.
 
 = Requirements =
-- WordPress 4.7+
+- WordPress 4.6+
 - Tested up to 4.9.3.
 - PHP 5.6+
 
@@ -124,6 +124,9 @@ For the indexation of all the supported contents, the blog id is used. So on the
 - Add ACF's Textarea and Wysiwyg support.
 - Add WP CLI command to list and delete unused media.
 - Finally lower PHP requirements to 5.6.
+- Fix wp-cli command registering.
+- Improve speed of wp-cli.
+- Add wp-cli progress bar for indexation command.
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org

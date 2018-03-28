@@ -13,7 +13,7 @@ A table is created for indexing where media are used. This is done when saving c
 
 # Requirements
 
-- [WordPress](https://wordpress.org/) 4.7+
+- [WordPress](https://wordpress.org/) 4.6+
 - Tested up to 4.9.3.
 - PHP 5.6+
 
@@ -155,7 +155,7 @@ Optionally on a multisite :
 
 #### Unused media
 
-Quickly retrieve unused media for the current site (even with Content Sync Fusion) : `wp bea_media_analytics unused <action>`
+Quickly retrieve unused media for the current site (even with Content Sync Fusion).
 
 ##### List
 
