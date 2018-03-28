@@ -55,14 +55,17 @@ class DB_Table {
 		if ( ! $this->table_exists() ) {
 			// First activation
 			$this->create_table();
-		//} elseif ( version_compare( (int) $old_version, 201609100001, '<=' ) ) {
+		} elseif ( version_compare( (int) $old_version, 20171201, '<=' ) ) {
 			/**
-			 * Update database structure from 1.0.1 to 2.0.0
-			 * TODO : for future use
+			 * Update database structure from 1.0.1 to future
+			 *
+			 * object_id bigint(20) NOT NULL => object_id varchar(255) NOT NULL
+			 *
+			 * @since future
 			 */
+			$this->create_table();
 		} else {
 			// Other case without any action
-			$this->create_table();
 			return;
 		}
 
