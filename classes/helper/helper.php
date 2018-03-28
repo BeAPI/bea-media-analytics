@@ -69,9 +69,9 @@ class Helper {
 	 *
 	 * @param string $attachment_url
 	 *
-	 * @link : https://philipnewcomer.net/2012/11/get-the-attachment-id-from-an-image-url-in-wordpress/
+	 * @link   https://philipnewcomer.net/2012/11/get-the-attachment-id-from-an-image-url-in-wordpress/
 	 *
-	 * @since future
+	 * @since  future
 	 * @author Amaury Balmer
 	 *
 	 * @return int

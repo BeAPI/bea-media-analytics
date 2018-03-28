@@ -24,7 +24,7 @@ class Main {
 	 *
 	 * @param integer $i
 	 *
-	 * @since future
+	 * @since  future
 	 *
 	 * @author Amaury Balmer
 	 */
@@ -44,7 +44,7 @@ class Main {
 	 * @param $content_id
 	 * @param $media_id
 	 *
-	 * @since future
+	 * @since  future
 	 *
 	 * @author Amaury Balmer
 	 *
@@ -66,7 +66,7 @@ class Main {
 	 * @param $value
 	 * @param $old_value
 	 *
-	 * @since future
+	 * @since  future
 	 *
 	 * @author Amaury Balmer
 	 *
