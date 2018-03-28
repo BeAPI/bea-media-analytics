@@ -135,7 +135,7 @@ msgstr "Voir l'utilisation du média."
 
 #: classes/admin/media.php:61
 msgid "Not used anywhere."
-msgstr "Utilisé nul part."
+msgstr "Utilisé nulle part."
 
 #: classes/admin/media.php:65
 msgid "Usage :"
