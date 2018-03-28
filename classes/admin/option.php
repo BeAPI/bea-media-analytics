@@ -51,9 +51,9 @@ class Option {
 		 *
 		 * Get images from multiple sources to index against post
 		 *
-		 * @since 1.0.0
+		 * @since future
 		 *
-		 * @param array $image_ids Array of images id.
+		 * @param array  $image_ids      Array of images id.
 		 * @param string $page_menu_slug ACF menu slug.
 		 */
 		$image_ids = apply_filters( 'bea.media_analytics.option.index', [], $page_menu_slug );
