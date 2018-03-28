@@ -8,6 +8,7 @@
 * Fix wp-cli command registering.
 * Improve speed of wp-cli.
 * Add wp-cli progress bar for indexation command.
+* Add Component Field support.
 
 ## 2.0.3 - 04 Feb 2018
 * Go to WP.Org.

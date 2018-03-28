@@ -46,6 +46,7 @@ For now the supported contents for indexation are post types by focusing on :
             <li>Flexible</li>
             <li>Group</li>
             <li>Repeater</li>
+            <li><a href="https://acf-component-field.gummi.io/">Component</a></li>
           </ul>
         </li>
       </ul>
@@ -127,6 +128,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 - Fix wp-cli command registering.
 - Improve speed of wp-cli.
 - Add wp-cli progress bar for indexation command.
+- Add Component Field support.
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
