@@ -10,6 +10,7 @@
 * Add wp-cli progress bar for indexation command.
 * Add Component Field support.
 * Add Image Map Pro support.
+* Add ACF Options support.
 
 ## 2.0.3 - 04 Feb 2018
 * Go to WP.Org.

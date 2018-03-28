@@ -49,6 +49,7 @@ For now the supported contents for indexation are post types by focusing on :
             <li><a href="https://acf-component-field.gummi.io/">Component</a></li>
           </ul>
         </li>
+        <li>ACF Options</li>
       </ul>
   </li>
   <li><a href="https://codecanyon.net/item/image-map-pro-for-wordpress-interactive-image-map-builder/2826664">Image Map Pro</a></li>
@@ -131,6 +132,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 - Add wp-cli progress bar for indexation command.
 - Add Component Field support.
 - Add Image Map Pro support.
+- Add ACF Options support.
 
 = 2.0.2 - 04 Feb 2018 =
 - Go to WP.Org
