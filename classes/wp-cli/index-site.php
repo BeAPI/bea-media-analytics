@@ -16,7 +16,7 @@ class Index_Site extends \WP_CLI_Command {
 	 *
 	 * @synopsis
 	 */
-	function __invoke() {
+	public function index_site() {
 		plugins_loaded_bea_media_analytics_plugin();
 
 		$i = 0;
@@ -30,7 +30,7 @@ class Index_Site extends \WP_CLI_Command {
 		] );
     
 		if ( $contents_q->have_posts() ) {
-			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->post_count, get_current_blog_id() ), $contents_q->post_count );
+			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->found_posts, get_current_blog_id() ), $contents_q->found_posts );
 		  foreach ( $contents_q->posts as $post ) {
 				$i ++;
 
