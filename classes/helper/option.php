@@ -80,8 +80,7 @@ class Option extends Helper {
 	 * TODO : Maybe better save this fields somewhere (one time)
 	 *
 	 * @since  future
-	 *
-	 * @author Amaury Balmer
+	 * @author Amaury BALMER
 	 *
 	 * @param array $fields
 	 */
@@ -128,8 +127,7 @@ class Option extends Helper {
 	 * From media fields, get media ids
 	 *
 	 * @since  future
-	 *
-	 * @author Amaury Balmer
+	 * @author Amaury BALMER
 	 *
 	 * @param array $fields
 	 */

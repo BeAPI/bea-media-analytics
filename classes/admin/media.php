@@ -52,8 +52,8 @@ class Media {
 			 *
 			 * @since 1.0.1
 			 *
-			 * @param string $label Depending on counter, display the single or multiple title.
-			 * @param int $counter The number of usages.
+			 * @param string $label   Depending on counter, display the single or multiple title.
+			 * @param int    $counter The number of usages.
 			 */
 			$label = apply_filters( 'bea.media_analytics.media.modal_view_title', $label, $counter );
 			$html  = sprintf( '<span class="value"><a href="%s" title="%s" style="vertical-align: -webkit-baseline-middle;">%s</a></span>', get_edit_post_link( $media->ID ), _x( 'View media usage.', 'title for the usage link', 'bea-media-analytics' ), $label );
@@ -78,8 +78,9 @@ class Media {
 	 * @param $form_fields
 	 * @param $media
 	 *
-	 * @since  1.0.0
-	 * @author Maxime CULEA
+	 * @since   1.0.0
+	 * @updated future : acf-option case
+	 * @author  Maxime CULEA
 	 *
 	 * @return array
 	 */
@@ -98,8 +99,8 @@ class Media {
 		 *
 		 * @since 1.0.1
 		 *
-		 * @param string $title Depending on counter, display the title.
-		 * @param int $counter The number of usages.
+		 * @param string $title   Depending on counter, display the title.
+		 * @param int    $counter The number of usages.
 		 */
 		$title = apply_filters( 'bea.media_analytics.media.edit_view_title', $title, $counter );
 
@@ -143,7 +144,7 @@ class Media {
 		 * @since 1.0.1
 		 *
 		 * @param string $html The formatted HTML for edit view display.
-		 * @param array $data All DB usages from the current media.
+		 * @param array  $data All DB usages from the current media.
 		 */
 		$html = apply_filters( 'bea.media_analytics.media.edit_view_html', $html, $data );
 

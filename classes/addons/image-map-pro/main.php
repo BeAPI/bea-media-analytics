@@ -25,8 +25,7 @@ class Main {
 	 * @param integer $i
 	 *
 	 * @since  future
-	 *
-	 * @author Amaury Balmer
+	 * @author Amaury BALMER
 	 */
 	public function index_site( $i ) {
 		\WP_CLI::warning( 'Image Map Pro indexing.' );
@@ -45,8 +44,7 @@ class Main {
 	 * @param $media_id
 	 *
 	 * @since  future
-	 *
-	 * @author Amaury Balmer
+	 * @author Amaury BALMER
 	 *
 	 * @return string
 	 */
@@ -67,8 +65,7 @@ class Main {
 	 * @param $old_value
 	 *
 	 * @since  future
-	 *
-	 * @author Amaury Balmer
+	 * @author Amaury BALMER
 	 *
 	 * @return mixed
 	 */
