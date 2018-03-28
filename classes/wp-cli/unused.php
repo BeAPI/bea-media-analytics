@@ -5,43 +5,18 @@ use BEA\Media_Analytics\Helper\API;
 class Unused extends \WP_CLI_Command {
 
 	/**
-	 * Work with unused media
-	 *
-	 * ##
-	 * <action> : Action to be launched. Could be list or delete.
+	 * Handle wp cli to list unused media
+	 * Func could be name enumerate, but sub-command is registered against list
 	 *
 	 * ## EXAMPLES
-	 * wp bea_media_analytics unused <action> --url=
+	 * wp bea_media_analytics unused list --url=
 	 *
 	 * @since  future
 	 * @author Maxime CULEA
 	 *
 	 * @synopsis
 	 */
-	function unused( $args ) {
-		list( $action ) = $args;
-		if ( empty( $action ) ) {
-			\WP_CLI::error( "No action provided ! Choose between 'list' or 'deleted'. \n Usage : wp bea_media_analytics unused <action>" );
-		}
-
-		switch ( $action ) {
-			case 'list' :
-				$this->list_medias();
-				break;
-			case 'delete' :
-				$this->delete();
-				break;
-		}
-	}
-
-	/**
-	 * Handle wp cli to list unused media
-	 *
-	 * @since future
-	 *
-	 * @author Maxime CULEA
-	 */
-	private function list_medias() {
+	public function enumerate() {
 		$table  = [];
 		$medias = API::get_unused_media();
 		if ( ! empty( $medias ) ) {
@@ -64,11 +39,15 @@ class Unused extends \WP_CLI_Command {
 	/**
 	 * Handle wp cli to delete unused media
 	 *
-	 * @since future
+	 * ## EXAMPLES
+	 * wp bea_media_analytics unused delete --url=
 	 *
+	 * @since  future
 	 * @author Maxime CULEA
+	 *
+	 * @synopsis
 	 */
-	private function delete() {
+	public function delete() {
 		$medias = API::get_unused_media();
 		if ( empty( $medias ) ) {
 			\WP_CLI::error( "wp bea_media_analytics unused delete : All media are used." );
