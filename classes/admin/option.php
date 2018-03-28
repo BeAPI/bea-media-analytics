@@ -14,8 +14,8 @@ class Option {
 	/**
 	 * On save option, index option's media
 	 *
-	 * @author Maxime CULEA
-	 * @since  1.0.0
+	 * @author Amaury balmer
+	 * @since  future
 	 *
 	 * @param $post_id
 	 */
@@ -39,6 +39,9 @@ class Option {
 
 	/**
 	 * Index medias for a ACF option page
+	 *
+	 * @author Amaury balmer
+	 * @since  future
 	 *
 	 * @param string $page_menu_slug
 	 */
