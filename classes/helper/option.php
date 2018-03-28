@@ -33,7 +33,7 @@ class Option extends Helper {
 	 * @param string $page_menu_slug
 	 *
 	 * @author Amaury BALMER
-	 * @since  1.0.0
+	 * @since  future
 	 *
 	 * @return array Media ids
 	 */
@@ -79,9 +79,9 @@ class Option extends Helper {
 	 * Recursive way to extract all possible fields for a post
 	 * TODO : Maybe better save this fields somewhere (one time)
 	 *
-	 * @since  2.0.4
+	 * @since  future
 	 *
-	 * @author Maxime CULEA
+	 * @author Amaury Balmer
 	 *
 	 * @param array $fields
 	 */
@@ -96,7 +96,12 @@ class Option extends Helper {
 				foreach ( $field['layouts'] as $layout_field ) {
 					$this->recursive_get_post_media_fields( $layout_field['sub_fields'] );
 				}
-			} elseif ( in_array( $field['type'], [ 'repeater', 'clone', 'group', 'component_field' ] ) ) {
+			} elseif ( in_array( $field['type'], [
+				'repeater',
+				'clone',
+				'group',
+				'component_field',
+			] ) ) {
 				// Repeater, Clone and Group fields is a recursive structure with sub_fields
 				$this->recursive_get_post_media_fields( $field['sub_fields'] );
 			} elseif ( in_array( $field['type'], [
@@ -122,9 +127,9 @@ class Option extends Helper {
 	/**
 	 * From media fields, get media ids
 	 *
-	 * @since  2.0.4
+	 * @since  future
 	 *
-	 * @author Maxime CULEA
+	 * @author Amaury Balmer
 	 *
 	 * @param array $fields
 	 */
