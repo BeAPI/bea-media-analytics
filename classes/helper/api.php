@@ -5,7 +5,8 @@ class API {
 	/**
 	 * Get unused media
 	 *
-	 * @since  future
+	 * @since  1.0.0
+	 * @update future : improve performande with custom SQL query based on the bea_media_analytics arg
 	 *
 	 * @author Maxime CULEA
 	 *
@@ -18,7 +19,7 @@ class API {
 			'no_found_rows'       => true,
 			'fields'              => 'ids',
 			'bea_media_analytics' => 'unused',
-			'nopaging'            => true
+			'nopaging'            => true,
 		] );
 
 		return $medias_query->have_posts() ? $medias_query->posts : [];
