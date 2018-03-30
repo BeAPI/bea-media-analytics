@@ -30,17 +30,19 @@ class Plugin {
 	/**
 	 * On plugin update, launch custom actions as reindexing contents
 	 *
-	 * @param $upgrader_object
+	 * @param $upgrader
 	 * @param $options
 	 *
 	 * @since  future
 	 * @author Maxime CULEA
 	 */
-	private function plugin_updated_actions( $upgrader_object, $options ) {
+	private function plugin_updated_actions( $upgrader, $options ) {
 		if ( 'plugin' !== $options['type'] || 'update' !== $options['action'] || ! in_array( BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME, $options['plugins'] ) ) {
 			return;
 		}
 
+		// Update for forcing cron schedule
+		update_option( 'bea_media_analytics_index', false );
 		Crons::schedule();
 	}
 }
