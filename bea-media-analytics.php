@@ -64,8 +64,8 @@ register_deactivation_hook( __FILE__, [ '\BEA\Media_Analytics\Plugin', 'deactiva
 add_action( 'plugins_loaded', 'plugins_loaded_bea_media_analytics_plugin' );
 /** Init the plugin */
 function plugins_loaded_bea_media_analytics_plugin() {
-	// Plugin
-	\BEA\Media_Analytics\Plugin::get_instance();
+	// Upgrader
+	\BEA\Media_Analytics\Upgrader::get_instance();
 	// DB
 	\BEA\Media_Analytics\DB_Table::get_instance();
 
