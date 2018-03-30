@@ -23,6 +23,9 @@ class Main {
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_links' ], 10, 2 );
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
+
+		// Admin notices
+		add_action( 'admin_notices', 'wp_upe_display_update_notice' );
 	}
 
 	/**
@@ -47,7 +50,7 @@ class Main {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $found_medias Array of found images id.
+		 * @param array  $found_medias Array of found images id.
 		 * @param string $post_content Post content.
 		 */
 		$found_medias = apply_filters( 'bea.media_analytics.helper.get_media.post_content', [], $post_content );
@@ -111,10 +114,10 @@ class Main {
 	/**
 	 * Get media ids from text
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -126,10 +129,10 @@ class Main {
 	/**
 	 * Get media ids from links
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -141,15 +144,45 @@ class Main {
 	/**
 	 * Get media ids from links
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
 	 */
 	public function get_media_from_shortcode_gallery( $media_ids, $post_content ) {
 		return array_merge( $media_ids, Post::get_media_from_shortcode_gallery( $post_content ) );
+	}
+
+	/**
+	 * Manage to show an admin notice :
+	 * - to anyone who has just installed the plugin for the first time
+	 * - to anyone who updated the plugin from WordPress upgrader
+	 *
+	 * @since  future
+	 * @author Maxime CULEA
+	 */
+	public function wp_upe_display_install_notice() {
+		$plugin_updated   = get_transient( 'bma_notice_plugin_updated' );
+		$plugin_activated = get_transient( 'bma_notice_plugin_activated' );
+		if ( empty( $plugin_updated ) && empty( $plugin_activated ) ) {
+			return;
+		}
+		$notice = '<div class="notice notice-success notice-dismiss">';
+
+		if ( ! empty( $plugin_updated ) ) {
+			$notice         .= _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
+			$transient_name = 'bma_notice_plugin_updated';
+		} elseif ( ! empty( $plugin_activated ) ) {
+			$notice         .= _x( 'As BEA - Media Analytics plugin has been installed, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
+			$transient_name = 'bma_notice_plugin_activated';
+		}
+		// Delete the transient so we don't keep displaying the activation message
+		delete_transient( $transient_name );
+
+		$notice .= '</div>';
+		echo $notice;
 	}
 }
