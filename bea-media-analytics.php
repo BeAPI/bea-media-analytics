@@ -65,6 +65,8 @@ add_action( 'plugins_loaded', 'plugins_loaded_bea_media_analytics_plugin' );
 /** Init the plugin */
 function plugins_loaded_bea_media_analytics_plugin() {
 	// DB
+	\BEA\Media_Analytics\Plugin::get_instance();
+	// DB
 	\BEA\Media_Analytics\DB_Table::get_instance();
 
 	// Client
