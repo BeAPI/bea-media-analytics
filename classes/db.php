@@ -24,6 +24,12 @@ class DB {
 		}
 
 		$db_table->db->delete( $db_table->get_table_name(), [ 'blog_id' => $blog_id ], [ '%d' ] );
+
+		delete_option( 'bea_media_analytics_index' );
+
+		// Delete transients which are set to inform later cron launch
+		delete_transient( 'bma_notice_plugin_updated' );
+		delete_transient( 'bma_notice_plugin_activated' );
 	}
 
 	/**
@@ -134,7 +140,7 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param int $counter How many times used.
+		 * @param int $counter  How many times used.
 		 * @param int $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.media_analytics.db.get_counter', $counter, $media_id );
@@ -163,8 +169,8 @@ class DB {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $data The indexed data, reordoned.
-		 * @param int $media_id Media ID looking for.
+		 * @param array $data     The indexed data, reordoned.
+		 * @param int   $media_id Media ID looking for.
 		 */
 		return apply_filters( 'bea.media_analytics.db.get_data', $data, $media_id );
 	}
@@ -173,8 +179,8 @@ class DB {
 	 * Check if a data exists into db
 	 *
 	 * @param string $type
-	 * @param int $media_id
-	 * @param int $object_id
+	 * @param int    $media_id
+	 * @param int    $object_id
 	 * @param string $object_type
 	 *
 	 * @since  1.0.0
