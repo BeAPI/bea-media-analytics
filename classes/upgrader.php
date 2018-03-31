@@ -21,11 +21,13 @@ class Upgrader {
 			return;
 		}
 
+		// TODO : not working, need to check db version against new plugin one, then display message error
+		// Simple as pie !
+
 		// Update option for forcing cron schedule
 		update_option( 'bea_media_analytics_index', false );
 		Crons::schedule();
 
-		// Set this transient, for 15min, to allow to show admin notice that indexing will manage soon
-		set_transient( 'bma_notice_plugin_updated', true, MINUTE_IN_SECONDS * 15 );
+		dnh_register_notice( 'bea_media_analytics_updated_notice', 'updated', _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
 	}
 }

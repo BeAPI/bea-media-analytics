@@ -14,8 +14,7 @@ class Plugin {
 
 		Crons::schedule();
 
-		// Set this transient, for 15min, to allow to show admin notice that indexing will manage soon
-		set_transient( 'bma_notice_plugin_activated', true, MINUTE_IN_SECONDS * 15 );
+		dnh_register_notice( 'bea_media_analytics_activated_notice', 'updated', _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
 	}
 
 	/**
