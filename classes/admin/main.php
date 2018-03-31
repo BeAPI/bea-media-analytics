@@ -25,7 +25,7 @@ class Main {
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
 
 		// Admin notices
-		add_action( 'admin_notices', 'wp_upe_display_update_notice' );
+		add_action( 'admin_notices', [ $this, 'admin_notices' ], 10, 2 );
 	}
 
 	/**
@@ -164,7 +164,7 @@ class Main {
 	 * @since  future
 	 * @author Maxime CULEA
 	 */
-	public function wp_upe_display_install_notice() {
+	public function admin_notices() {
 		$plugin_updated   = get_transient( 'bma_notice_plugin_updated' );
 		$plugin_activated = get_transient( 'bma_notice_plugin_activated' );
 		if ( empty( $plugin_updated ) && empty( $plugin_activated ) ) {
