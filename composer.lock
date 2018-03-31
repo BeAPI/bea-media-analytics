@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "39390f786c171a7c05dbf9210f06616e",
+    "content-hash": "2d4e389dc48d7d09ba14413a11ae26be",
     "packages": [
         {
             "name": "julien731/wp-dismissible-notices-handler",
@@ -54,6 +54,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.6.0"
+    },
     "platform-dev": []
 }
