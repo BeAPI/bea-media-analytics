@@ -14,8 +14,8 @@ class Plugin {
 
 		Crons::schedule();
 
-		// Set this transient to allow to show admin notice that indexing will manage soon
-		set_transient( 'bma_notice_plugin_activated', true, HOUR_IN_SECONDS );
+		// Set this transient, for 15min, to allow to show admin notice that indexing will manage soon
+		set_transient( 'bma_notice_plugin_activated', true, MINUTE_IN_SECONDS * 15 );
 	}
 
 	/**

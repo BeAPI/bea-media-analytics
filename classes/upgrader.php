@@ -25,7 +25,7 @@ class Upgrader {
 		update_option( 'bea_media_analytics_index', false );
 		Crons::schedule();
 
-		// Set this transient to allow to show admin notice that indexing will manage soon
-		set_transient( 'bma_notice_plugin_updated', true, HOUR_IN_SECONDS );
+		// Set this transient, for 15min, to allow to show admin notice that indexing will manage soon
+		set_transient( 'bma_notice_plugin_updated', true, MINUTE_IN_SECONDS * 15 );
 	}
 }
