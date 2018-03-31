@@ -57,9 +57,6 @@ if ( version_compare( PHP_VERSION, BEA_MEDIA_ANALYTICS_MIN_PHP_VERSION, '<' ) ) 
 // Autoload all the things \o/
 require_once BEA_MEDIA_ANALYTICS_DIR . 'autoload.php';
 
-// TODO : improve way dependencies are loaded #71
-require_once BEA_MEDIA_ANALYTICS_DIR . 'vendor/julien731/wp-dismissible-notices-handler/handler.php';
-
 // Plugin activate/deactive hooks
 register_activation_hook( __FILE__, [ '\BEA\Media_Analytics\Plugin', 'activate' ] );
 register_deactivation_hook( __FILE__, [ '\BEA\Media_Analytics\Plugin', 'deactivate' ] );

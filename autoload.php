@@ -65,12 +65,12 @@ class Autoloader {
 	/**
 	 * Adds a base directory for a namespace prefix.
 	 *
-	 * @param string $prefix The namespace prefix.
+	 * @param string $prefix   The namespace prefix.
 	 * @param string $base_dir A base directory for class files in the
-	 * namespace.
-	 * @param bool $prepend If true, prepend the base directory to the stack
-	 * instead of appending it; this causes it to be searched first rather
-	 * than last.
+	 *                         namespace.
+	 * @param bool   $prepend  If true, prepend the base directory to the stack
+	 *                         instead of appending it; this causes it to be searched first rather
+	 *                         than last.
 	 *
 	 * @return void
 	 */
@@ -108,7 +108,7 @@ class Autoloader {
 
 		// work backwards through the namespace names of the fully-qualified
 		// class name to find a mapped file name
-		while ( false !== $pos = strrpos( $prefix, '\\' ) ) {
+		while( false !== $pos = strrpos( $prefix, '\\' ) ) {
 
 			// retain the trailing namespace separator in the prefix
 			$prefix = substr( $class, 0, $pos + 1 );
@@ -134,7 +134,7 @@ class Autoloader {
 	/**
 	 * Load the mapped file for a namespace prefix and relative class.
 	 *
-	 * @param string $prefix The namespace prefix.
+	 * @param string $prefix         The namespace prefix.
 	 * @param string $relative_class The relative class name.
 	 *
 	 * @return mixed Boolean false if no mapped file can be loaded, or the
@@ -152,9 +152,10 @@ class Autoloader {
 			// replace the namespace prefix with the base directory,
 			// replace namespace separators with directory separators
 			// in the relative class name, append with .php
-			$file = $base_dir
-			        . strtolower( str_replace( array( '\\', '_' ), array( '/', '-' ), $relative_class ) )
-			        . '.php';
+			$file = $base_dir . strtolower( str_replace( array( '\\', '_' ), array(
+					'/',
+					'-'
+				), $relative_class ) ) . '.php';
 
 			// if the mapped file exists, require it
 			if ( $this->requireFile( $file ) ) {
@@ -193,3 +194,8 @@ $loader->register();
 
 // register the base directories for the namespace prefix
 $loader->addNamespace( 'BEA\Media_Analytics', BEA_MEDIA_ANALYTICS_DIR . 'classes' );
+
+// Vendor autoload
+if ( file_exists( BEA_MEDIA_ANALYTICS_DIR . 'vendor/autoload.php' ) ) {
+	require BEA_MEDIA_ANALYTICS_DIR . 'vendor/autoload.php';
+}
