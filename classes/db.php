@@ -26,10 +26,6 @@ class DB {
 		$db_table->db->delete( $db_table->get_table_name(), [ 'blog_id' => $blog_id ], [ '%d' ] );
 
 		delete_option( 'bea_media_analytics_index' );
-
-		// Delete transients which are set to inform later cron launch
-		delete_transient( 'bma_notice_plugin_updated' );
-		delete_transient( 'bma_notice_plugin_activated' );
 	}
 
 	/**

@@ -45,10 +45,6 @@ class Crons {
 
 		update_option( 'bea_media_analytics_index', true );
 
-		// Delete transients which are set to inform later cron launch
-		delete_transient( 'bma_notice_plugin_updated' );
-		delete_transient( 'bma_notice_plugin_activated' );
-
 		self::unschedule();
 	}
 }

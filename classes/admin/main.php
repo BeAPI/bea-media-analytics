@@ -23,9 +23,6 @@ class Main {
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_text' ], 10, 2 );
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_links' ], 10, 2 );
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
-
-		// Admin notices
-		add_action( 'init', [ $this, 'admin_notices' ], 10, 2 );
 	}
 
 	/**
@@ -154,33 +151,5 @@ class Main {
 	 */
 	public function get_media_from_shortcode_gallery( $media_ids, $post_content ) {
 		return array_merge( $media_ids, Post::get_media_from_shortcode_gallery( $post_content ) );
-	}
-
-	/**
-	 * Manage to show an admin notice :
-	 * - to anyone who has just installed the plugin for the first time
-	 * - to anyone who updated the plugin from WordPress upgrader
-	 *
-	 * @use    DNH() class for real dismissible notices from vendor/
-	 *
-	 * @since  future
-	 * @author Maxime CULEA
-	 */
-	public function admin_notices() {
-		$plugin_updated   = get_transient( 'bma_notice_plugin_updated' );
-		$plugin_activated = get_transient( 'bma_notice_plugin_activated' );
-		if ( empty( $plugin_updated ) && empty( $plugin_activated ) ) {
-			return;
-		}
-
-		if ( ! empty( $plugin_updated ) ) {
-			$message = _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
-			$id      = 'bea_media_analytics_updated_notice';
-		} elseif ( ! empty( $plugin_activated ) ) {
-			$message = _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
-			$id      = 'bea_media_analytics_activated_notice';
-		}
-
-		dnh_register_notice( $id, 'updated', $message );
 	}
 }
