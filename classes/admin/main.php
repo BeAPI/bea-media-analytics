@@ -170,18 +170,14 @@ class Main {
 		if ( empty( $plugin_updated ) && empty( $plugin_activated ) ) {
 			return;
 		}
-		$notice = '<div class="notice notice-success notice-dismiss">';
 
+		$notice = '<div data-dismissible="disable-done-notice-forever" class="notice notice-info is-dismissible">';
 		if ( ! empty( $plugin_updated ) ) {
-			$notice         .= _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
-			$transient_name = 'bma_notice_plugin_updated';
+			$message = _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
 		} elseif ( ! empty( $plugin_activated ) ) {
-			$notice         .= _x( 'As BEA - Media Analytics plugin has been installed, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
-			$transient_name = 'bma_notice_plugin_activated';
+			$message = _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
 		}
-		// Delete the transient so we don't keep displaying the activation message
-		delete_transient( $transient_name );
-
+		$notice .= sprintf( '<p><strong>%s</strong></p>', $message );
 		$notice .= '</div>';
 		echo $notice;
 	}
