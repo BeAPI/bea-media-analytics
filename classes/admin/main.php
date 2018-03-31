@@ -25,7 +25,7 @@ class Main {
 		add_filter( 'bea.media_analytics.helper.get_media.post_content', [ $this, 'get_media_from_shortcode_gallery' ], 10, 2 );
 
 		// Admin notices
-		add_action( 'admin_notices', [ $this, 'admin_notices' ], 10, 2 );
+		add_action( 'init', [ $this, 'admin_notices' ], 10, 2 );
 	}
 
 	/**
@@ -161,6 +161,8 @@ class Main {
 	 * - to anyone who has just installed the plugin for the first time
 	 * - to anyone who updated the plugin from WordPress upgrader
 	 *
+	 * @use    DNH() class for real dismissible notices from vendor/
+	 *
 	 * @since  future
 	 * @author Maxime CULEA
 	 */
@@ -171,14 +173,14 @@ class Main {
 			return;
 		}
 
-		$notice = '<div data-dismissible="disable-done-notice-forever" class="notice notice-info is-dismissible">';
 		if ( ! empty( $plugin_updated ) ) {
 			$message = _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
+			$id      = 'bea_media_analytics_updated_notice';
 		} elseif ( ! empty( $plugin_activated ) ) {
 			$message = _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' );
+			$id      = 'bea_media_analytics_activated_notice';
 		}
-		$notice .= sprintf( '<p><strong>%s</strong></p>', $message );
-		$notice .= '</div>';
-		echo $notice;
+
+		dnh_register_notice( $id, 'updated', $message );
 	}
 }
