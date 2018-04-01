@@ -4,11 +4,12 @@ class Upgrader {
 	use Singleton;
 
 	protected function init() {
-		add_action( 'upgrader_process_complete', [ $this, 'plugin_updated_actions' ], 10, 2 );
+		//add_action( 'upgrader_process_complete', [ $this, 'plugin_updated_actions' ], 10, 2 );
 	}
 
 	/**
 	 * On plugin update, launch custom actions as reindexing contents
+	 * //TODO : not working, need to check db version against new plugin one, then display message error
 	 *
 	 * @param $upgrader
 	 * @param $options
@@ -16,13 +17,10 @@ class Upgrader {
 	 * @since  future
 	 * @author Maxime CULEA
 	 */
-	private function plugin_updated_actions( $upgrader, $options ) {
-		if ( 'plugin' !== $options['type'] || 'update' !== $options['action'] || ! in_array( BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME, $options['plugins'] ) ) {
+	public static function plugin_updated_actions( $upgrader = [], $options = [] ) {
+		/*if ( 'plugin' !== $options['type'] || 'update' !== $options['action'] || ! in_array( BEA_MEDIA_ANALYTICS_PLUGIN_DIRNAME, $options['plugins'] ) ) {
 			return;
-		}
-
-		// TODO : not working, need to check db version against new plugin one, then display message error
-		// Simple as pie !
+		}*/
 
 		// Update option for forcing cron schedule
 		update_option( 'bea_media_analytics_index', false );
