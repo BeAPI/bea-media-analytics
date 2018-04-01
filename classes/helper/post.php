@@ -7,27 +7,6 @@ class Post extends Helper {
 	use Singleton;
 
 	/**
-	 * All kind of field that involve object
-	 *
-	 * @var array
-	 */
-	private $_acf_object_fields = array();
-
-	/**
-	 * All kind of field that involve textual fields
-	 *
-	 * @var array
-	 */
-	private $_acf_textual_fields = array();
-
-	/**
-	 * Retrieved medias from ACF fields
-	 *
-	 * @var array
-	 */
-	private $_found_medias = array();
-
-	/**
 	 * Parse post's ACF fields to get media ids
 	 *
 	 * @param int $post_id
