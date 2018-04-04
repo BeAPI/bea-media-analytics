@@ -11,6 +11,9 @@
 * Add Component Field support.
 * Add Image Map Pro support.
 * Add ACF Options support.
+* Add admin notices on plugin activation.
+* Add admin notices on plugin update.
+* Force reindexation with cron on plugin update.
 
 ## 2.0.3 - 04 Feb 2018
 * Go to WP.Org.
