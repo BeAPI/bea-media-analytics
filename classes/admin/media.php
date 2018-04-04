@@ -79,7 +79,7 @@ class Media {
 	 * @param $media
 	 *
 	 * @since   1.0.0
-	 * @since   future : acf-option case
+	 * @since   2.1.0 : acf-option case
 	 *
 	 * @author  Maxime CULEA
 	 *

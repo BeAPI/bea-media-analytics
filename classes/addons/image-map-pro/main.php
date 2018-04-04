@@ -24,7 +24,7 @@ class Main {
 	 *
 	 * @param integer $i
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Amaury BALMER
 	 */
 	public function index_site( $i ) {
@@ -43,7 +43,7 @@ class Main {
 	 * @param $content_id
 	 * @param $media_id
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Amaury BALMER
 	 *
 	 * @return string
@@ -64,7 +64,7 @@ class Main {
 	 * @param $value
 	 * @param $old_value
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Amaury BALMER
 	 *
 	 * @return mixed

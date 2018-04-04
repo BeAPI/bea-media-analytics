@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d4e389dc48d7d09ba14413a11ae26be",
+    "content-hash": "82549fd37e328beda6a0c7615016f9a5",
     "packages": [
         {
             "name": "julien731/wp-dismissible-notices-handler",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/julien731/WP-Dismissible-Notices-Handler.git",
-                "reference": "e86a6dd490ab22b22df97f744200f96d3223f5f5"
+                "reference": "85ce1debbdfd4543e5b835dfe6670b9de99ddf6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/julien731/WP-Dismissible-Notices-Handler/zipball/e86a6dd490ab22b22df97f744200f96d3223f5f5",
-                "reference": "e86a6dd490ab22b22df97f744200f96d3223f5f5",
+                "url": "https://api.github.com/repos/julien731/WP-Dismissible-Notices-Handler/zipball/85ce1debbdfd4543e5b835dfe6670b9de99ddf6b",
+                "reference": "85ce1debbdfd4543e5b835dfe6670b9de99ddf6b",
                 "shasum": ""
             },
             "require": {
@@ -43,15 +43,13 @@
             ],
             "description": "A simple library to handle Ajax-dismissible admin notices for WordPress",
             "homepage": "https://github.com/julien731/WP-Dismissible-Notices-Handler",
-            "time": "2017-08-27 14:42:58"
+            "time": "2016-04-03T05:12:27+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "julien731/wp-dismissible-notices-handler": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

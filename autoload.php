@@ -195,7 +195,10 @@ $loader->register();
 // register the base directories for the namespace prefix
 $loader->addNamespace( 'BEA\Media_Analytics', BEA_MEDIA_ANALYTICS_DIR . 'classes' );
 
-// Vendor autoload
+/**
+ * Vendor autoload
+ * @since 2.1.0
+ */
 if ( file_exists( BEA_MEDIA_ANALYTICS_DIR . 'vendor/autoload.php' ) ) {
 	require BEA_MEDIA_ANALYTICS_DIR . 'vendor/autoload.php';
 }

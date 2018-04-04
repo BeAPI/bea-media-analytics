@@ -11,7 +11,7 @@ class Unused extends \WP_CLI_Command {
 	 * ## EXAMPLES
 	 * wp bea_media_analytics unused list --url=
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Maxime CULEA
 	 *
 	 * @synopsis
@@ -43,7 +43,7 @@ class Unused extends \WP_CLI_Command {
 	 * ## EXAMPLES
 	 * wp bea_media_analytics unused delete --url=
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Maxime CULEA
 	 *
 	 * @synopsis

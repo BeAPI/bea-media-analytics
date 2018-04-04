@@ -122,7 +122,7 @@ For the indexation of all the supported contents, the blog id is used. So on the
 
 == Changelog ==
 
-= Next
+= 2.1.0 - 04 Avr 2018 =
 - Handle Group, Clone and Repeater ACF fields.
 - Add ACF's Textarea and Wysiwyg support.
 - Add WP CLI command to list and delete unused media.

@@ -15,7 +15,7 @@ class Option {
 	 * On save option, index option's media
 	 *
 	 * @author Amaury balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @param $post_id
 	 */
@@ -41,7 +41,7 @@ class Option {
 	 * Index medias for a ACF option page
 	 *
 	 * @author Amaury balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @param string $page_menu_slug
 	 */
@@ -51,7 +51,7 @@ class Option {
 		 *
 		 * Get images from multiple sources to index against post
 		 *
-		 * @since future
+		 * @since 2.1.0
 		 *
 		 * @param array  $image_ids      Array of images id.
 		 * @param string $page_menu_slug ACF menu slug.

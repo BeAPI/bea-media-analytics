@@ -14,7 +14,7 @@ class Upgrader {
 	 * @param $upgrader
 	 * @param $options
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Maxime CULEA
 	 */
 	public static function plugin_updated_actions( $upgrader = [], $options = [] ) {

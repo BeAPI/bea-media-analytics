@@ -12,7 +12,7 @@ class Option extends Helper {
 	 * @param string $page_menu_slug
 	 *
 	 * @author Amaury BALMER
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return array Media ids
 	 */

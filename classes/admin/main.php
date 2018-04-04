@@ -100,7 +100,7 @@ class Main {
 	 * @param int   $post_id
 	 *
 	 * @author Amaury BALMER
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return array
 	 */

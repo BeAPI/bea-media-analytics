@@ -7,7 +7,7 @@ class DB_Table {
 	/** @var object Database object (usually $GLOBALS['wpdb']) */
 	public $db = false;
 
-	public $db_version = 20180323;
+	public $db_version = 20180404;
 
 	public $db_version_key = 'bea_wpdb_media_analytics_version';
 
@@ -57,11 +57,11 @@ class DB_Table {
 			$this->create_table();
 		} elseif ( version_compare( (int) $old_version, 20171201, '<=' ) ) {
 			/**
-			 * Update database structure from 1.0.1 to future
+			 * Update database structure from 1.0.1 to 2.1.0
 			 *
 			 * object_id bigint(20) NOT NULL => object_id varchar(255) NOT NULL
 			 *
-			 * @since future
+			 * @since 2.1.0
 			 */
 			$this->create_table();
 		} else {

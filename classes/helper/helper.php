@@ -93,7 +93,7 @@ class Helper {
 	 *
 	 * @link   https://philipnewcomer.net/2012/11/get-the-attachment-id-from-an-image-url-in-wordpress/
 	 *
-	 * @since  future
+	 * @since  2.1.0
 	 * @author Amaury Balmer
 	 *
 	 * @return int

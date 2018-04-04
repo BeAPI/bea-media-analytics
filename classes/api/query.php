@@ -19,7 +19,7 @@ class Query {
 	 * @param array $vars
 	 *
 	 * @author Amaury Balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return array
 	 */
@@ -36,7 +36,7 @@ class Query {
 	 * @param \WP_Query $query
 	 *
 	 * @author Amaury Balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return string
 	 */
@@ -61,7 +61,7 @@ class Query {
 	 * @param  |WP_Query $query
 	 *
 	 * @author Amaury Balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return string
 	 */
@@ -82,7 +82,7 @@ class Query {
 	 * @param  |WP_Query $query
 	 *
 	 * @author Amaury Balmer
-	 * @since  future
+	 * @since  2.1.0
 	 *
 	 * @return string
 	 */
