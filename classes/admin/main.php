@@ -47,7 +47,7 @@ class Main {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $found_medias Array of found images id.
+		 * @param array  $found_medias Array of found images id.
 		 * @param string $post_content Post content.
 		 */
 		$found_medias = apply_filters( 'bea.media_analytics.helper.get_media.post_content', [], $post_content );
@@ -111,10 +111,10 @@ class Main {
 	/**
 	 * Get media ids from text
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -126,10 +126,10 @@ class Main {
 	/**
 	 * Get media ids from links
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array
@@ -141,10 +141,10 @@ class Main {
 	/**
 	 * Get media ids from links
 	 *
-	 * @param array $media_ids
+	 * @param array  $media_ids
 	 * @param string $post_content
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @author Maxime CULEA
 	 *
 	 * @return array

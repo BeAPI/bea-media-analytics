@@ -42,6 +42,7 @@ class Crons {
 		}
 
 		Main::force_indexation();
+
 		update_option( 'bea_media_analytics_index', true );
 
 		self::unschedule();

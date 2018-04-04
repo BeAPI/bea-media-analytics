@@ -1,22 +1,25 @@
+# Translation of Plugins - BEA &#8211; Media Analytics - Development (trunk) in French (France)
+# This file is distributed under the same license as the Plugins - BEA &#8211; Media Analytics - Development (trunk) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: BEA - Media Analytics\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-12 14:44+0000\n"
-"PO-Revision-Date: 2018-02-02 16:56+0000\n"
-"Last-Translator: admin <dev-email@flywheel.local>\n"
-"Language-Team: French (France)\n"
-"Language: fr-FR\n"
-"Plural-Forms: nplurals=2; plural=n > 1\n"
+"PO-Revision-Date: 2018-04-01 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: fr-FR\n"
+"Project-Id-Version: Plugins - BEA &#8211; Media Analytics - Development "
+"(trunk)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-01 08:52+0000\n"
+"Last-Translator: admin <dev-email@flywheel.local>\n"
+"Language-Team: French (France)"
 
 #: compat.php:22
 #, php-format
 msgid "Plugin Boilerplate requires PHP version %s or greater to be activated."
-msgstr ""
+msgstr "L'extension a besoin de la version PHP %s ou plus pour être activé."
 
 #: compat.php:37
 #, php-format
@@ -24,78 +27,8 @@ msgid ""
 "Plugin Boilerplate require PHP version %s or greater to be activated. Your "
 "server is currently running PHP version %s."
 msgstr ""
-
-#. URI of the plugin
-msgid "https://github.com/BeAPI/bea-media-analytics"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://beapi.fr/"
-msgstr ""
-
-#: classes/addons/content-sync-fusion/main.php:52
-msgctxt "Admin column name for CSF"
-msgid "Usage (CSF)"
-msgstr "Usage (CSF)"
-
-#: classes/addons/content-sync-fusion/main.php:117
-msgid "One single time across all synchronized sites."
-msgstr "Une seul fois sur les sites synchronisés."
-
-#: classes/addons/content-sync-fusion/main.php:119
-#, php-format
-msgid "%s times across all synchronized sites."
-msgstr "%s times sur les sites synchronisés."
-
-#: classes/addons/content-sync-fusion/main.php:140
-msgid "This media is used once across all synchronized sites :"
-msgstr "Ce média est utilisé une fois au sein de tous les sites synchronisés :"
-
-#: classes/addons/content-sync-fusion/main.php:142
-#, php-format
-msgid "This media is used %s times across all synchronized sites :"
-msgstr "Ce média est utilisé %s fois au sein de tous les sites synchronisés :"
-
-#: classes/addons/content-sync-fusion/main.php:219
-#, php-format
-msgctxt "Each site details for media usage"
-msgid "On site : %s"
-msgstr "Sur le site : %s"
-
-#: classes/addons/content-sync-fusion/main.php:248
-#, php-format
-msgctxt ""
-"Popup for confirmation media delete for CSF. %s will display the number with "
-"the singular / plural string (time/times)."
-msgid ""
-"This media is currently used %s across all synchronized sites. Are you sure "
-"you want to delete it ?\n"
-"This action is irreversible !\n"
-"«Cancel» to stop, «OK» to delete."
-msgstr ""
-"Ce média est à présent utilisé %s au sein de tous les sites synchronisés. "
-"Voulez-vous vraiment le supprimer ?\n"
-"Cette action ne peut pas être annulée.\n"
-"« Annuler » pour arrêter, « OK » pour supprimer."
-
-#. Description of the plugin
-msgid "Find where and how media are used across your site."
-msgstr "Trouver où et comment sont utilisés les médias au sein du site entier."
-
-#: classes/helpers.php:17
-msgctxt "Label for humanizing object types"
-msgid "Post content"
-msgstr "Contenu"
-
-#: classes/helpers.php:20
-msgctxt "Label for humanizing object types"
-msgid "Post thumbnail"
-msgstr "Image à la une"
-
-#: classes/helpers.php:23
-msgctxt "Label for humanizing object types"
-msgid "Advanced Custom Fields"
-msgstr "Champs ACF"
+"L'extension a besoin de la version PHP %s ou plus pour être activé. Votre "
+"serveur utilise actuellement la version PHP %s."
 
 #: classes/main.php:96
 msgid "time"
@@ -119,6 +52,48 @@ msgstr ""
 "Cette action ne peut pas être annulée.\n"
 "« Annuler » pour arrêter, « OK » pour supprimer."
 
+#: classes/plugin.php:17
+msgctxt "Admin notice"
+msgid ""
+"As BEA - Media Analytics plugin has been activated, the process of indexing "
+"contents will silently launch himself soon."
+msgstr ""
+"Comme l'extension BEA - Media Analytics vient d'être activée, le processus "
+"d'indexation des contenus va se lancer automatiquement en tâche d'arrière "
+"plan."
+
+#: classes/upgrader.php:29
+msgctxt "Admin notice"
+msgid ""
+"As BEA - Media Analytics plugin has been updated, new features are "
+"introduced which require to launch the process of indexing all contents. It "
+"will silently launch himself soon."
+msgstr ""
+"Comme l'extension BEA - Media Analytics vient d'être mise à jour, de "
+"nouvelles fonctionnalités ont été mises en places, ce qui nécessite une "
+"réindexation des contenus. Ce processus va se lancer automatiquement en "
+"tâche de fond."
+
+#: classes/helpers.php:17
+msgctxt "Label for humanizing object types"
+msgid "Post content"
+msgstr "Contenu"
+
+#: classes/helpers.php:20
+msgctxt "Label for humanizing object types"
+msgid "Post thumbnail"
+msgstr "Image à la une"
+
+#: classes/helpers.php:23
+msgctxt "Label for humanizing object types"
+msgid "Advanced Custom Fields"
+msgstr "Champs ACF"
+
+#: classes/helpers.php:26
+msgctxt "Label for humanizing object types"
+msgid "Advanced Custom Fields (settings)"
+msgstr "ACF Options"
+
 #: classes/admin/media.php:46
 msgid "One time."
 msgstr "Une fois."
@@ -135,36 +110,91 @@ msgstr "Voir l'utilisation du média."
 
 #: classes/admin/media.php:61
 msgid "Not used anywhere."
-msgstr "Utilisé nulle part."
+msgstr "Utilisé nul part."
 
 #: classes/admin/media.php:65
 msgid "Usage :"
-msgid_plural "Usages :"
-msgstr[0] "Usage :"
-msgstr[1] "Usages :"
+msgstr "Utilisation :"
 
-#: classes/admin/media.php:89 classes/addons/content-sync-fusion/main.php:138
+#: classes/admin/media.php:90 classes/addons/content-sync-fusion/main.php:145
 msgid "This media is not used."
 msgstr "Ce média n'est pas utilisé."
 
-#: classes/admin/media.php:91
+#: classes/admin/media.php:92
 msgid "This media is used once :"
 msgstr "Ce média est utilisé une fois :"
 
-#: classes/admin/media.php:93
+#: classes/admin/media.php:94
 #, php-format
 msgid "This media is used %s times :"
 msgstr "Ce média est utilisé %s fois :"
 
-#: classes/admin/media.php:181
+#: classes/admin/media.php:192
 msgctxt "Admin column name"
 msgid "Usage"
 msgstr "Usage"
 
-#. Name of the plugin
+#: classes/addons/content-sync-fusion/main.php:58
+msgctxt "Admin column name for CSF"
+msgid "Usage (CSF)"
+msgstr "Usage (CSF)"
+
+#: classes/addons/content-sync-fusion/main.php:124
+msgid "One single time across all synchronized sites."
+msgstr "Une seul fois sur les sites synchronisés."
+
+#: classes/addons/content-sync-fusion/main.php:126
+#, php-format
+msgid "%s times across all synchronized sites."
+msgstr "%s fois sur les sites synchronisés."
+
+#: classes/addons/content-sync-fusion/main.php:147
+msgid "This media is used once across all synchronized sites :"
+msgstr "Ce média est utilisé une fois au sein de tous les sites synchronisés :"
+
+#: classes/addons/content-sync-fusion/main.php:149
+#, php-format
+msgid "This media is used %s times across all synchronized sites :"
+msgstr "Ce média est utilisé %s fois au sein de tous les sites synchronisés :"
+
+#: classes/addons/content-sync-fusion/main.php:228
+#, php-format
+msgctxt "Each site details for media usage"
+msgid "On site : %s"
+msgstr "Sur le site : %s"
+
+#: classes/addons/content-sync-fusion/main.php:257
+#, php-format
+msgctxt ""
+"Popup for confirmation media delete for CSF. %s will display the number with "
+"the singular / plural string (time/times)."
+msgid ""
+"This media is currently used %s across all synchronized sites. Are you sure "
+"you want to delete it ?\n"
+"This action is irreversible !\n"
+"«Cancel» to stop, «OK» to delete."
+msgstr ""
+"Ce média est à présent utilisé %s au sein de tous les sites synchronisés. "
+"Voulez-vous vraiment le supprimer ?\n"
+"Cette action ne peut pas être annulée.\n"
+"« Annuler » pour arrêter, « OK » pour supprimer."
+
+#. Plugin Name of the plugin/theme
 msgid "BEA - Media Analytics"
 msgstr "BEA - Media Analytics"
 
-#. Author of the plugin
+#. Description of the plugin/theme
+msgid "Find where and how media are used across your site."
+msgstr "Trouver où et comment sont utilisés les médias au sein du site entier."
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/BeAPI/bea-media-analytics"
+msgstr "https://github.com/BeAPI/bea-media-analytics"
+
+#. Author of the plugin/theme
 msgid "Be API Technical team"
 msgstr "Equipe technique Be API"
+
+#. Author URI of the plugin/theme
+msgid "https://beapi.fr"
+msgstr "https://beapi.fr"

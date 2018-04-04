@@ -1,0 +1,61 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2d4e389dc48d7d09ba14413a11ae26be",
+    "packages": [
+        {
+            "name": "julien731/wp-dismissible-notices-handler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/julien731/WP-Dismissible-Notices-Handler.git",
+                "reference": "e86a6dd490ab22b22df97f744200f96d3223f5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/julien731/WP-Dismissible-Notices-Handler/zipball/e86a6dd490ab22b22df97f744200f96d3223f5f5",
+                "reference": "e86a6dd490ab22b22df97f744200f96d3223f5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "handler.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Julien Liabeuf",
+                    "email": "julien@liabeuf.fr",
+                    "homepage": "https://julienliabeuf.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A simple library to handle Ajax-dismissible admin notices for WordPress",
+            "homepage": "https://github.com/julien731/WP-Dismissible-Notices-Handler",
+            "time": "2017-08-27 14:42:58"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "julien731/wp-dismissible-notices-handler": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.6.0"
+    },
+    "platform-dev": []
+}

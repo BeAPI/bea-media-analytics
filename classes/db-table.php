@@ -66,11 +66,11 @@ class DB_Table {
 			$this->create_table();
 		} else {
 			// Other case without any action
-			return;
 		}
 
 		// Update the DB version
 		update_network_option( - 1, $this->db_version_key, $this->db_version );
+		Upgrader::plugin_updated_actions();
 	}
 
 	private function create_table() {
