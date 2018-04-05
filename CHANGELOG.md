@@ -1,6 +1,9 @@
 # Changelog ##
 
-## 2.1.0 - 04 Avr 2018
+## 2.1.1 - 05 Apr 2018
+* Fix admin notice display on plugin activation.
+
+## 2.1.0 - 04 Apr 2018
 * Handle Group, Clone and Repeater ACF fields.
 * Add ACF's Textarea and Wysiwyg support.
 * Add WP CLI command to list and delete unused media.

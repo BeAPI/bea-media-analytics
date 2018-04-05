@@ -5,7 +5,7 @@ Tags: find, media, usage, find media, analytics
 Requires at least: 4.6
 Requires php: 5.6
 Tested up to: 4.9.3
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-media-analytics/blob/master/LICENSE.md
 
@@ -122,7 +122,10 @@ For the indexation of all the supported contents, the blog id is used. So on the
 
 == Changelog ==
 
-= 2.1.0 - 04 Avr 2018 =
+= 2.1.1 - 05 Apr 2018 =
+- Fix admin notice display on plugin activation.
+
+= 2.1.0 - 04 Apr 2018 =
 - Handle Group, Clone and Repeater ACF fields.
 - Add ACF's Textarea and Wysiwyg support.
 - Add WP CLI command to list and delete unused media.
