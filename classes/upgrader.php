@@ -27,7 +27,7 @@ class Upgrader {
 		Crons::schedule();
 
 		if ( function_exists( 'dnh_register_notice' ) ) {
-			dnh_register_notice( 'bea_media_analytics_updated_notice', 'updated', _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
+			dnh_register_notice( sprintf( 'bea_media_analytics_updated_notice_%s', BEA_MEDIA_ANALYTICS_VERSION ), 'updated', _x( 'As BEA - Media Analytics plugin has been updated, new features are introduced which require to launch the process of indexing all contents. It will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
 		}
 	}
 }
