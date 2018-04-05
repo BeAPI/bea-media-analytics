@@ -26,6 +26,7 @@ class DB {
 		$db_table->db->delete( $db_table->get_table_name(), [ 'blog_id' => $blog_id ], [ '%d' ] );
 
 		delete_option( 'bea_media_analytics_index' );
+		delete_transient( 'bea_media_analytics_activated_notice' );
 	}
 
 	/**
