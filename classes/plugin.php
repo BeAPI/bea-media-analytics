@@ -14,7 +14,9 @@ class Plugin {
 
 		Crons::schedule();
 
-		dnh_register_notice( 'bea_media_analytics_activated_notice', 'updated', _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
+		if ( function_exists( 'dnh_register_notice' ) ) {
+			dnh_register_notice( sprintf( 'bea_media_analytics_activated_notice_%s', time() ), 'updated', _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
+		}
 	}
 
 	/**
