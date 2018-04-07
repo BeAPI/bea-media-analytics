@@ -38,13 +38,15 @@ class Helper {
 			return [];
 		}
 
-		// match all wp-image-{media_id} from img html classes
-		preg_match_all( '/wp-image-(\d*)/', $text, $images );
+		// match all src="" from img html
+		preg_match_all( '/src="([^"]+)"/', $text, $images );
 		if ( empty( $images ) ) {
 			return [];
 		}
 
-		return $images[1];
+		// Loop on medias to get ID instead URL
+		$medias = array_map( [ 'BEA\Media_Analytics\Helper\Helper', 'get_attachment_id_from_url' ], $images[1] );
+		return array_filter( $medias );
 	}
 
 	/**
