@@ -1,5 +1,6 @@
 <?php namespace BEA\Media_Analytics\Admin;
 
+use BEA\Media_Analytics\Helpers;
 use BEA\Media_Analytics\Singleton;
 use BEA\Media_Analytics\DB;
 
@@ -75,87 +76,18 @@ class Media {
 	/**
 	 * Display into media's edit view, the number of indexed
 	 *
-	 * @param $form_fields
-	 * @param $media
-	 *
 	 * @since   1.0.0
-	 * @since   2.1.0 : acf-option case
+	 * @since   2.1.0 : acf-option case (todo : handle acf into acf module)
+	 * @since   future : wp list table
 	 *
 	 * @author  Maxime CULEA
 	 *
 	 * @return array
 	 */
-	public function edit_view( $form_fields, $media ) {
-		$counter = DB::get_counter( $media->ID );
-		if ( 0 === $counter ) {
-			$title = __( 'This media is not used.', 'bea-media-analytics' );
-		} elseif ( 1 == $counter ) {
-			$title = __( 'This media is used once :', 'bea-media-analytics' );
-		} else {
-			$title = sprintf( __( 'This media is used %s times :', 'bea-media-analytics' ), $counter );
-		}
-
-		/**
-		 * Filter the title for the edit view
-		 *
-		 * @since 1.0.1
-		 *
-		 * @param string $title   Depending on counter, display the title.
-		 * @param int    $counter The number of usages.
-		 */
-		$title = apply_filters( 'bea.media_analytics.media.edit_view_title', $title, $counter );
-
-		/**
-		 * $amlt = new Admin_Media_List_Table();
-		 * ob_start();
-		 * $amlt->display();
-		 * $html = ob_get_clean();
-		 */
-
-		$data = DB::get_data( $media->ID );
-		if ( empty( $data ) ) {
-			// Fake content to be empty
-			$html = ' ';
-		} else {
-			$html = '<ul>';
-			foreach ( $data as $object_type => $obj ) {
-				foreach ( $obj as $media_id => $media ) {
-					foreach ( $media as $content_id => $types ) {
-
-						$_types = array_map( [ 'BEA\Media_Analytics\Helpers', 'humanize_object_type' ], $types );
-
-						if ( 'acf-option' == $types[0] ) {
-							$page = acf_options_page()->get_page( $content_id );
-							$html .= sprintf( '<li>%s : %s</li>', $page['page_title'], implode( ', ', $_types ) );
-						} elseif ( $content_id > 0 ) {
-							$html .= sprintf( '<li><a href="%s" target="_blank">%s</a> : %s</li>', get_edit_post_link( $content_id ), get_the_title( $content_id ), implode( ', ', $_types ) );
-						}
-
-						$html = apply_filters( 'bea.media_analytics.media.edit_view_context', $html, $types, $content_id, $media_id );
-
-					}
-				}
-			}
-			$html .= '</ul>';
-		}
-
-		/**
-		 * Filter the title for the edit view
-		 *
-		 * @since 1.0.1
-		 *
-		 * @param string $html The formatted HTML for edit view display.
-		 * @param array  $data All DB usages from the current media.
-		 */
-		$html = apply_filters( 'bea.media_analytics.media.edit_view_html', $html, $data );
-
-		$form_fields['bea_media_analytics_edit'] = [
-			'label'         => $title,
-			'input'         => 'html',
-			'html'          => $html,
-			'show_in_edit'  => true,
-			'show_in_modal' => false,
-		];
+	public function edit_view( $form_fields ) {
+		$amlt = new Admin_Media_List_Table();
+		$amlt->prepare_items();
+		$amlt->display();
 
 		return $form_fields;
 	}
