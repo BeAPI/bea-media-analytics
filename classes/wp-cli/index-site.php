@@ -30,7 +30,7 @@ class Index_Site extends \WP_CLI_Command {
 		] );
     
 		if ( $contents_q->have_posts() ) {
-			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->found_posts, get_current_blog_id() ), $contents_q->found_posts );
+			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->post_count, get_current_blog_id() ), $contents_q->post_count );
 		  foreach ( $contents_q->posts as $post ) {
 				$i ++;
 
