@@ -100,7 +100,7 @@ class Helper {
 	 *
 	 * @return int
 	 */
-	static function get_attachment_id_from_url( string $attachment_url ) {
+	static function get_attachment_id_from_url( $attachment_url ) {
 		global $wpdb;
 
 		// If there is no url, return.
