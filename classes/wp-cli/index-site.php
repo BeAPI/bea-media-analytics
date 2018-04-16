@@ -4,6 +4,12 @@ use BEA\Media_Analytics\Admin\Option;
 use BEA\Media_Analytics\Admin\Post;
 
 class Index_Site extends \WP_CLI_Command {
+	/**
+	 * Clear the WP object cache after this many regenerations/imports.
+	 *
+	 * @var integer
+	 */
+	const WP_CLEAR_OBJECT_CACHE_INTERVAL = 500;
 
 	/**
 	 * Force core db upgrade on all networks
@@ -28,11 +34,15 @@ class Index_Site extends \WP_CLI_Command {
 			'post_type'     => 'any',
 			'post_status'   => 'any'
 		] );
-    
+
 		if ( $contents_q->have_posts() ) {
 			$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Indexing %s posts for blog_id %s', $contents_q->post_count, get_current_blog_id() ), $contents_q->post_count );
-		  foreach ( $contents_q->posts as $post ) {
+			foreach ( $contents_q->posts as $post ) {
 				$i ++;
+
+				if ( 0 === $i % self::WP_CLEAR_OBJECT_CACHE_INTERVAL ) {
+					\WP_CLI\Utils\wp_clear_object_cache();
+				}
 
 				Post::index_post( $post->ID, $post, true );
 				$progress->tick();

@@ -3,6 +3,12 @@
 use BEA\Media_Analytics\Helper\API;
 
 class Unused extends \WP_CLI_Command {
+	/**
+	 * Clear the WP object cache after this many regenerations/imports.
+	 *
+	 * @var integer
+	 */
+	const WP_CLEAR_OBJECT_CACHE_INTERVAL = 500;
 
 	/**
 	 * Handle wp cli to list unused media
@@ -21,7 +27,13 @@ class Unused extends \WP_CLI_Command {
 		$table  = [];
 		$medias = API::get_unused_media();
 		if ( ! empty( $medias ) ) {
+			$i = 0;
 			foreach ( $medias as $media_id ) {
+				$i ++;
+				if ( 0 === $i % self::WP_CLEAR_OBJECT_CACHE_INTERVAL ) {
+					\WP_CLI\Utils\wp_clear_object_cache();
+				}
+
 				$table[] = [
 					'blog_id'     => get_current_blog_id(),
 					'media_id'    => $media_id,
@@ -52,11 +64,18 @@ class Unused extends \WP_CLI_Command {
 		$medias = API::get_unused_media();
 		if ( empty( $medias ) ) {
 			\WP_CLI::error( "wp bea_media_analytics unused delete : All media are used." );
+
 			return;
 		}
 
 		$progress = \WP_CLI\Utils\make_progress_bar( sprintf( 'Deleting unused media on blog_id : %s', get_current_blog_id() ), count( $medias ) );
+		$i        = 0;
 		foreach ( $medias as $media_id ) {
+			$i ++;
+			if ( 0 === $i % self::WP_CLEAR_OBJECT_CACHE_INTERVAL ) {
+				\WP_CLI\Utils\wp_clear_object_cache();
+			}
+
 			wp_delete_attachment( $media_id, true );
 			$progress->tick();
 		}
