@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 2.1.2 - 19 May 2023
+* Fix final function must have public visibility.
+
 ## 2.1.1 - 05 Apr 2018
 * Fix admin notice display on plugin activation.
 
