@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 2.1.3 - 21 Sept 2023
+* Compat to PHP 8.1 change singleton functions declarations
+
 ## 2.1.2 - 19 May 2023
 * Fix final function must have public visibility.
 
