@@ -48,7 +48,7 @@ trait Singleton {
 	 *
 	 * @throws \LogicException
 	 */
-    final private function __clone() {
+    final public function __clone() {
         throw new \LogicException( 'A singleton must not be unserialized!' );
     }
 
