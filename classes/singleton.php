@@ -46,18 +46,18 @@ trait Singleton {
 	/**
 	 * prevent the instance from being cloned
 	 *
-	 * @throws Exception
+	 * @throws \LogicException
 	 */
     final private function __clone() {
-        throw new \Exception( 'Cannot clone singleton' );
+        throw new \LogicException( 'A singleton must not be unserialized!' );
     }
 
 	/**
 	 * prevent from being unserialized
 	 *
-	 * @throws Exception
+	 * @throws \LogicException
 	 */
     final public function __wakeup() {
-        throw new \Exception( 'Cannot serialize singleton' );
+        throw new \LogicException( 'A singleton must not be unserialized!' );
     }
 }
