@@ -1,0 +1,33 @@
+name: "Publish New Release on WordPress.org"
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  wordpress-release:
+    name: "New release on WordPress.org"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - id: set-vars
+        name: "Set variables from .plugin-data file"
+        run: |
+          # Get all data from .plugin-data file
+          content=`cat ./.plugin-data`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=pluginData::$content"
+
+      - id: deploy
+        name: "WordPress.org Plugin Deploy"
+        if: "! github.event.release.prerelease"
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: ${{fromJson(steps.set-vars.outputs.pluginData).slug}}
