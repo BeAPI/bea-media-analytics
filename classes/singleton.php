@@ -48,7 +48,7 @@ trait Singleton {
 	 *
 	 * @throws Exception
 	 */
-    private function __clone() {
+    final private function __clone() {
         throw new \Exception( 'Cannot clone singleton' );
     }
 
