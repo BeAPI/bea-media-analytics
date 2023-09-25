@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 2.1.4 - 25 Sept 2023
+* Prevent fatal after update
+
 ## 2.1.3 - 21 Sept 2023
 * Compat to PHP 8.1 change singleton functions declarations
 
