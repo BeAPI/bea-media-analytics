@@ -4,8 +4,8 @@ Donate link: http://paypal.me/BeAPI
 Tags: find, media, usage, find media, analytics
 Requires at least: 4.6
 Requires php: 5.6
-Tested up to: 4.9.3
-Stable tag: 2.1.2
+Tested up to: 6.1.3
+Stable tag: 2.1.4
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-media-analytics/blob/master/LICENSE.md
 
