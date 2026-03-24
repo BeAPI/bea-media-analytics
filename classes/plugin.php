@@ -39,7 +39,9 @@ class Plugin {
 			return;
 		}
 		add_action( 'admin_init', function () {
-			dnh_register_notice( sprintf( 'bea_media_analytics_activated_notice_%s', BEA_MEDIA_ANALYTICS_VERSION ), 'updated', _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
+			if ( function_exists( 'dnh_register_notice' ) ) {
+				dnh_register_notice( sprintf( 'bea_media_analytics_activated_notice_%s', BEA_MEDIA_ANALYTICS_VERSION ), 'updated', _x( 'As BEA - Media Analytics plugin has been activated, the process of indexing contents will silently launch himself soon.', 'Admin notice', 'bea-media-analytics' ) );
+			}
 		} );
 	}
 }
